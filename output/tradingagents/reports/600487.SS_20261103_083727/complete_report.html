@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>600487.SS 2026-11-03 Underweight: TradingAgents report</title>
+<style>
+:root {
+  --paper: #fbfbfa; --ink: #1c2126; --muted: #5d6670; --rule: #e2e5e8; --wash: #f2f4f5;
+  --accent: #087a59; --up: #087a59; --down: #b4372f; --level: #5d6670; --edge: #d3d8dc; --mark: #878f97;
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131a1f; --ink: #e4e8eb; --muted: #9aa6af; --rule: #263239; --wash: #1a242a;
+    --accent: #14c290; --up: #14c290; --down: #ef6f63; --level: #9aa6af; --edge: #3d4c55; --mark: #66737c;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .masthead .logo [stroke="#363636"] { stroke: var(--muted); }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 17px/1.62 var(--serif); font-kerning: normal;
+}
+.page { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+main h2, main h3 { scroll-margin-top: 1rem; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+h1, h2, h3, h4 { text-wrap: balance; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.masthead { padding-bottom: 1.75rem; border-bottom: 1px solid var(--rule); }
+/* The logo leads at the top left, where readers look for it, 24px tall (the usual
+   on-screen floor for a wordmark) with at least its height clear below. */
+.masthead .logo { display: block; width: fit-content; margin: 0 0 2.25rem; }
+.masthead .logo svg { display: block; height: 1.5rem; width: auto; }
+.masthead h1 {
+  margin: 0; font: 600 2.6rem/1.1 var(--sans); letter-spacing: -0.02em;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.5em;
+}
+.masthead .rating { font-weight: 500; }
+.rating.up { color: var(--up); } .rating.down { color: var(--down); } .rating.level { color: var(--level); }
+.rating.review { color: var(--muted); font-style: italic; }
+.masthead .date { margin: 0.55rem 0 1.5rem; font: 1rem/1.4 var(--sans); color: var(--muted); }
+.run { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.45rem 1.25rem;
+  font: 0.85rem/1.5 var(--sans); }
+.run > div { display: contents; }
+.run dt { color: var(--muted); }
+.run dd { margin: 0; overflow-wrap: anywhere; }
+.run .note dd { color: var(--down); }
+.field { display: inline-block; margin: 0 0.15rem 0.15rem 0; padding: 0 0.4rem; border: 1px solid var(--edge);
+  border-radius: 4px; background: var(--wash); font: 0.8rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.run .group { display: inline-block; margin-right: 0.9rem; white-space: nowrap; }
+.run .group > .name { color: var(--muted); margin-right: 0.3rem; }
+.run .then { color: var(--muted); margin: 0 0.2rem; }
+
+/* The sections: listed under the header on narrow screens. On wide ones, a
+   quiet rail centred on the left edge (numerals for the sections, short bars
+   for their agents) that opens into the full list when pointed at or focused. */
+.contents { margin: 2.25rem 0 0; font: 0.9rem/1.45 var(--sans); }
+.contents ul { margin: 0; padding: 0; list-style: none; }
+.contents > ul > li { margin: 0 0 0.75rem; }
+.contents ul ul { margin-top: 0.2rem; padding-left: 1.6rem; font-size: 0.85rem; }
+.contents ul ul li { margin: 0.1rem 0; }
+.contents a { display: flex; align-items: center; gap: 0.6rem; color: var(--muted); text-decoration: none; }
+.contents > ul > li > a { color: var(--ink); }
+.contents .num { min-width: 1.6rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.contents .bar { display: none; }
+.contents a:hover .label, .contents a:focus-visible .label { color: var(--accent); text-decoration: underline; }
+.to-top { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding: 0.25rem 0.6rem; border: 1px solid var(--edge); border-radius: 4px; background: var(--paper);
+  color: var(--muted); font: 0.8rem/1.4 var(--sans); text-decoration: none; }
+
+@media (min-width: 60rem) {
+  .contents { position: fixed; left: 1rem; top: 50%; transform: translateY(-50%); z-index: 1;
+    max-height: 86vh; overflow-y: auto; overscroll-behavior: contain; margin: 0;
+    padding: 0.7rem 0.9rem; border: 1px solid transparent; border-radius: 6px;
+    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s; }
+  .contents > ul > li { margin: 0 0 0.35rem; }
+  .contents ul ul { margin-top: 0; padding-left: 0; }
+  .contents ul ul li { margin: 0; }
+  /* Marks reach 3:1 contrast and rows 24px, the WCAG 2.2 floors for a control's
+     visual cue and its pointer target. */
+  .contents a { min-height: 1.5rem; }
+  .contents .num { min-width: 1.4rem; }
+  .contents .bar { display: block; flex: none; width: 1.25rem; height: 2px; margin-left: 0.2rem;
+    border-radius: 1px; background: var(--mark); }
+  .contents .label { max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap;
+    transition: opacity 0.15s, max-width 0.2s; }
+  .contents:hover, .contents:focus-within { background: var(--paper); border-color: var(--rule);
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.08); }
+  .contents:hover .label, .contents:focus-within .label { max-width: 18rem; opacity: 1; }
+  .contents a:hover .bar, .contents a:focus-visible .bar { background: var(--accent); }
+  .to-top { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contents, .contents .label { transition: none; }
+}
+
+/* The maker's credit: one quiet line at the foot. */
+.credit { margin-top: 4.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+  color: var(--muted); font: 0.8rem/1.4 var(--sans); }
+.credit a { color: inherit; text-decoration: none; }
+.credit a.brand { color: var(--accent); }
+.credit a:hover, .credit a:focus-visible { text-decoration: underline; }
+
+/* Three levels of separation: the five groups, the agents within a group, and
+   breaks an agent draws inside its own text. */
+main h2 {
+  margin: 4.5rem 0 0.25rem; padding-top: 1.5rem; border-top: 2px solid var(--ink);
+  font: 600 1.45rem/1.3 var(--sans); letter-spacing: -0.01em;
+}
+main section:first-child h2 { margin-top: 3rem; }
+main h3 { margin: 2.75rem 0 0.75rem; padding-top: 1.1rem; border-top: 1px solid var(--rule);
+  font: 600 1.15rem/1.35 var(--sans); color: var(--accent); }
+main h2 + h3 { margin-top: 1.25rem; padding-top: 0; border-top: 0; }
+main h4, main h5, main h6 { margin: 1.75rem 0 0.5rem; font: 600 1rem/1.4 var(--sans); }
+main h5, main h6 { color: var(--muted); }
+main p, main ul, main ol { margin: 0 0 1rem; }
+main li { margin: 0.25rem 0; }
+main strong { font-weight: 650; }
+main blockquote { margin: 1.25rem 0; padding: 0.1rem 0 0.1rem 1rem; border-left: 3px solid var(--rule);
+  color: var(--muted); }
+main code { font: 0.88em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--wash); padding: 0.1em 0.3em; border-radius: 3px; }
+main pre { background: var(--wash); padding: 0.9rem 1rem; border-radius: 4px; overflow-x: auto; }
+main pre code { background: none; padding: 0; }
+main hr { width: 3rem; margin: 2rem auto; border: 0; border-top: 1px solid var(--rule); }
+
+.table { overflow-x: auto; margin: 0 0 1.25rem; }
+table { border-collapse: collapse; width: 100%; font: 0.86rem/1.45 var(--sans);
+  font-variant-numeric: tabular-nums; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; border-bottom-color: var(--muted); }
+tbody tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 34rem) {
+  body { font-size: 16px; }
+  .page { padding: 2rem 1rem 3rem; }
+  .masthead h1 { font-size: 2rem; }
+  .masthead .logo svg { height: 1.25rem; }
+  .run { grid-template-columns: 1fr; gap: 0 0; }
+  .run dd { margin-bottom: 0.45rem; }
+  .run .group { white-space: normal; }
+}
+@media print {
+  :root { --paper: #fff; --ink: #000; --muted: #444; --rule: #bbb; --accent: #000; --wash: #f2f2f2;
+    --edge: #bbb; --up: #087a59; --down: #b4372f; --level: #444; }
+  body { font-size: 11pt; }
+  .table { overflow: visible; }
+  .page { max-width: none; padding: 0; }
+  .contents, .to-top { display: none; }
+  main h2 { break-before: page; border-top: 0; margin-top: 0; }
+  main section:first-child h2 { break-before: auto; }
+  main h3, main h4 { break-after: avoid; }
+  a { color: inherit; text-decoration: none; }
+  table { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<header class="masthead">
+<a class="logo" href="https://tauric.ai" rel="noopener" aria-label="Tauric Research"><svg width="993" height="115" viewBox="0 0 993 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M189.86 95.0459V37.9779H165.924V29.9259H223.74V37.9779H199.804V95.0459H189.86ZM251.026 46.4259C256.071 46.4259 260.178 47.0272 263.345 48.2299C266.514 49.4032 268.89 51.3686 270.474 54.1259C272.058 56.8832 272.85 60.6379 272.85 65.3899V95.0459H264.666L263.961 89.8979H263.434C261.644 91.7752 259.386 93.2419 256.657 94.2979C253.929 95.3246 251.025 95.8379 247.946 95.8379C244.426 95.8379 241.419 95.2952 238.925 94.2099C236.432 93.0952 234.54 91.5406 233.249 89.5459C231.959 87.5512 231.313 85.2046 231.313 82.5059C231.313 78.2526 232.897 74.9672 236.065 72.6499C239.263 70.3032 244.337 68.8219 251.29 68.2059L263.258 67.0179V64.7299C263.258 61.9139 262.774 59.7139 261.806 58.1299C260.838 56.5459 259.371 55.4312 257.406 54.7859C255.47 54.1406 252.888 53.8179 249.662 53.8179C247.432 53.8179 245.012 54.0086 242.401 54.3899C239.82 54.7712 237.341 55.3432 234.965 56.1059V48.8019C237.312 48.0392 239.908 47.4526 242.754 47.0419C245.628 46.6312 248.386 46.4259 251.026 46.4259ZM250.541 89.0619C252.888 89.0619 255.162 88.6512 257.362 87.8299C259.562 86.9792 261.527 85.7179 263.258 84.0459V72.8259L252.038 73.9259C248.136 74.3659 245.35 75.2166 243.678 76.4779C242.005 77.7099 241.169 79.4699 241.169 81.7579C241.169 84.0752 241.947 85.8792 243.501 87.1699C245.056 88.4312 247.403 89.0619 250.541 89.0619ZM313.339 95.8379C307.59 95.8379 303.087 94.2979 299.831 91.2179C296.575 88.1086 294.947 83.2686 294.947 76.6979V47.1739H304.715V76.1699C304.715 80.1886 305.624 83.0779 307.443 84.8379C309.291 86.5979 311.916 87.4779 315.319 87.4779C317.871 87.4779 320.379 86.9939 322.843 86.0259C325.336 85.0286 327.492 83.5766 329.311 81.6699V47.1739H339.079V95.0459H330.983L330.367 89.9419H329.883C327.624 91.8486 325.072 93.3152 322.227 94.3419C319.382 95.3392 316.419 95.8379 313.339 95.8379ZM362.371 47.1739H370.423L371.171 53.2899H371.743C373.474 51.2072 375.703 49.5792 378.431 48.4059C381.188 47.2326 384.063 46.6459 387.055 46.6459C388.756 46.6459 390.355 46.7926 391.851 47.0859V55.8419C390.414 55.5779 388.654 55.4459 386.571 55.4459C383.99 55.4459 381.364 55.9446 378.695 56.9419C376.026 57.9392 373.84 59.4206 372.139 61.3859V95.0459H362.371V47.1739ZM409.069 95.0459V47.1739H418.837V95.0459H409.069ZM413.953 37.8459C411.871 37.8459 410.287 37.3912 409.201 36.4819C408.145 35.5726 407.617 34.2672 407.617 32.5659C407.617 30.8352 408.145 29.5152 409.201 28.6059C410.287 27.6672 411.871 27.1979 413.953 27.1979C416.036 27.1979 417.605 27.6672 418.661 28.6059C419.747 29.5152 420.289 30.8352 420.289 32.5659C420.289 34.2672 419.747 35.5726 418.661 36.4819C417.605 37.3912 416.036 37.8459 413.953 37.8459ZM464.85 95.9259C456.607 95.9259 450.315 93.8432 445.974 89.6779C441.662 85.5126 439.506 79.3526 439.506 71.1979C439.506 63.0139 441.779 56.8392 446.326 52.6739C450.902 48.5086 457.575 46.4259 466.346 46.4259C470.716 46.4259 474.735 46.9246 478.402 47.9219V55.7099C476.378 55.2406 474.486 54.8886 472.726 54.6539C470.966 54.4192 469.118 54.3019 467.182 54.3019C461.168 54.3019 456.71 55.6512 453.806 58.3499C450.931 61.0486 449.494 65.2872 449.494 71.0659C449.494 76.8739 450.858 81.1566 453.586 83.9139C456.343 86.6712 460.42 88.0499 465.818 88.0499C467.695 88.0499 469.616 87.8886 471.582 87.5659C473.547 87.2139 475.82 86.6712 478.402 85.9379V93.7259C474.236 95.1926 469.719 95.9259 464.85 95.9259ZM574.428 95.0459L553.704 69.0859C553.176 69.1152 552.37 69.1299 551.284 69.1299C548.38 69.1299 544.978 68.9832 541.076 68.6899V95.0459H531.308V31.4659C537.967 29.9699 544.846 29.2219 551.944 29.2219C561.595 29.2219 568.752 30.8059 573.416 33.9739C578.08 37.1126 580.412 42.1286 580.412 49.0219C580.412 54.0086 579.004 58.0859 576.188 61.2539C573.402 64.4219 569.266 66.6366 563.78 67.8979L585.648 95.0459H574.428ZM541.076 61.2099C543.071 61.4152 544.816 61.5619 546.312 61.6499C547.838 61.7379 549.627 61.7819 551.68 61.7819C558.427 61.7819 563.34 60.7699 566.42 58.7459C569.5 56.6926 571.04 53.4952 571.04 49.1539C571.04 46.0739 570.395 43.6099 569.104 41.7619C567.843 39.9139 565.863 38.5792 563.164 37.7579C560.495 36.9366 556.975 36.5259 552.604 36.5259C550.404 36.5259 548.424 36.6139 546.664 36.7899C544.904 36.9659 543.042 37.2299 541.076 37.5819V61.2099ZM642.947 74.0139H608.231C608.407 77.4752 609.155 80.2766 610.475 82.4179C611.795 84.5299 613.775 86.0846 616.415 87.0819C619.055 88.0792 622.443 88.5779 626.579 88.5779C630.686 88.5779 635.233 87.9472 640.219 86.6859V93.9459C635.027 95.2659 630.026 95.9259 625.215 95.9259C616.298 95.9259 609.61 93.9166 605.151 89.8979C600.722 85.8499 598.507 79.6166 598.507 71.1979C598.507 65.9179 599.402 61.4299 601.191 57.7339C602.981 54.0379 605.562 51.2366 608.935 49.3299C612.338 47.3939 616.43 46.4259 621.211 46.4259C628.251 46.4259 633.634 48.5819 637.359 52.8939C641.085 57.1766 642.947 63.3659 642.947 71.4619V74.0139ZM621.079 52.8939C616.973 52.8939 613.834 54.1406 611.663 56.6339C609.493 59.0979 608.334 62.9259 608.187 68.1179H633.751C633.634 62.9259 632.519 59.0979 630.407 56.6339C628.295 54.1406 625.186 52.8939 621.079 52.8939ZM677.365 95.9259C671.352 95.9259 665.896 95.2219 660.997 93.8139V86.7299C666.248 88.1966 671.718 88.9299 677.409 88.9299C681.809 88.9299 684.977 88.3432 686.913 87.1699C688.849 85.9672 689.817 84.2219 689.817 81.9339C689.817 80.7019 689.597 79.6899 689.157 78.8979C688.717 78.0766 687.969 77.4019 686.913 76.8739C685.857 76.3166 684.405 75.8912 682.557 75.5979L674.065 74.2779C669.137 73.4859 665.573 71.9899 663.373 69.7899C661.202 67.5899 660.117 64.6419 660.117 60.9459C660.117 56.4579 661.965 52.9232 665.661 50.3419C669.386 47.7312 675.062 46.4259 682.689 46.4259C685.094 46.4259 687.485 46.5872 689.861 46.9099C692.266 47.2032 694.481 47.6432 696.505 48.2299V55.2699C692.046 54.0379 687.456 53.4219 682.733 53.4219C677.893 53.4219 674.476 54.0526 672.481 55.3139C670.486 56.5752 669.489 58.3206 669.489 60.5499C669.489 62.2219 670.002 63.5859 671.029 64.6419C672.056 65.6686 673.889 66.4166 676.529 66.8859L685.021 68.2059C689.92 68.9686 693.513 70.3766 695.801 72.4299C698.089 74.4832 699.233 77.4606 699.233 81.3619C699.233 84.3832 698.412 86.9792 696.769 89.1499C695.156 91.3206 692.706 92.9926 689.421 94.1659C686.165 95.3392 682.146 95.9259 677.365 95.9259ZM760.579 74.0139H725.863C726.039 77.4752 726.787 80.2766 728.107 82.4179C729.427 84.5299 731.407 86.0846 734.047 87.0819C736.687 88.0792 740.075 88.5779 744.211 88.5779C748.317 88.5779 752.864 87.9472 757.851 86.6859V93.9459C752.659 95.2659 747.657 95.9259 742.847 95.9259C733.929 95.9259 727.241 93.9166 722.783 89.8979C718.353 85.8499 716.139 79.6166 716.139 71.1979C716.139 65.9179 717.033 61.4299 718.823 57.7339C720.612 54.0379 723.193 51.2366 726.567 49.3299C729.969 47.3939 734.061 46.4259 738.843 46.4259C745.883 46.4259 751.265 48.5819 754.991 52.8939C758.716 57.1766 760.579 63.3659 760.579 71.4619V74.0139ZM738.711 52.8939C734.604 52.8939 731.465 54.1406 729.295 56.6339C727.124 59.0979 725.965 62.9259 725.819 68.1179H751.383C751.265 62.9259 750.151 59.0979 748.039 56.6339C745.927 54.1406 742.817 52.8939 738.711 52.8939ZM796.986 46.4259C802.032 46.4259 806.138 47.0272 809.306 48.2299C812.474 49.4032 814.85 51.3686 816.434 54.1259C818.018 56.8832 818.81 60.6379 818.81 65.3899V95.0459H810.626L809.922 89.8979H809.394C807.605 91.7752 805.346 93.2419 802.618 94.2979C799.89 95.3246 796.986 95.8379 793.906 95.8379C790.386 95.8379 787.38 95.2952 784.886 94.2099C782.393 93.0952 780.501 91.5406 779.21 89.5459C777.92 87.5512 777.274 85.2046 777.274 82.5059C777.274 78.2526 778.858 74.9672 782.026 72.6499C785.224 70.3032 790.298 68.8219 797.25 68.2059L809.218 67.0179V64.7299C809.218 61.9139 808.734 59.7139 807.766 58.1299C806.798 56.5459 805.332 55.4312 803.366 54.7859C801.43 54.1406 798.849 53.8179 795.622 53.8179C793.393 53.8179 790.973 54.0086 788.362 54.3899C785.781 54.7712 783.302 55.3432 780.926 56.1059V48.8019C783.273 48.0392 785.869 47.4526 788.714 47.0419C791.589 46.6312 794.346 46.4259 796.986 46.4259ZM796.502 89.0619C798.849 89.0619 801.122 88.6512 803.322 87.8299C805.522 86.9792 807.488 85.7179 809.218 84.0459V72.8259L797.998 73.9259C794.097 74.3659 791.31 75.2166 789.638 76.4779C787.966 77.7099 787.13 79.4699 787.13 81.7579C787.13 84.0752 787.908 85.8792 789.462 87.1699C791.017 88.4312 793.364 89.0619 796.502 89.0619ZM841.524 47.1739H849.576L850.324 53.2899H850.896C852.627 51.2072 854.856 49.5792 857.584 48.4059C860.341 47.2326 863.216 46.6459 866.208 46.6459C867.909 46.6459 869.508 46.7926 871.004 47.0859V55.8419C869.567 55.5779 867.807 55.4459 865.724 55.4459C863.143 55.4459 860.517 55.9446 857.848 56.9419C855.179 57.9392 852.993 59.4206 851.292 61.3859V95.0459H841.524V47.1739ZM909.164 95.9259C900.921 95.9259 894.629 93.8432 890.288 89.6779C885.976 85.5126 883.82 79.3526 883.82 71.1979C883.82 63.0139 886.093 56.8392 890.64 52.6739C895.216 48.5086 901.889 46.4259 910.66 46.4259C915.03 46.4259 919.049 46.9246 922.716 47.9219V55.7099C920.692 55.2406 918.8 54.8886 917.04 54.6539C915.28 54.4192 913.432 54.3019 911.496 54.3019C905.482 54.3019 901.024 55.6512 898.12 58.3499C895.245 61.0486 893.808 65.2872 893.808 71.0659C893.808 76.8739 895.172 81.1566 897.9 83.9139C900.657 86.6712 904.734 88.0499 910.132 88.0499C912.009 88.0499 913.93 87.8886 915.896 87.5659C917.861 87.2139 920.134 86.6712 922.716 85.9379V93.7259C918.55 95.1926 914.033 95.9259 909.164 95.9259ZM941.796 23.9419H951.564V52.2779H952.048C954.248 50.3712 956.756 48.9192 959.572 47.9219C962.417 46.9246 965.395 46.4259 968.504 46.4259C974.019 46.4259 978.375 47.9952 981.572 51.1339C984.769 54.2432 986.368 59.0686 986.368 65.6099V95.0459H976.6V66.0939C976.6 62.0459 975.661 59.1566 973.784 57.4259C971.936 55.6952 969.237 54.8299 965.688 54.8299C963.048 54.8299 960.481 55.3286 957.988 56.3259C955.524 57.2939 953.383 58.7312 951.564 60.6379V95.0459H941.796V23.9419Z" fill="#14C290"/>
+<rect x="0.205322" y="14.873" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="14.679" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="14.679" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="86.6055" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="86.6055" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="101.284" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="58.7158" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="58.7158" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="87.1592" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="87.1592" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="73.0205" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="73.0205" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="87.3262" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="87.3262" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="101.631" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="101.631" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="101.284" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="15.0187" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.2668" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.2668" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.445" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.7506" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="100.716" y="14.873" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+</svg></a>
+<h1><span class="ticker">600487.SS</span> <span class="rating down">Underweight</span></h1>
+<p class="date">Analysis of 2026-11-03</p>
+<dl class="run"><div class="detail"><dt>Generated</dt><dd>2026-11-03 08:37</dd></div><div class="detail"><dt>Deep model</dt><dd><span class="field">deepseek</span> <span class="field">deepseek-v4-pro</span></dd></div><div class="detail"><dt>Quick model</dt><dd><span class="field">deepseek</span> <span class="field">deepseek-flash</span></dd></div><div class="detail"><dt>Analysts</dt><dd><span class="field">market</span> <span class="field">news</span> <span class="field">fundamentals</span></dd></div><div class="detail"><dt>Debate rounds</dt><dd><span class="group"><span class="name">research</span><span class="field">1</span></span> <span class="group"><span class="name">risk</span><span class="field">1</span></span></dd></div><div class="detail"><dt>Data vendors</dt><dd><span class="group"><span class="name">Prices</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Indicators</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Fundamentals</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">sec_edgar</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">News</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Macro</span><span class="field">fred</span></span> <span class="group"><span class="name">Prediction markets</span><span class="field">polymarket</span></span></dd></div><div class="detail"><dt>Version</dt><dd>TradingAgents 0.7.1</dd></div></dl>
+</header>
+<nav class="contents" aria-label="Sections"><ul><li><a href="#s1"><span class="num">I</span> <span class="label">Analyst Team Reports</span></a><ul><li><a href="#s1-1"><span class="bar"></span> <span class="label">Market Analyst</span></a></li><li><a href="#s1-2"><span class="bar"></span> <span class="label">News Analyst</span></a></li><li><a href="#s1-3"><span class="bar"></span> <span class="label">Fundamentals Analyst</span></a></li></ul></li><li><a href="#s2"><span class="num">II</span> <span class="label">Research Team Decision</span></a><ul><li><a href="#s2-1"><span class="bar"></span> <span class="label">Bull Researcher</span></a></li><li><a href="#s2-2"><span class="bar"></span> <span class="label">Bear Researcher</span></a></li><li><a href="#s2-3"><span class="bar"></span> <span class="label">Research Manager</span></a></li></ul></li><li><a href="#s3"><span class="num">III</span> <span class="label">Trading Team Plan</span></a><ul><li><a href="#s3-1"><span class="bar"></span> <span class="label">Trader</span></a></li></ul></li><li><a href="#s4"><span class="num">IV</span> <span class="label">Risk Management Team Decision</span></a><ul><li><a href="#s4-1"><span class="bar"></span> <span class="label">Aggressive Analyst</span></a></li><li><a href="#s4-2"><span class="bar"></span> <span class="label">Conservative Analyst</span></a></li><li><a href="#s4-3"><span class="bar"></span> <span class="label">Neutral Analyst</span></a></li></ul></li><li><a href="#s5"><span class="num">V</span> <span class="label">Portfolio Manager Decision</span></a><ul><li><a href="#s5-1"><span class="bar"></span> <span class="label">Portfolio Manager</span></a></li></ul></li></ul></nav>
+<main>
+<section id="s1"><h2>I. Analyst Team Reports</h2><h3 id="s1-1">Market Analyst</h3>
+<h4>600487.SS（江苏亨通光电股份有限公司）技术分析报告</h4>
+<p><strong>分析基准日：2026-11-03｜最新有效交易日：2026-11-02（11-03 非交易日）｜价格为前复权口径</strong></p>
+<hr />
+<h5>0. 数据口径与核验说明</h5>
+<ul>
+<li>工具返回的最新一根K线为 <strong>2026-11-02</strong>：开 43.50 / 高 44.80 / 低 42.27 / 收 <strong>43.52</strong> / 成交 131,306,513 股。</li>
+<li>因 2026-11-03 为休市日，<code>get_indicators</code> 在 11-03 一行返回 N/A，<strong>本报告中所有指标数值均对应 2026-11-02 收盘</strong>，与 <code>get_verified_market_snapshot</code> 完全一致，未发现工具间数值冲突。</li>
+<li>价格序列为 qfq（前复权），因此下述百分比变动均为复权口径下的收盘价比较，不含分红/送转影响。</li>
+</ul>
+<hr />
+<h5>1. 市场结构：三段式下跌，高点与低点同步下移</h5>
+<p><strong>第一段（顶部与首轮崩塌）</strong></p>
+<ul>
+<li>区间最重要收盘高点出现在 <strong>2026-06-25 的 122.70</strong>（区间内最高价 124.85，见 2026-06-23）。</li>
+<li>从 122.70 到 <strong>2026-07-30 收盘 47.20</strong>（当日最低 45.60），一个多月内完成了 -61.5% 的杀跌。</li>
+<li>7 月末低点确认了第一只脚：7-30 低 45.60、8-03 低 46.33。</li>
+</ul>
+<p><strong>第二段（中期修复性反弹，但未收复一半）</strong></p>
+<ul>
+<li>由 8-03 收盘 47.37 反弹至 <strong>2026-09-22 收盘 73.00</strong>，涨幅 +54.1%。</li>
+<li>关键点：这轮反弹仅收复了 122.70→47.37 跌幅的 <strong>约 34.0%</strong>（(73.00−47.37)/(122.70−47.37)），<strong>未触及 38.2% 的第一道回撤门槛</strong>。弱势反弹的典型特征，意味着反弹性质是&quot;空头回补/超跌修复&quot;，而非趋势反转。</li>
+</ul>
+<p><strong>第三段（当前所处阶段：破位下行）</strong></p>
+<ul>
+<li>由 73.00（9-22）跌至 <strong>2026-10-30 收盘 42.42</strong>（当日最低 42.26），<strong>-41.9%</strong>。</li>
+<li>结构性关键：<strong>10-16 最低 45.20 已跌破 7-30 的 45.60</strong>，10-30 再创 42.26 新低——在本次取样区间（2026-04-01 起）内，42.26/42.42 是<strong>最低价/最低收盘价</strong>。</li>
+<li>因此结构特征非常清晰：<strong>高点 122.70 → 73.00 下移，低点 45.60 → 42.26 下移</strong>，为标准下降趋势，且每一次反弹的幅度与持续时间都在衰减。</li>
+</ul>
+<p><strong>最新一根K线的性质</strong></p>
+<ul>
+<li>11-02：开 43.50、下探 42.27、冲高 44.80、收 43.52，形成带长下影的小实体（近十字星），且 <strong>42.27 与 10-30 的 42.26 构成连续两日的&quot;双底/搓揉&quot;结构</strong>。</li>
+<li>但必须看到 10-30 那根更恶劣的形态：前收 44.60，开盘直接跳空低至 42.35，盘中反抽至 45.21（<strong>当日即完全回补跳空</strong>），随后收 42.42，留下近 2.79 元上影线——<strong>跳空回补失败 + 长上影收在低位</strong>，是典型的供给压制。</li>
+</ul>
+<hr />
+<h5>2. 趋势判断：均线全面空头排列，且刚出现&quot;死亡交叉&quot;</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>均线</th>
+<th style="text-align:right">2026-11-02 数值</th>
+<th style="text-align:right">价格偏离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close_10_ema</td>
+<td style="text-align:right">46.9913</td>
+<td style="text-align:right"><strong>−7.39%</strong></td>
+</tr>
+<tr>
+<td>close_50_sma</td>
+<td style="text-align:right">59.0988</td>
+<td style="text-align:right"><strong>−26.36%</strong></td>
+</tr>
+<tr>
+<td>close_200_sma</td>
+<td style="text-align:right">60.0311</td>
+<td style="text-align:right"><strong>−27.51%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>空头排列成立</strong>：close 43.52 &lt; 10EMA 46.99 &lt; 50SMA 59.10 &lt; 200SMA 60.03，四条线自上而下完全倒序，无任何一条被价格收复。</li>
+<li><strong>全新的死亡交叉</strong>：50SMA 与 200SMA 在 <strong>2026-10-28 仍为 50 上方（60.0786 vs 59.7519）</strong>，到 <strong>2026-10-29 已翻转为 50 下方（59.7846 vs 59.8479）</strong>，即中期均线在 10-29 下穿长期均线。这是本轮下跌以来首次出现的死叉，属于<strong>趋势级别确认信号</strong>，而非噪音。</li>
+<li><strong>10EMA 是本轮下跌的&quot;有效天花板&quot;</strong>：10 月中旬反弹中，10-23 收盘 52.32 仅微幅高于当日 10EMA（51.7291），次日即被压回；10-19 至 10-23 的反弹（45.68→52.32，+14.5%）恰好在 10EMA 附近终结，随后 5 个交易日跌 18.9%。<strong>10EMA 作为短期阻力，已被验证过一次</strong>。</li>
+<li><strong>重要的反向线索</strong>：200SMA 仍在小幅上行（9-04 为 53.86 → 11-02 为 60.03），说明<strong>长期均线尚未拐头</strong>，价格与长期基准的 27.5% 负偏离已达到极端水平。这既意味着&quot;长期熊市尚未被均线体系确认&quot;，也构成了均值回归的技术张力——两股力量同时存在，因此不宜把死叉当成&quot;立刻加速下跌&quot;的充分条件。</li>
+</ul>
+<hr />
+<h5>3. 动量：中期动能二次走弱，但RSI/MACD同时出现正向背离</h5>
+<p><strong>MACD（趋势动能）</strong></p>
+<ul>
+<li>macd = <strong>−4.3013</strong>，macds = −3.9481，macdh = <strong>−0.3532</strong>。</li>
+<li>零轴下穿发生在 <strong>2026-09-30</strong>：9-29 MACD 尚为 +0.0207，9-30 转为 −0.8116，此后连续 20 余个交易日全部为负——<strong>中期动能已彻底转空</strong>。</li>
+<li>柱状动能的过程非常关键：</li>
+<li>10-16 柱值最差 <strong>−1.9399</strong>（10-15 曾达 −2.0545）；</li>
+<li>10-28 收窄至 <strong>−0.0222</strong>（几乎归零），10-23 甚至短暂转正 +0.0358 → <strong>一次失败的多头尝试</strong>；</li>
+<li>10-29 −0.1704 → 10-30 −0.3591 → 11-02 −0.3532 → <strong>柱值再度向下扩张</strong>，说明 10-23 的反弹已被证伪、下行动能重新加速。</li>
+<li><strong>但要注意幅度差异</strong>：当前柱值 −0.35 的绝对量级只有 10-15（−2.05）的约 1/6。<strong>价格创新低、MACD柱能量却显著小于前低</strong> = 动能层面的正向背离。</li>
+</ul>
+<p><strong>RSI（超买超卖 + 背离）</strong></p>
+<ul>
+<li>当前 <strong>33.97</strong>，处于弱势区但未进入 30 以下的极端区。</li>
+<li>关键背离：<strong>10-15 收盘 45.50 时 RSI = 27.02</strong>（本轮最低）；<strong>10-30 收盘 42.42（更低的价格）时 RSI = 31.40</strong>。价格创更低低点，RSI 却抬高 4.4 点 → <strong>标准看涨背离</strong>。</li>
+<li>10-22 至 10-23 曾修复到 62.71→42.39，说明超卖修复的能量可以很快耗尽，<strong>RSI 在 40 附近就受压</strong>，目前 RSI 连 40 都未能再度触及，弱势格局未变。</li>
+</ul>
+<blockquote>
+<p>综合解读：<strong>趋势（均线/结构）是空头，动能（RSI/MACD柱）在衰减并出现背离</strong>。这是&quot;下跌趋势的末段/中段筑底尝试&quot;的典型组合，但背离只提供&quot;反弹概率上升&quot;，不提供&quot;趋势反转确认&quot;。趋势交易者应等信号，而非抢背离。</p>
+</blockquote>
+<hr />
+<h5>4. 波动率与价格位置：贴近布林下轨，但带宽仍宽</h5>
+<ul>
+<li><strong>ATR = 3.4275</strong>，占收盘价 <strong>7.88%</strong> —— 单日平均波幅接近 8%，属于高波动品种，任何仓位都必须按波动率折算。</li>
+<li>ATR 的变化趋势：9-04 为 4.58 → 10-12 为 4.04 → 10-30 为 3.50 → 11-02 为 3.43，<strong>波动率在持续收敛</strong>。收敛的高波动下跌通常意味着&quot;下跌斜率放缓&quot;，但<strong>尚未转化为有效反弹</strong>。</li>
+<li>布林带（来自核验快照）：中轨 <strong>49.389</strong>，上轨 <strong>57.1358</strong>，下轨 <strong>41.6422</strong>。</li>
+<li>收盘 43.52 距下轨仅 <strong>4.31%</strong>（1.88 元），处于&quot;贴下轨运行&quot;状态；</li>
+<li>带宽 (57.1358−41.6422)/49.389 = <strong>31.4%</strong>，属于偏宽，说明价格仍在<strong>趋势通道而非震荡区间</strong>内运行；</li>
+<li>中轨 49.389 与 50SMA 59.10 之间的距离很大，<strong>49 一线是反弹的第一道&quot;回归中轨&quot;目标，也是阻力</strong>。</li>
+</ul>
+<hr />
+<h5>5. 量能：缩量下跌，无恐慌也无承接</h5>
+<ul>
+<li><strong>VWMA = 48.4383</strong>，价格 43.52 低于量加权均价 <strong>10.15%</strong> → 近 20 日内的<strong>平均持仓成本明显高于现价，筹码整体处于浮亏状态</strong>，反弹到 48-49 一带会遭遇解套抛压。</li>
+<li>VWMA 自身从 9-28 的 67.24 单向下滑至 48.44，<strong>没有任何走平或上翘迹象</strong>，说明资金流入端尚未出现转向。</li>
+<li>成交量的对比（基于工具返回的原始数据）：</li>
+<li>8 月反弹高峰日量能巨大：8-05 为 <strong>3.476 亿股</strong>、8-14 为 <strong>3.183 亿股</strong>、8-17 为 <strong>2.988 亿股</strong>；</li>
+<li>10 月以来的日均量（我按 10-08 至 11-02 共 18 个交易日简单平均）约 <strong>1.34 亿股</strong>；</li>
+<li>11-02 成交 <strong>1.313 亿股</strong>，与 10 月均量基本持平，仅为 8 月高峰日的约 38%。</li>
+<li>结论：<strong>这是一轮&quot;缩量下行&quot;</strong>——既没有放量恐慌性抛售（没有 capitulation 低点），也没有放量承接（没有吸筹信号）。10-30 破位日的 1.258 亿股甚至低于 10-19/10-20 反弹日的 2.017/2.126 亿股，说明<strong>卖压并非集中倾泻，而是买盘缺失导致的&quot;滑落&quot;</strong>。这种形态下，见底往往需要一次&quot;放量长下影&quot;或&quot;放量反包&quot;来确认，目前尚不具备。</li>
+</ul>
+<hr />
+<h5>6. 关键价位（全部基于工具返回的成交数据）</h5>
+<p><strong>上方阻力（由近及远）</strong></p>
+<ol>
+<li><strong>44.80–45.21</strong>：11-02 最高 44.80 + 10-30 最高 45.21（跳空回补失败区），第一道即时阻力。</li>
+<li><strong>46.99</strong>：10EMA，短期趋势分界线，也是上一轮反弹的终结位。</li>
+<li><strong>48.44–49.39</strong>：VWMA(48.4383) + 布林中轨(49.389) + 10 月密集成交区（10-21 收 51.45、10-22 收 51.42）共同构成的<strong>核心阻力带</strong>。</li>
+<li><strong>52.32</strong>：10-23 反弹高点，本轮反弹的&quot;结构高点&quot;。</li>
+<li><strong>59.10 / 60.03</strong>：50SMA / 200SMA 死叉区，中期趋势修复的最终门槛。</li>
+</ol>
+<p><strong>下方支撑</strong></p>
+<ol>
+<li><strong>42.26 / 42.27</strong>：10-30 与 11-02 连续两日的最低点，<strong>最关键的短期防线</strong>（也是取样区间内最低价）。</li>
+<li><strong>41.64</strong>：布林下轨。</li>
+<li><strong>≈38.8–40.0</strong>：若 42.26 有效失守，以 ATR(3.43) 做下沿测距得 42.26−3.43 ≈ 38.83，且与 40 整数关口重合，为下一个参考承接区。</li>
+</ol>
+<hr />
+<h5>7. 交易计划与情景推演</h5>
+<p><strong>情景 A（基准情景，概率偏高）：反弹受阻 → 二次探底</strong></p>
+<ul>
+<li>触发：反弹在 44.8–47.0 区间遇阻（尤其收盘无法站上 46.99），MACD 柱继续为负。</li>
+<li>操作：<strong>反弹是减仓/离场窗口，而不是加仓窗口</strong>。短线做空的最佳位置在 46.5–48.5（10EMA 与 VWMA 之间），<strong>不宜在 43.5 附近追空</strong>（距 42.26 支撑仅 1.26 元，风险回报差）。</li>
+<li>止损：47.30 上方（10EMA 之上，约 1.1 个 ATR）；目标一 42.30（前低），目标二 40.0 / 38.8。以 46.9 入场、47.4 止损、42.3 目标计，R/R ≈ <strong>9.5:1</strong>？（46.9−42.3=4.6，风险 0.5）——此比例过于理想化，实际执行应假设滑点与反弹延续，按 <strong>1.5:1 以上</strong> 保守预期。</li>
+<li>若 42.26 被<strong>放量</strong>击穿（成交量放大至 2 亿股以上，即约 150% 的 10 月均量），下行动能将打开至 40 以下。</li>
+</ul>
+<p><strong>情景 B（反转确认情景，概率偏低但需预案）：构筑底部</strong></p>
+<ul>
+<li>必须同时满足（至少 2 项，且需连续 3 个交易日）：</li>
+</ul>
+<ol>
+<li>收盘站上 <strong>10EMA 46.99</strong>；</li>
+<li>MACD 柱由负转正并持续为正；</li>
+<li>收盘站上 <strong>布林中轨 49.39</strong>；</li>
+<li>出现放量阳线（量能 &gt;1.8 亿股）。</li>
+</ol>
+<ul>
+<li>满足后再考虑右侧建仓，第一目标 52.3，第二目标 59–60（死叉区，也是最重的解套抛压带）。</li>
+<li>仅凭 RSI 背离 + 双底 42.26/42.27 抢反弹属于<strong>逆势交易</strong>：若执行，仓位不超过常规的 1/3，入场 43.0–43.6，<strong>止损必须设在 41.90（布林下轨 41.64 之上）</strong>，目标 46.9，R/R ≈ 1:1，胜率不占优，仅适合能承受隔夜跳空的短线账户。</li>
+</ul>
+<p><strong>风控要点</strong></p>
+<ul>
+<li>以 ATR 3.4275（7.88%/日）计，任何单笔头寸的止损幅度按 <strong>1.0–1.5 ATR</strong> 设定，即 3.4–5.1 元/股；以 1% 账户风险计算，单笔仓位应压缩至常规的一半左右。</li>
+<li>11-03 为休市日，下一交易日存在<strong>跳空风险</strong>；10-30 已经出现过 44.60→42.35 的隔夜跳空（-5.04%），此类风险不可忽视。</li>
+<li>本报告中的&quot;支撑/阻力&quot;均为基于成交价与均线/带值的<strong>参考位</strong>，工具输出并未提供&quot;回踩成功/失败&quot;的事件验证，不应理解为已被反复确认的可靠支撑。</li>
+</ul>
+<hr />
+<h5>8. 指标选择理由（8 项，互补不冗余）</h5>
+<ol>
+<li><strong>close_10_ema</strong>：唯一能及时反映短期动量转向的均线；本标的中它已被验证为反弹的压制位，是判断&quot;反弹是否升级&quot;的最快过滤器。</li>
+<li><strong>close_50_sma</strong>：中期趋势与动态阻力，量化了价格&quot;深度偏离&quot;（−26.4%）。</li>
+<li><strong>close_200_sma</strong>：长期趋势基准，并与 50SMA 组成死叉判断（10-29 已发生），提供战略级确认。</li>
+<li><strong>macd</strong>：判定动能方向与零轴位置（9-30 下穿零轴），避免在空头动能中抄底。</li>
+<li><strong>macdh</strong>：捕捉动能&quot;扩张/收敛&quot;的二阶变化，是识别 10-23 假反弹失败与当前背离的核心工具（与 macd 互补，不重复）。</li>
+<li><strong>rsi</strong>：识别超卖与背离（27.02 → 31.40 的看涨背离），提供&quot;反弹概率&quot;而非&quot;趋势&quot;的信息。</li>
+<li><strong>atr</strong>：把 7.88% 的日波动量化到止损与仓位，使上述价位具有可执行性。</li>
+<li><strong>vwma</strong>：唯一的量能维度，通过量价加权判定资金成本与抛压区（48.44），确认&quot;缩量下跌、无承接&quot;的性质。</li>
+</ol>
+<ul>
+<li><em>补充参考</em>：布林带（中轨 49.389 / 上轨 57.1358 / 下轨 41.6422）直接取自核验快照，仅用于价格位置与目标位的定位，不单列为第 9 项指标。</li>
+</ul>
+<hr />
+<h5>9. 结论与风险提示</h5>
+<p><strong>趋势结论</strong>：600487.SS 处于自 2026-06-25 高点 122.70 起的<strong>明确下降趋势</strong>中，当前 43.52 较高点回撤约 <strong>64.5%</strong>，较 9-22 的反弹高点 73.00 回撤 <strong>40.4%</strong>。均线呈完全空头排列，10-29 新出现 50/200 死叉，MACD 在零轴下方二次扩张，价格贴布林下轨、低于 VWMA 与全部均线，量能缩至 8 月高峰的约四成——<strong>没有任何一项趋势指标支持&quot;底部已确认&quot;</strong>。</p>
+<p><strong>但下行已进入&quot;高赔率但未确认&quot;区域</strong>：RSI 与 MACD 柱相对 10 月中旬双双出现正向背离，ATR 从 4.58 收敛至 3.43，42.26/42.27 形成连续两日的双底结构，11-02 收出长下影小实体。这意味着<strong>空头的边际力量在衰减，但尚未被买盘接管</strong>。</p>
+<p><strong>操作立场</strong>：以趋势为准，<strong>不建议在当前位置建立或持有战略多头</strong>；持仓者应把 44.8–49.4 的反弹区视为减仓窗口；新空单宜等反弹至 46.5–48.5 再介入，而非在 43.5 追空；仅当收盘站上 46.99（10EMA）且 MACD 柱转正、并有效突破 49.39 后，才值得讨论右侧做多。</p>
+<hr />
+<h5>10. 关键数据总表</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>指标/项目</th>
+<th style="text-align:right">数值（2026-11-02）</th>
+<th>技术含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格</td>
+<td>收盘 / 最高 / 最低 / 开盘</td>
+<td style="text-align:right">43.52 / 44.80 / 42.27 / 43.50</td>
+<td>长下影小实体，42.26–42.27 双底</td>
+</tr>
+<tr>
+<td>趋势</td>
+<td>close_10_ema</td>
+<td style="text-align:right">46.9913</td>
+<td>价格低于 7.39%，短期阻力</td>
+</tr>
+<tr>
+<td>趋势</td>
+<td>close_50_sma</td>
+<td style="text-align:right">59.0988</td>
+<td>价格低于 26.36%，中期空头</td>
+</tr>
+<tr>
+<td>趋势</td>
+<td>close_200_sma</td>
+<td style="text-align:right">60.0311</td>
+<td>价格低于 27.51%，10-29 与50SMA死叉</td>
+</tr>
+<tr>
+<td>动量</td>
+<td>macd / macds / macdh</td>
+<td style="text-align:right">−4.3013 / −3.9481 / −0.3532</td>
+<td>零轴下方，柱值二次扩张</td>
+</tr>
+<tr>
+<td>动量</td>
+<td>rsi</td>
+<td style="text-align:right">33.9671</td>
+<td>弱势区，较10-15的27.02抬高（看涨背离）</td>
+</tr>
+<tr>
+<td>波动</td>
+<td>atr</td>
+<td style="text-align:right">3.4275</td>
+<td>占价 7.88%，自 4.58 持续收敛</td>
+</tr>
+<tr>
+<td>波动</td>
+<td>布林中轨/上轨/下轨</td>
+<td style="text-align:right">49.389 / 57.1358 / 41.6422</td>
+<td>贴下轨(距4.31%)，带宽31.4%</td>
+</tr>
+<tr>
+<td>量能</td>
+<td>vwma</td>
+<td style="text-align:right">48.4383</td>
+<td>价格低于量加权成本 10.15%，套牢盘压制</td>
+</tr>
+<tr>
+<td>量能</td>
+<td>11-02 成交量</td>
+<td style="text-align:right">1.313 亿股</td>
+<td>≈10月均量(1.34亿)，为8月高峰(3.48亿)的38%</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>区间最高收盘 / 最高价</td>
+<td style="text-align:right">122.70（06-25）/ 124.85（06-23）</td>
+<td>趋势起点</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>当前较高点回撤</td>
+<td style="text-align:right">−64.5%</td>
+<td>深熊结构</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>7月低 / 9月反弹高 / 10月低</td>
+<td style="text-align:right">45.60（07-30）/ 73.00（09-22）/ 42.26（10-30）</td>
+<td>高低点双双下移</td>
+</tr>
+<tr>
+<td>价位</td>
+<td>阻力1 / 阻力2 / 阻力3</td>
+<td style="text-align:right">44.80–45.21 / 46.99 / 48.44–49.39</td>
+<td>反弹逐级门槛</td>
+</tr>
+<tr>
+<td>价位</td>
+<td>支撑1 / 支撑2</td>
+<td style="text-align:right">42.26–42.27 / 41.64 → 38.8–40.0</td>
+<td>破位即打开下行空间</td>
+</tr>
+<tr>
+<td>情景</td>
+<td>基准（反弹受阻再探底）</td>
+<td style="text-align:right">概率偏高</td>
+<td>46.5–48.5 逢高偏空</td>
+</tr>
+<tr>
+<td>情景</td>
+<td>反转（站上10EMA+柱转正+破49.39）</td>
+<td style="text-align:right">概率偏低</td>
+<td>需 3 日确认方可右侧做多</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Rating</strong>: Sell</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s1-2">News Analyst</h3>
+<h4>600487.SS（江苏亨通光电）近期新闻与宏观环境研究报告</h4>
+<p><strong>报告日期：2026-11-03｜覆盖窗口：2026-09-20 至 2026-11-03（重点为近7天）</strong></p>
+<hr />
+<h5>一、核心结论（Executive Summary）</h5>
+<p>600487.SS 正处于**“业绩爆发和资本开支扩张”与“AI交易情绪降温”正面碰撞**的阶段。公司层面利好密集：前三季度归母净利预增151%–168%、66.36亿元定增布局AI光互联与海洋能源、董事长提议1–2亿元回购、机构持仓占比近35%。但在外部，海外AI基础设施“债务驱动可持续性”的担忧引发全球科技股回调（韩国KOSPI单日跌3%、三星/海力士跌超4%），叠加牛散章建平夫妇退出前十大股东，短期股价波动率显著放大。<strong>基本面上行动能未破坏，但短期属于“利好已兑现、需要消化”的阶段。</strong></p>
+<hr />
+<h5>二、公司层面：近一周关键事件与解读</h5>
+<h6>1. 三季报业绩预增151%–168%，增速逐季加速</h6>
+<ul>
+<li>10月16–17日公司自愿性披露：2026年前三季度预计归母净利润 <strong>59.70亿–63.70亿元</strong>，较上年同期23.76亿元增加35.94亿–39.94亿元，<strong>同比+151.27%~+168.10%</strong>；预计扣非净利润不低于59.40亿元（来源：上海证券报、大众证券报）。</li>
+<li>媒体明确指出“<strong>业绩增长逐季加速</strong>”，说明Q3单季环比动能强于Q2，这与AI数据中心光互联（800G/1.6T、CPO）需求放量与海缆交付节奏一致。</li>
+<li>市场反应：10月19日股价<strong>涨停，收50.25元/股，总市值超1200亿元</strong>，盘中封单近60万手，经历“涨停—炸板—回封”，显示多空分歧已经不小。</li>
+</ul>
+<h6>2. 66.36亿元定增：双主线（AI光互联 + 海洋能源）</h6>
+<p>9月24日公告拟向特定对象发行股票募资<strong>不超过66.36亿元</strong>，投向：</p>
+<ul>
+<li>新一代光纤研发及生产、内蒙古高端光学新材料；</li>
+<li><strong>CPO先进封装研发、亨通数据智联通信、AI先进光互联</strong>（算力侧）；</li>
+<li>亨通（揭阳）海洋能源互联与智慧运维、<strong>万吨级深远海敷设船</strong>（海风/海缆侧）。</li>
+</ul>
+<p><strong>解读</strong>：这是把“AI算力光互联”与“海洋能源”两条高景气曲线同时加杠杆。以当前约1240亿元市值测算，66.36亿元对应潜在摊薄约<strong>5%左右</strong>，属可接受但需计入估值的负面因素；同时定增尚需监管审核，存在时间与价格不确定性。</p>
+<h6>3. 筹码结构：机构加仓、游资退出</h6>
+<ul>
+<li>三季报（10月28日）：<strong>82家机构合计持股8.57亿股，占总股本34.73%</strong>，前十大机构持仓占比32.67%——机构化程度高，有利于降低波动。</li>
+<li>但牛散<strong>章建平及其配偶方文艳退出前十大股东</strong>（半年报末分别持有3441.61万股、2186.84万股，合计约5629万股），章建平同期也退出杭电股份(603618)十大股东。
+<strong>解读</strong>：典型“业绩兑现即减持”的短线资金离场，短期形成抛压与情绪扰动；但接盘方为机构，筹码从“交易型”转向“配置型”，中期更稳定。</li>
+</ul>
+<h6>4. 董事长提议回购1–2亿元（11月1日）</h6>
+<p>董事长崔巍提议以自有或自筹资金回购<strong>1亿–2亿元</strong>，用于员工股权激励/持股计划或减少注册资本，回购价上限为董事会决议前30个交易日均价的一定水平。
+<strong>解读</strong>：在三季报后、股价高位、板块波动加剧时点推出回购，是明确的<strong>管理层信心与市值管理信号</strong>；但1–2亿元仅占市值约0.08%–0.16%，<strong>信号意义大于实质托底力度</strong>，真正影响取决于后续董事会方案的价格上限与执行速度。</p>
+<hr />
+<h5>三、行业与产业链：需求仍强，但“AI叙事”出现裂缝</h5>
+<p><strong>支撑面（需求端）</strong></p>
+<ul>
+<li>中信证券2027年展望：AI资本开支将持续拉动全球科技硬件与能源基础设施，建议聚焦<strong>光通信、PCB、半导体材料</strong>等上游环节。</li>
+<li>10月以来<strong>114家A股公司披露在手订单充裕</strong>，包括新易盛、中际旭创、天孚通信、深南电路等光模块/PCB龙头，验证光通信订单景气；汇丰恢复覆盖中际旭创A股并给出“买进”、目标价727元（现价550元），说明卖方对光模块中期仍乐观。</li>
+<li>AI算力带动**固态变压器（SST）**等数据中心供电架构升级，利好公司电力传输与海缆相关业务。</li>
+</ul>
+<p><strong>压制面（情绪与成本端）</strong></p>
+<ul>
+<li>中信建投指出：美国科技巨头庞大支出计划引发市场对**“债务驱动的AI基础设施热潮能否持续”**的担忧，科技股大幅下挫；甲骨文据称以11%折价出售近100亿美元股票，反映AI基建融资压力。</li>
+<li>Anthropic Q3营收169.56亿美元（同比+1127%），但计算及基础设施费用约99亿美元、占营收58%——<strong>AI需求真实，但单位经济性仍承压</strong>。</li>
+<li>存储/内存涨价链条持续：十铨称缺货“还没到顶峰”，2026Q4–2027Q2供货最紧、部分产品单季涨30%–40%；苹果警告存储成本上升将压低假日季毛利率。成本上行将压制下游硬件厂盈利能力。</li>
+<li>亚太科技股风险偏好收缩：11月3日韩国KOSPI跌3%（盘中），三星电子、SK海力士跌超4%，日本休市。</li>
+</ul>
+<p><strong>对600487.SS的含义</strong>：公司处于“需求确定、估值受情绪支配”的位置。基本面上行趋势未破坏，但股价短期与海外AI交易高度相关，<strong>β风险大于α风险</strong>。</p>
+<hr />
+<h5>四、宏观环境（数据可得性说明）</h5>
+<ul>
+<li><strong>美联储</strong>：据中信建投周报，本周（10月最后一周）美联储<strong>维持利率不变</strong>，美债收益率下行；但资金涌入美债避险未能提振黄金，黄金反而遭受“补充科技股保证金”的流动性冲击（CFTC黄金基金多头与SPDR持仓下降）。这印证当前是<strong>风险资产去杠杆、而非衰退交易</strong>的环境。</li>
+<li><strong>A股</strong>：10月以来市场“剧烈震荡”，上市公司主动披露经营与推出回购的意愿显著增强（9家公司同步推回购），说明管理层普遍在稳预期——亨通光电的1–2亿元回购提议正是这一宏观微观交叉的产物。</li>
+<li><strong>数据缺口（重要）</strong>：本次FRED宏观接口不可用（缺少API密钥），<strong>无法给出CPI、核心PCE、失业率、联邦基金利率、10年期美债收益率、收益率曲线与VIX的具体数值</strong>；Polymarket预测市场接口亦网络超时，<strong>无法提供降息/衰退的实时隐含概率</strong>。上述两项均不编造，建议在获授权数据源后补齐，尤其是：10年期美债收益率（影响成长股折现率）、VIX（影响板块β）、以及12月FOMC定价。</li>
+</ul>
+<hr />
+<h5>五、交易启示与风险清单</h5>
+<p><strong>偏多因素</strong></p>
+<ol>
+<li>前三季度净利同比+151%–168%，且逐季加速，Q4在AI光互联+海缆交付下有望延续高增；</li>
+<li>66.36亿元定增锁定CPO/光互联与深远海海缆产能，2027年成长路径清晰；</li>
+<li>机构持股34.73%，筹码配置化；董事长提议回购传递信心；</li>
+<li>光通信订单景气（114家公司披露订单充裕、汇丰看多中际旭创）为板块提供基本面支撑。</li>
+</ol>
+<p><strong>偏空/风险因素</strong></p>
+<ol>
+<li>海外AI资本开支“可持续性”质疑发酵，甲骨文折价融资、Anthropic高算力成本比、马斯克称AI服务成本难以为继——<strong>任何云厂capex指引下修都会直接打击估值</strong>；</li>
+<li>牛散清仓后短期抛压与情绪杀伤；</li>
+<li>定增摊薄约5%及审批时点不确定性；</li>
+<li>存储等原材料涨价侵蚀下游毛利率；</li>
+<li>三季报利好已充分定价（10月19日涨停至50.25元、市值超1200亿），<strong>“预期差”空间收窄</strong>；</li>
+<li>宏观数据缺口导致无法量化利率/波动率环境，属于信息盲区风险。</li>
+</ol>
+<p><strong>操作层面建议</strong></p>
+<ul>
+<li>不宜在高位追涨；更优策略是<strong>等待板块情绪性回调（如KOSPI/纳指科技股连跌带动的补跌）分批建仓</strong>，以50元附近（10月19日涨停价）与定增发行价为两大参考锚。</li>
+<li>关键催化剂跟踪：①回购正式方案（董事会决议、价格上限、执行节奏）；②定增审核/注册进度；③Q4光纤集采价格与光模块订单；④揭阳海风项目招标与万吨级敷设船投产；⑤英伟达及北美云厂Q4 capex指引（决定板块β方向）。</li>
+<li>仓位管理：鉴于β主导，建议以<strong>板块ETF/中际旭创-新易盛等同业走势作为风控信号</strong>，若光模块龙头连续放量下跌，应同步减仓。</li>
+</ul>
+<hr />
+<h5>六、关键信息汇总表</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>关键事实/数据</th>
+<th>日期/来源</th>
+<th>对600487.SS的解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业绩</td>
+<td>前三季归母净利59.70–63.70亿元，同比+151.27%~+168.10%（上年同期23.76亿）；扣非≥59.40亿</td>
+<td>2026-10-16/17，上证报、大众证券报</td>
+<td>核心多头逻辑，增速逐季加速，Q4有望延续</td>
+</tr>
+<tr>
+<td>股价反应</td>
+<td>10月19日涨停，收50.25元，市值&gt;1200亿元，封单近60万手，盘中炸板回封</td>
+<td>2026-10-19，华夏时报/证券时报</td>
+<td>利好兑现充分，多空分歧加大，50元为短期锚</td>
+</tr>
+<tr>
+<td>融资</td>
+<td>拟定增募资≤66.36亿元：新一代光纤、内蒙古光学材料、CPO先进封装、AI先进光互联、揭阳海洋能源、万吨级敷设船</td>
+<td>2026-09-24，证券时报</td>
+<td>双主线扩产；对现市值摊薄约5%，需关注审批节奏</td>
+</tr>
+<tr>
+<td>机构持仓</td>
+<td>82家机构合计持股8.57亿股，占总股本34.73%；前十大机构32.67%</td>
+<td>2026-10-28/29，界面新闻</td>
+<td>筹码配置化，降低波动，但需防范机构集中减持</td>
+</tr>
+<tr>
+<td>股东变动</td>
+<td>章建平（3441.61万股）与方文艳（2186.84万股）退出前十大股东</td>
+<td>2026-10-28，上证报/证券时报</td>
+<td>短线资金兑现离场，短期抛压与情绪扰动</td>
+</tr>
+<tr>
+<td>回购</td>
+<td>董事长崔巍提议回购1–2亿元，用于股权激励/员工持股或减资</td>
+<td>2026-11-01，中国基金报/证券时报</td>
+<td>信心信号，但仅占市值0.08%–0.16%，托底力度有限</td>
+</tr>
+<tr>
+<td>行业需求</td>
+<td>114家公司10月以来披露在手订单充裕（含新易盛、中际旭创、天孚、深南电路）；中信证券看好光通信等AI材料</td>
+<td>2026-11-03，证券时报/中信证券</td>
+<td>光通信景气验证，支撑中期业绩</td>
+</tr>
+<tr>
+<td>海外AI风险</td>
+<td>甲骨文拟11%折价售股近100亿美元；Anthropic Q3算力成本99亿美元占营收58%；马斯克称AI服务成本难以为继</td>
+<td>2026-11-03，东财</td>
+<td>AI基建融资与单位经济性受质疑，压制板块估值</td>
+</tr>
+<tr>
+<td>成本/供应链</td>
+<td>十铨：内存缺货未见顶，2026Q4–2027Q2最紧，部分产品单季涨30%–40%；苹果警告存储涨价压毛利</td>
+<td>2026-11-02/03</td>
+<td>下游硬件成本上行，间接压制板块盈利预期</td>
+</tr>
+<tr>
+<td>亚太市场</td>
+<td>韩国KOSPI跌3%，三星、SK海力士跌超4%；日本休市</td>
+<td>2026-11-03</td>
+<td>科技股风险偏好收缩，A股光通信板块易受拖累</td>
+</tr>
+<tr>
+<td>宏观/美联储</td>
+<td>本周美联储维持利率不变，美债收益率下行；黄金遭流动性冲击（补科技股保证金）</td>
+<td>2026-10-31前后，中信建投</td>
+<td>去杠杆而非衰退交易，成长股折现率边际改善但流动性偏紧</td>
+</tr>
+<tr>
+<td>数据缺口</td>
+<td>FRED宏观接口不可用（无API密钥）；Polymarket接口超时</td>
+<td>2026-11-03，工具返回</td>
+<td>无CPI/利率/VIX与降息概率数值，未做任何虚构</td>
+</tr>
+<tr>
+<td>A股环境</td>
+<td>10月以来市场剧烈震荡，114家公司披露订单、9家推回购稳预期</td>
+<td>2026-11-03，证券时报</td>
+<td>公司回购属“稳预期”潮流，微观信号正面</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><strong>Rating</strong>: Buy</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>BUY</strong></p>
+<h3 id="s1-3">Fundamentals Analyst</h3>
+<h4>江苏亨通光电股份有限公司（600487.SS）基本面研究报告</h4>
+<p><strong>报告日期：2026年11月3日｜最新可用财报期：2026年第三季度报告（2026-09-30，2026-10-29公告）</strong></p>
+<hr />
+<h5>一、公司概况与业务定位</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公司全称</td>
+<td>江苏亨通光电股份有限公司（简称：亨通光电）</td>
+</tr>
+<tr>
+<td>交易代码</td>
+<td>600487.SS</td>
+</tr>
+<tr>
+<td>上市地／交易所</td>
+<td>上交所（主板）</td>
+</tr>
+<tr>
+<td>上市日期</td>
+<td>2003-08-22</td>
+</tr>
+<tr>
+<td>所属行业</td>
+<td>电气机械和器材制造业</td>
+</tr>
+<tr>
+<td>法定代表人</td>
+<td>张建峰</td>
+</tr>
+<tr>
+<td>注册资本</td>
+<td>246,639.2257（万元口径）</td>
+</tr>
+<tr>
+<td>主营业务</td>
+<td>提供通信网络和能源互联综合解决方案</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>业务与经营范围要点（来自公司披露）：</strong> 光纤光缆、光纤预制棒、光纤拉丝、电力电缆、特种通信线缆、光器件及传感、通信设备；<strong>海洋观测设备、海洋油气设备（海底光缆／海洋工程）</strong>；数据中心机房配套产品（含供配电、空调制冷、智能监控）；以及通信工程设计施工、系统集成、网络托管与通信设施租赁等。</p>
+<p><strong>结论：</strong> 600487.SS 是&quot;光通信＋海洋（海底电缆/海缆工程）＋能源互联&quot;三线并行的综合解决方案商，同时向<strong>数据中心配套与算力基础设施</strong>延伸。这一业务结构决定了其收入强周期性（运营商集采价格、海缆招标节奏）与项目制特征（应收账款、合同负债、工程进度确认）。</p>
+<hr />
+<h5>二、最新财报（2026年三季度）核心解读</h5>
+<h6>2.1 关键财务比率（2026-09-30）</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>摊薄每股收益（元）</td>
+<td>2.5926</td>
+<td>前三季度即已远超2025全年（约1.19元）</td>
+</tr>
+<tr>
+<td>每股净资产（元）</td>
+<td>16.4093</td>
+<td>对应归母权益369.7亿元</td>
+</tr>
+<tr>
+<td>净资产收益率（%）</td>
+<td>16.67</td>
+<td>前三季度口径，年化约22%，处于历史高位</td>
+</tr>
+<tr>
+<td>总资产利润率（%）</td>
+<td>7.6263</td>
+<td>资产周转效率改善</td>
+</tr>
+<tr>
+<td>销售净利率（%）</td>
+<td>9.9344</td>
+<td>2025全年仅4.26%，提升约5.7个百分点</td>
+</tr>
+<tr>
+<td>资产负债率（%）</td>
+<td>51.7313</td>
+<td>与2025年末（51.7%）基本持平，杠杆未失控</td>
+</tr>
+<tr>
+<td>流动比率</td>
+<td>1.6406</td>
+<td>&gt;1.5，短期偿债安全边际尚可</td>
+</tr>
+<tr>
+<td>速动比率</td>
+<td>1.3208</td>
+<td>剔除存货后仍健康</td>
+</tr>
+<tr>
+<td>主营业务收入增长率（%）</td>
+<td>29.7176</td>
+<td>收入端加速</td>
+</tr>
+<tr>
+<td>净利润增长率（%）</td>
+<td>152.0318</td>
+<td>利润端爆发式增长</td>
+</tr>
+<tr>
+<td>总资产增长率（%）</td>
+<td>16.5979</td>
+<td>资产负债表同步扩张</td>
+</tr>
+<tr>
+<td>存货周转率（次）</td>
+<td>4.7768</td>
+<td>约76天，略偏慢但可接受</td>
+</tr>
+<tr>
+<td>应收账款周转率（次）</td>
+<td>3.1179</td>
+<td><strong>约117天，明显偏长——核心关注点</strong></td>
+</tr>
+<tr>
+<td>经营现金净流量／销售收入（%）</td>
+<td>0.0131</td>
+<td><strong>仅1.31%，现金转化严重滞后</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h6>2.2 利润表：单季毛利率跃升是最大亮点</h6>
+<p>累计（2026年前三季度，单位：亿元）</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>2025全年</th>
+<th>2026前三季度</th>
+<th>前三季度占2025全年比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>营业总收入</td>
+<td>668.55</td>
+<td>643.67</td>
+<td>96.3%</td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>585.27</td>
+<td>517.97</td>
+<td>—</td>
+</tr>
+<tr>
+<td>毛利润（推算）</td>
+<td>83.28</td>
+<td>125.69</td>
+<td>151%</td>
+</tr>
+<tr>
+<td>毛利率（推算）</td>
+<td>12.47%</td>
+<td><strong>19.53%</strong></td>
+<td><strong>+7.06pp</strong></td>
+</tr>
+<tr>
+<td>研发费用</td>
+<td>19.07</td>
+<td>25.03</td>
+<td>131%</td>
+</tr>
+<tr>
+<td>销售费用</td>
+<td>15.02</td>
+<td>11.93</td>
+<td>79%</td>
+</tr>
+<tr>
+<td>管理费用</td>
+<td>15.68</td>
+<td>12.00</td>
+<td>77%</td>
+</tr>
+<tr>
+<td>财务费用</td>
+<td>3.36</td>
+<td>4.53</td>
+<td>135%</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>30.52</td>
+<td>69.58</td>
+<td>228%</td>
+</tr>
+<tr>
+<td>利润总额</td>
+<td>30.33</td>
+<td>69.65</td>
+<td>230%</td>
+</tr>
+<tr>
+<td>净利润</td>
+<td>28.49</td>
+<td>63.94</td>
+<td>224%</td>
+</tr>
+<tr>
+<td><strong>归母净利润</strong></td>
+<td><strong>26.80</strong></td>
+<td><strong>61.63</strong></td>
+<td><strong>230%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>单季拆解（单位：亿元）</strong></p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>2026Q1</th>
+<th>2026Q2</th>
+<th>2026Q3</th>
+<th>Q3环比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>营业收入</td>
+<td>177.91</td>
+<td>242.35</td>
+<td>223.41</td>
+<td>-7.8%</td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>149.48</td>
+<td>200.31</td>
+<td>168.18</td>
+<td>-16.1%</td>
+</tr>
+<tr>
+<td>毛利润（推算）</td>
+<td>28.43</td>
+<td>42.04</td>
+<td>55.22</td>
+<td>+31.4%</td>
+</tr>
+<tr>
+<td><strong>毛利率（推算）</strong></td>
+<td><strong>15.98%</strong></td>
+<td><strong>17.35%</strong></td>
+<td><strong>24.72%</strong></td>
+<td><strong>+7.4pp</strong></td>
+</tr>
+<tr>
+<td>归母净利润</td>
+<td>11.05</td>
+<td>20.14</td>
+<td>30.44</td>
+<td>+51.1%</td>
+</tr>
+<tr>
+<td>归母净利率（推算）</td>
+<td>6.21%</td>
+<td>8.31%</td>
+<td><strong>13.62%</strong></td>
+<td>+5.3pp</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>关键洞察（可操作）：</strong></p>
+<ol>
+<li><strong>Q3 收入环比下滑 7.8%，但利润环比大增 51%</strong> —— 这是典型的&quot;结构升级＋高价订单确认&quot;信号，而非量的驱动。Q3 毛利率跳升至 24.72%（较 Q1 提升 8.7pp），说明：
+<ul>
+<li>高毛利的<strong>海缆／海洋工程项目</strong>或<strong>数据中心/算力配套产品</strong>在 Q3 集中确认收入；</li>
+<li>或光纤光缆价格周期自 2025 年低点触底反弹。</li>
+</ul>
+</li>
+<li><strong>费用端出现强大经营杠杆</strong>：销售费用率由 2025 年 2.25% 降至 1.85%，管理费用率由 2.35% 降至 1.87%，而研发费用率反升至 3.89%（25.03 亿元，同比口径继续加码）。<strong>降本增效＋研发加码</strong>并存的组合，通常对应产品结构向高附加值迁移。</li>
+<li><strong>少数股东损益占比小</strong>（63.94 亿净利中 61.63 亿归母，占比 96.4%），利润质量归属清晰，不存在&quot;少数股东吞噬利润&quot;的问题。</li>
+<li>财务费用同比上升（33.6→45.3 亿元口径不全年可比，但 9M26 已达 4.53 亿元，超过2025全年 3.36 亿元），反映<strong>规模扩张依赖债务融资</strong>，这是利润之外需要盯住的一项。</li>
+</ol>
+<h6>2.3 资产负债表：增长靠&quot;垫资&quot;驱动，风险点在应收</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>2025-12-31</th>
+<th>2026-03-31</th>
+<th>2026-06-30</th>
+<th>2026-09-30</th>
+<th>较年初变动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>货币资金</td>
+<td>133.75</td>
+<td>133.02</td>
+<td>128.96</td>
+<td>132.66</td>
+<td>-0.8%</td>
+</tr>
+<tr>
+<td>应收账款</td>
+<td>173.75</td>
+<td>187.20</td>
+<td>217.55</td>
+<td><strong>239.13</strong></td>
+<td><strong>+37.6%</strong></td>
+</tr>
+<tr>
+<td>存货</td>
+<td>94.33</td>
+<td>94.65</td>
+<td>108.54</td>
+<td><strong>122.54</strong></td>
+<td><strong>+29.9%</strong></td>
+</tr>
+<tr>
+<td>流动资产合计</td>
+<td>522.04</td>
+<td>539.43</td>
+<td>572.81</td>
+<td>628.71</td>
+<td>+20.4%</td>
+</tr>
+<tr>
+<td>固定资产净额</td>
+<td>126.50</td>
+<td>n.a.</td>
+<td>124.80</td>
+<td>n.a.</td>
+<td>基本持平</td>
+</tr>
+<tr>
+<td>资产总计</td>
+<td>723.62</td>
+<td>741.73</td>
+<td>778.83</td>
+<td><strong>838.47</strong></td>
+<td><strong>+15.9%</strong></td>
+</tr>
+<tr>
+<td>短期借款</td>
+<td>95.57</td>
+<td>125.92</td>
+<td>133.88</td>
+<td>123.30</td>
+<td>+29.0%</td>
+</tr>
+<tr>
+<td>应付账款</td>
+<td>64.76</td>
+<td>58.27</td>
+<td>62.01</td>
+<td>64.37</td>
+<td>-0.6%</td>
+</tr>
+<tr>
+<td>合同负债</td>
+<td>49.71</td>
+<td>51.79</td>
+<td>54.72</td>
+<td><strong>73.21</strong></td>
+<td><strong>+47.3%</strong></td>
+</tr>
+<tr>
+<td>流动负债合计</td>
+<td>340.00</td>
+<td>337.93</td>
+<td>361.48</td>
+<td>383.23</td>
+<td>+12.7%</td>
+</tr>
+<tr>
+<td>长期借款</td>
+<td>27.16</td>
+<td>39.69</td>
+<td>39.20</td>
+<td>41.42</td>
+<td>+52.5%</td>
+</tr>
+<tr>
+<td>负债合计</td>
+<td>374.35</td>
+<td>384.78</td>
+<td>407.99</td>
+<td>433.75</td>
+<td>+15.9%</td>
+</tr>
+<tr>
+<td>归母股东权益</td>
+<td>317.80</td>
+<td>324.09</td>
+<td>337.07</td>
+<td>369.72</td>
+<td>+16.3%</td>
+</tr>
+<tr>
+<td>所有者权益合计</td>
+<td>349.27</td>
+<td>356.95</td>
+<td>370.84</td>
+<td>404.72</td>
+<td>+15.9%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>关键洞察（可操作）：</strong></p>
+<ol>
+<li><strong>正面信号：合同负债（预收款）从 49.71 亿飙升至 73.21 亿，增长 47.3%</strong>，远快于收入增速。这代表<strong>在手订单预付款大幅增加</strong>，是未来 2–4 个季度收入确认的领先指标，支持&quot;高毛利订单已锁定&quot;的判断。</li>
+<li><strong>负面信号：应收账款 9 个月内增加 65.4 亿元、存货增加 28.2 亿元，两项合计消耗营运资金约 93.6 亿元</strong>，而同期归母净利润仅 61.6 亿元。即<strong>利润完全是&quot;纸上利润&quot;，实际被应收与存货吃掉</strong>。这正是经营性现金流仅 8.41 亿元的根本原因。</li>
+<li><strong>资产负债表扩张靠负债＋留存收益</strong>：负债增加 59.4 亿、权益增加 55.5 亿（其中归母权益增 51.9 亿 ≈ 净利润 61.6 亿减去分红/其他）。长期借款增长 52.5%，短期借款 123.30 亿元规模接近货币资金 132.66 亿元，<strong>短期债务覆盖尚可但缓冲垫薄</strong>。</li>
+<li>资产负债率 51.73%，虽与年初持平，但考虑到<strong>应收+存货已占总资产的 43.2%</strong>（2025 年末为 37.1%），资产质量在&quot;变重&quot;——若下游回款（运营商、电网、海外业主）延后，减值风险将放大。</li>
+</ol>
+<h6>2.4 现金流量表：最大的软肋</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+<th>2026Q1</th>
+<th>2026H1</th>
+<th>2026前三季度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>经营活动净现金流</td>
+<td>8.55</td>
+<td>18.57</td>
+<td>32.62</td>
+<td>28.08</td>
+<td>-1.94</td>
+<td>-8.65</td>
+<td><strong>8.41</strong></td>
+</tr>
+<tr>
+<td>投资活动净现金流</td>
+<td>-27.68</td>
+<td>-20.78</td>
+<td>-16.61</td>
+<td>-25.02</td>
+<td>-7.23</td>
+<td>-17.31</td>
+<td>-21.91</td>
+</tr>
+<tr>
+<td>筹资活动净现金流</td>
+<td>17.89</td>
+<td>23.15</td>
+<td>-10.63</td>
+<td>-8.83</td>
+<td>11.76</td>
+<td>20.17</td>
+<td>18.88</td>
+</tr>
+<tr>
+<td>现金净增加额</td>
+<td>-0.58</td>
+<td>21.23</td>
+<td>5.14</td>
+<td>-5.67</td>
+<td>2.03</td>
+<td>-7.07</td>
+<td><strong>3.50</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>关键洞察（可操作）：</strong></p>
+<ol>
+<li><strong>2026 年前三季度经营现金流仅 8.41 亿元，对归母净利润 61.6 亿元的转化率仅 13.7%，对销售收入的比率仅 1.31%。</strong> 对比 2024 年（OCF 32.62 亿／净利 29.70 亿＝110%）和 2025 年（28.08／28.49＝99%），<strong>历史现金转化本来健康，2026 年出现断崖式恶化，且明确由高增长下的营运资金垫付所致。</strong></li>
+<li><strong>自由现金流为负</strong>：投资净流出 21.91 亿元（含产能扩张与理财安排），OCF 仅 8.41 亿元，<strong>FCF 约 -13.5 亿元</strong>，缺口由筹资净流入 18.88 亿元（新增借款）填补。这与&quot;长期借款＋52.5%&quot;互为印证。</li>
+<li><strong>季节性需注意</strong>：公司现金流呈明显&quot;前低后高&quot;特征——2025 年 Q1/Q2/H1 累计均为负（2025 全年最终转正为 28.08 亿）。2026 年 Q3 单季 OCF 已转正且达约 <strong>17.06 亿元</strong>（8.41-(-8.65)），是积极拐点，但全年能否达到覆盖净利 60%+ 仍需 Q4 验证。</li>
+</ol>
+<hr />
+<h5>三、财务历史：四年的&quot;V 型&quot;轨迹</h5>
+<h6>3.1 收入与利润趋势（单位：亿元）</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>年度</th>
+<th>营业收入</th>
+<th>YoY</th>
+<th>归母净利润</th>
+<th>YoY</th>
+<th>毛利率</th>
+<th>归母净利率</th>
+<th>OCF/净利</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022</td>
+<td>464.64</td>
+<td>—</td>
+<td>15.86</td>
+<td>—</td>
+<td>14.17%</td>
+<td>3.41%</td>
+<td>0.54x</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>476.22</td>
+<td>+2.5%</td>
+<td>21.54</td>
+<td>+35.8%</td>
+<td>15.22%</td>
+<td>4.52%</td>
+<td>0.86x</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>599.84</td>
+<td>+26.0%</td>
+<td>27.69</td>
+<td>+28.5%</td>
+<td>13.20%</td>
+<td>4.62%</td>
+<td>1.18x</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>668.55</td>
+<td>+11.5%</td>
+<td>26.80</td>
+<td><strong>-3.2%</strong></td>
+<td>12.47%</td>
+<td>4.01%</td>
+<td>1.05x</td>
+</tr>
+<tr>
+<td>2026前三季</td>
+<td>643.67</td>
+<td>+29.7%</td>
+<td>61.63</td>
+<td><strong>+152.0%</strong></td>
+<td><strong>19.53%</strong></td>
+<td><strong>9.58%</strong></td>
+<td>0.14x</td>
+</tr>
+</tbody>
+</table></div>
+<h6>3.2 历史解读</h6>
+<ul>
+<li><strong>2022–2024：收入快速增长（464.6→599.8 亿元，CAGR 13.6%），但毛利率从 15.2% 一路压缩至 13.2%</strong> —— 光纤光缆集采价格战＋低毛利工程业务占比上升，&quot;增收不增利&quot;特征明显。</li>
+<li><strong>2025：转折前的低谷。</strong> 收入仍增 11.5% 至 668.5 亿元（创历史新高），但归母净利润下滑 3.2%，毛利率跌至 12.47% 的四年最低。这是行业价格周期底部＋海缆项目节奏偏慢的叠加结果。<strong>2025 年正是估值与预期的最低点，也是 2026 年高增长的基数来源。</strong></li>
+<li><strong>2026：量价与结构三重改善。</strong> 前三季度收入已达 2025 全年的 96.3%，毛利率反弹 7.1pp 至 19.53%，归母净利 61.63 亿元为 2025 全年的 2.3 倍。<strong>利润率跳升幅度（毛利率+7.1pp、净利率+5.6pp）远大于收入增速（+29.7%），属于典型的&quot;经营杠杆＋产品结构升级&quot;双击。</strong></li>
+<li><strong>资产效率历史对比</strong>：固定资产净额四年从 82.2 亿增至 126.5 亿（2025 末），2026 年中期基本持平（124.8 亿），说明<strong>2026 年的利润增长主要来自产能利用率与产品结构，而非新增资本开支堆积</strong>——这是利润可持续性的正面证据。</li>
+<li><strong>杠杆历史</strong>：资产负债率 2022 51.7%→2023 55.0%→2024 53.5%→2025 51.7%→2026Q3 51.7%，波动区间窄，管理层对杠杆有纪律，但也意味着<strong>进一步加杠杆空间有限</strong>，若营运资金继续膨胀，压力会显性化。</li>
+</ul>
+<hr />
+<h5>四、综合诊断：三张表交叉验证</h5>
+<p><strong>支持&quot;买入&quot;的证据链：</strong></p>
+<ol>
+<li><strong>利润率的结构性跃升已被现金流的&quot;拐点方向&quot;印证（方向而非幅度）</strong>：Q3 单季 OCF 转正约 17.06 亿元，是全年最好单季，说明高毛利订单伴随预收款（合同负债 +47.3%）和现金回流，并非纯粹的会计确认。</li>
+<li><strong>合同负债 73.21 亿元（+47.3%）＋存货 122.54 亿元（+29.9%）</strong> 的组合，指向&quot;备货＋预收&quot;同步放大，是<strong>在手订单饱满</strong>的强证据，为 Q4 与 2027 年收入提供可见度。</li>
+<li><strong>研发费用 25.03 亿元（占收入 3.89%，绝对额已超 2025 全年 19.07 亿）</strong>，在利润暴增的同时继续加码，说明高毛利并非&quot;砍研发换利润&quot;。</li>
+<li>归母权益 369.72 亿元、每股净资产 16.41 元，ROE（年化约 22%）为四年最高，资产负债表仍有 1.64 的流动比率缓冲。</li>
+<li>Q3 单季&quot;收入环比 -7.8%、利润环比 +51%&quot;的组合，若在 Q4 延续，则<strong>市场对&quot;一次性收益&quot;的担忧将被证伪</strong>——这是未来 1–2 个季度最重要的验证点。</li>
+</ol>
+<p><strong>需要警惕/跟踪的风险：</strong></p>
+<ol>
+<li><strong>应收账款 239.13 亿元（占总资产 28.5%，周转 117 天）</strong> 是最大的单一风险。若下游为运营商/电网/海外 EPC 业主，账龄结构需在年报中核实；一旦计提比例上调，将直接冲击 2027 年利润。</li>
+<li><strong>经营现金流转化率 13.7%（OCF 8.41 亿 vs 归母净利 61.63 亿）</strong> —— 需 Q4 单季 OCF 至少达到 25–30 亿元，全年才有望回到 30 亿元以上（对应 50% 转化率）。<strong>若 Q4 现金流不达此阈值，应视为利润质量警示信号。</strong></li>
+<li><strong>短期借款 123.30 亿元 + 长期借款 41.42 亿元 = 有息负债约 164.7 亿元，货币资金 132.66 亿元，净有息负债约 32 亿元</strong>；财务费用 9M26 达 4.53 亿元（已超 2025 全年 3.36 亿），利率上行或融资收紧将侵蚀净利率。</li>
+<li><strong>周期属性未消失</strong>：2025 年毛利率仅 12.47% 证明光纤光缆价格弹性极大。若 2027 年集采价格回落，19.5% 的毛利率不可线性外推。</li>
+<li><strong>信息缺口</strong>：本次工具未能取得内部人交易数据（数据源限流，非公司层面问题），亦未取得市场价格/估值倍数，因此<strong>无法给出 PE/PB 及相对估值判断</strong>，下述评级仅基于基本面质量与趋势。</li>
+</ol>
+<hr />
+<h5>五、交易层面的可操作建议</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>关注维度</th>
+<th>具体阈值／观察点</th>
+<th>触发后的动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q4 单季经营现金流</td>
+<td>≥25 亿元（全年 OCF ≥33 亿元）</td>
+<td>确认利润质量，可加仓</td>
+</tr>
+<tr>
+<td>Q4 单季经营现金流</td>
+<td>&lt;12 亿元（全年 OCF &lt;20 亿元）</td>
+<td>利润质量存疑，减仓</td>
+</tr>
+<tr>
+<td>Q4 单季毛利率</td>
+<td>维持 ≥22%（验证 Q3 的 24.7% 非一次性）</td>
+<td>结构性升级成立，持有</td>
+</tr>
+<tr>
+<td>Q4 单季毛利率</td>
+<td>回落至 &lt;18%</td>
+<td>判定 Q3 为项目集中确认的一次性脉冲</td>
+</tr>
+<tr>
+<td>应收账款/总资产</td>
+<td>继续升至 &gt;32%</td>
+<td>警惕减值与周转恶化</td>
+</tr>
+<tr>
+<td>合同负债</td>
+<td>维持 ≥70 亿元</td>
+<td>订单可见度延续</td>
+</tr>
+<tr>
+<td>资产负债率</td>
+<td>突破 55%</td>
+<td>杠杆纪律破位，风险溢价上升</td>
+</tr>
+<tr>
+<td>年度分红／年报审计意见</td>
+<td>关注 2026 年报应收账款账龄与减值计提</td>
+<td>决定 2027 年利润基数</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>综合结论：</strong> 600487.SS 正处于四年来最强的基本面窗口——收入加速（+29.7%）、毛利率跃升 7.1pp、归母净利翻 2.3 倍、合同负债创高、研发继续加码、杠杆未失控。<strong>核心矛盾不在利润表，而在资产负债表与现金流量表：应收账款与存货吸收 93.6 亿元营运资金，使 61.6 亿元利润仅转化为 8.41 亿元经营现金流。</strong> Q3 单季 OCF 转正约 17 亿元是关键正向拐点，但尚不足以证明全年质量。考虑到利润趋势的强度与订单可见度，给予&quot;买入&quot;评级，但仓位与持有期应严格挂钩 Q4 现金流验证；若现金流未达标，则本轮利润改善的可信度将显著下降。</p>
+<p><strong>Rating</strong>: Buy</p>
+<p><strong>FINAL TRANSACTION PROPOSAL: BUY</strong></p>
+<hr />
+<h5>六、关键要点汇总表</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>指标／事项</th>
+<th>数值／状态</th>
+<th>方向</th>
+<th>交易含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公司</td>
+<td>名称／代码／交易所</td>
+<td>江苏亨通光电／600487.SS／上交所</td>
+<td>—</td>
+<td>光通信＋海缆＋能源互联＋数据中心配套</td>
+</tr>
+<tr>
+<td>公司</td>
+<td>上市日期</td>
+<td>2003-08-22</td>
+<td>—</td>
+<td>老牌主板公司，信息披露历史完整</td>
+</tr>
+<tr>
+<td>公司</td>
+<td>主营</td>
+<td>通信网络与能源互联综合解决方案</td>
+<td>—</td>
+<td>项目制，应收/合同负债为核心科目</td>
+</tr>
+<tr>
+<td>最新期</td>
+<td>报告期</td>
+<td>2026-09-30（2026-10-29 公告）</td>
+<td>—</td>
+<td>数据为最新，时效性高</td>
+</tr>
+<tr>
+<td>增长</td>
+<td>营业收入（前三季）</td>
+<td>643.67 亿元，+29.72%</td>
+<td>↑↑</td>
+<td>收入加速</td>
+</tr>
+<tr>
+<td>增长</td>
+<td>归母净利润（前三季）</td>
+<td>61.63 亿元，+152.03%</td>
+<td>↑↑↑</td>
+<td>爆发式增长</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>前三季毛利率（推算）</td>
+<td>19.53%（2025 全年 12.47%）</td>
+<td>↑↑</td>
+<td>+7.06pp，结构升级</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>单季毛利率 Q1/Q2/Q3</td>
+<td>15.98%／17.35%／24.72%</td>
+<td>↑↑</td>
+<td>Q3 跳升为关键验证点</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>销售净利率</td>
+<td>9.93%（2025：4.26%）</td>
+<td>↑↑</td>
+<td>经营杠杆释放</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>ROE／EPS／每股净资产</td>
+<td>16.67%（年化约22%）／2.5926 元／16.4093 元</td>
+<td>↑</td>
+<td>四年最佳</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>研发费用（前三季）</td>
+<td>25.03 亿元，占收入 3.89%</td>
+<td>↑</td>
+<td>已超 2025 全年 19.07 亿</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>销售／管理费用率</td>
+<td>1.85%／1.87%（2025：2.25%／2.35%）</td>
+<td>↓</td>
+<td>降本增效</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>财务费用（前三季）</td>
+<td>4.53 亿元（2025 全年 3.36 亿元）</td>
+<td>↑</td>
+<td>债务成本上升</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>应收账款</td>
+<td>239.13 亿元，较年初 +37.6%，周转约117天</td>
+<td>⚠</td>
+<td>最大风险点</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>存货</td>
+<td>122.54 亿元，较年初 +29.9%，周转约76天</td>
+<td>⚠</td>
+<td>备货扩张</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>合同负债</td>
+<td>73.21 亿元，较年初 +47.3%</td>
+<td>↑↑</td>
+<td>在手订单/预收强信号</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>资产总计</td>
+<td>838.47 亿元，较年初 +15.9%</td>
+<td>↑</td>
+<td>表内扩张</td>
+</tr>
+<tr>
+<td>负债</td>
+<td>资产负债率</td>
+<td>51.73%（与年初持平）</td>
+<td>→</td>
+<td>杠杆有纪律、空间有限</td>
+</tr>
+<tr>
+<td>负债</td>
+<td>短期／长期借款</td>
+<td>123.30 亿／41.42 亿（长债 +52.5%）</td>
+<td>↑</td>
+<td>净有息负债约 32 亿</td>
+</tr>
+<tr>
+<td>偿债</td>
+<td>流动比率／速动比率</td>
+<td>1.6406／1.3208</td>
+<td>→</td>
+<td>短期安全边际尚可</td>
+</tr>
+<tr>
+<td>现金流</td>
+<td>经营现金流（前三季）</td>
+<td>8.41 亿元</td>
+<td>⚠⚠</td>
+<td>OCF/净利＝13.7%</td>
+</tr>
+<tr>
+<td>现金流</td>
+<td>单季 OCF（Q3）</td>
+<td>约 +17.06 亿元（Q1 -1.94／H1 -8.65）</td>
+<td>↑</td>
+<td>关键正向拐点</td>
+</tr>
+<tr>
+<td>现金流</td>
+<td>投资／筹资净额（前三季）</td>
+<td>-21.91 亿／+18.88 亿</td>
+<td>⚠</td>
+<td>FCF 约 -13.5 亿，靠借款补</td>
+</tr>
+<tr>
+<td>历史</td>
+<td>收入 2022→2025</td>
+<td>464.64→668.55 亿元（CAGR 12.9%）</td>
+<td>↑</td>
+<td>长期成长稳定</td>
+</tr>
+<tr>
+<td>历史</td>
+<td>归母净利 2022→2025</td>
+<td>15.86→21.54→27.69→26.80 亿元</td>
+<td>→</td>
+<td>2025 为周期性低谷</td>
+</tr>
+<tr>
+<td>历史</td>
+<td>毛利率 2022→2025</td>
+<td>14.17%／15.22%／13.20%／12.47%</td>
+<td>↓</td>
+<td>2026 反转至 19.53%</td>
+</tr>
+<tr>
+<td>历史</td>
+<td>OCF/净利 2022→2025</td>
+<td>0.54x／0.86x／1.18x／1.05x</td>
+<td>—</td>
+<td>2026 骤降至 0.14x</td>
+</tr>
+<tr>
+<td>内部人</td>
+<td>内部人交易</td>
+<td><strong>数据不可用（数据源限流，非公司问题）</strong></td>
+<td>—</td>
+<td>未纳入判断</td>
+</tr>
+<tr>
+<td>估值</td>
+<td>股价／PE／PB</td>
+<td><strong>不可用（无市场数据工具）</strong></td>
+<td>—</td>
+<td>评级仅基于基本面</td>
+</tr>
+<tr>
+<td>结论</td>
+<td>综合评级</td>
+<td><strong>Buy</strong></td>
+<td>↑</td>
+<td>强利润＋弱现金流，绑定 Q4 验证</td>
+</tr>
+<tr>
+<td>验证</td>
+<td>Q4 现金流阈值</td>
+<td>≥25 亿元则加仓；&lt;12 亿元则减仓</td>
+<td>—</td>
+<td>最关键单一观察指标</td>
+</tr>
+</tbody>
+</table></div>
+</section><section id="s2"><h2>II. Research Team Decision</h2><h3 id="s2-1">Bull Researcher</h3>
+<p>Bull Analyst: 空头还没开口，我先替他把最常用的三张牌摆上桌：技术面破位、经营现金流弱、AI交易情绪降温。我的回应很直接：这些是风险，但在 <strong>600487.SS</strong> 当前这个位置，它们已经被“高点回撤64.5%”和“利润爆发式增长”同时定价，空头如果只会说“趋势向下”，那是在用后视镜开车。</p>
+<h6>一、成长不是故事，利润表已经跳升</h6>
+<p><strong>600487.SS</strong> 2026年前三季度营收643.67亿元，同比+29.72%；归母净利润61.63亿元，同比+152.03%。更关键的是单季结构：Q3营收环比-7.8%，但归母净利润环比+51.1%，单季毛利率从Q1的15.98%、Q2的17.35%跳到<strong>24.72%</strong>。这不是“多卖了一点货”，而是高毛利的海缆/海洋工程、数据中心与算力配套、光通信产品在收入结构里上来了。收入环比下降、利润环比大增，恰恰说明公司正在从低毛利项目制向高附加值订单迁移。</p>
+<p>空头会说“利好已经兑现”。但10月19日涨停价是50.25元，现在43.52元，股价已经比那个“兑现日”低了一截。市场不是没定价利好，而是先把AI情绪和短线筹码的抛压打进去了。若Q4毛利率维持22%以上，当前价格就是预期差，而不是终局。</p>
+<h6>二、护城河：不是单一光缆厂，而是“光通信+海缆+数据中心”三线并行</h6>
+<p><strong>600487.SS</strong> 的竞争力在于它不是只卖光纤光缆。公司覆盖光纤预制棒—光纤—光缆、海底光缆与海洋工程、数据中心供配电/制冷/智能监控，并延伸到CPO先进封装和AI先进光互联。66.36亿元定增投向很清晰：新一代光纤、内蒙古高端光学材料、CPO先进封装、AI先进光互联、揭阳海洋能源、万吨级深远海敷设船。</p>
+<p>这意味着它同时吃三条高景气曲线：AI算力光互联、海风/海缆、能源互联。空头担心AI资本开支可持续性，但<strong>600487.SS</strong>不是纯AI叙事股，海缆和电网侧订单提供了第二增长极；AI光互联提供弹性，海缆提供项目壁垒。这种“双主线”比单一光模块标的更抗单一赛道情绪冲击。</p>
+<h6>三、订单、筹码和回购都在给正面信号</h6>
+<p>合同负债从年初49.71亿元升至73.21亿元，增长47.3%，远快于收入增速——这是在手订单预收款增加的硬信号。研发费用前三季度25.03亿元，已经超过2025年全年的19.07亿元，说明利润不是靠砍研发换来的。82家机构合计持股8.57亿股，占总股本34.73%，筹码在从游资向机构配置迁移。董事长11月1日提议回购1—2亿元，虽然金额不算大，但在三季报后、板块波动加剧时点推出，信号意义明确。</p>
+<h6>四、逐条接空头的招</h6>
+<p><strong>第一，技术面空头排列，我承认。</strong> 但空头报告自己也写了：10EMA 46.99、50SMA 59.10、200SMA 60.03，价格43.52，均线全空；可同时RSI从10月15日的27.02抬到10月30日的31.40，价格创新低、RSI不创新低；MACD柱从-2.05收敛到-0.35；42.26/42.27连续两日双底；ATR从4.58降到3.43。这是“下跌末段尝试筑底”的组合，不是“加速崩跌”的确认。50/200死叉发生在10月29日，是滞后信号，而价格已经低于50SMA 26%以上。更关键的是，空头报告自己的交易计划写着“不宜在43.5附近追空”——那当前给出Sell评级，时间点和风险回报是矛盾的。</p>
+<p><strong>第二，现金流弱，我承认，但要看到拐点。</strong> 前三季度OCF 8.41亿元，对61.63亿元归母净利转化率只有13.7%，这是最大软肋。但Q3单季OCF约+17.06亿元，是全年最好单季；合同负债+47.3%说明预收款在进；应收账款和存货膨胀是高速增长期的营运资金垫付。Q4是回款旺季，验证阈值很清楚：Q4单季OCF≥25亿元，利润质量成立；若&lt;12亿元，我再下调判断。空头不能只拿前三季度累计数否定Q3已经出现的方向性拐点。</p>
+<p><strong>第三，定增摊薄约5%，但这是加杠杆扩产能，不是补窟窿。</strong> 66.36亿元对应约1240亿元市值摊薄约5%，换来CPO、AI光互联、海缆船和光纤材料产能。若项目回报率高于融资成本，摊薄会被增长消化。相比之下，空头更应担心的是执行节奏，而不是把“扩产”直接等同于“利空”。</p>
+<p><strong>第四，牛散退出是短期抛压，不是基本面反转。</strong> 章建平夫妇退出前十大股东，确实会压制情绪；但接盘的是机构，34.73%的机构持股让筹码更配置化。短线资金离场后，股价对订单和业绩的敏感度反而会上升。</p>
+<p><strong>第五，AI资本开支担忧是β，不是α。</strong> 甲骨文折价融资、Anthropic算力成本高、海外科技股回调，会压制整个板块估值。但114家A股公司披露在手订单充裕，光通信订单景气仍在；<strong>600487.SS</strong>还有海缆和能源互联对冲。情绪杀跌给的是分批建仓窗口，不是清仓理由。</p>
+<h6>五、交易上，我不是让你闭眼追</h6>
+<p>对 <strong>600487.SS</strong>，我的做法是“左侧分批、右侧加仓”：42—44元区域分批建立第一档；收盘站上46.99元（10EMA）加第二档；站稳49.39元（布林中轨）确认反转。止损放在41.90元下方，跌破42.26元且放量则暂停买入。以43.5元附近、止损41.9元、第一目标49.4元计算，风险约3.7%，上行空间约13.5%，风险回报明显优于在支撑上方追空。</p>
+<p>空头看到的是“已经跌了很多”；我看到的是“跌了很多之后，利润、订单、合同负债、机构筹码和管理层回购同时给出反向信号”。<strong>600487.SS</strong> 短期趋势仍弱，但基本面上行和估值压缩已经形成不对称机会。我的结论是买入，而不是在双底和正背离附近继续卖出。</p>
+<p><strong>Rating</strong>: Buy
+FINAL TRANSACTION PROPOSAL: <strong>BUY</strong></p>
+<h3 id="s2-2">Bear Researcher</h3>
+<p>Bear Analyst: Bull，你把牌摆得很漂亮：利润爆发、Q3毛利率跳升、合同负债创高、机构持仓、回购信号。但我的结论没变：<strong>600487.SS 现在不是“便宜到可以闭眼买”的位置，而是“基本面有亮点、现金流没验证、技术面仍在下行、风险收益对多头不利”的位置。</strong> 你说我在用后视镜开车，可你现在的买入计划，恰恰是在用“利润表的后视镜”对抗“现金流和趋势的前挡风玻璃”。</p>
+<p>先接你最硬的一张牌：<strong>Q3利润和毛利率</strong>。我承认，600487.SS 前三季度营收643.67亿元、同比+29.72%，归母净利61.63亿元、同比+152.03%，Q3单季毛利率24.72%，这是实打实的改善。但问题在于，这个改善还没被“质量”验证。Q3营收环比-7.8%，归母净利环比+51.1%，毛利率从Q2的17.35%跳到24.72%——这可能是海缆/海洋工程或数据中心高毛利项目集中确认，也可能是产品结构升级，但<strong>单季跳升不等于可持续</strong>。你自己也设了验证阈值：Q4毛利率要维持22%以上。也就是说，你承认现在还没确认，只是提前下注。更别忘了2025年全年毛利率只有12.47%，这家公司历史上对光纤光缆周期和项目节奏的弹性极大，19.53%的前三季度毛利率不能线性外推。</p>
+<p>再看现金流，这是我最不能接受你用“拐点”轻轻带过的地方。前三季度经营现金流只有8.41亿元，对61.63亿元归母净利的转化率只有<strong>13.7%</strong>，OCF/销售收入只有<strong>1.31%</strong>；应收账款239.13亿元、较年初+37.6%，存货122.54亿元、+29.9%，两项合计吃掉约93.6亿元营运资金，比同期归母净利还多。自由现金流约-13.5亿元，靠筹资净流入18.88亿元补，短期借款123.30亿元、长期借款41.42亿元，财务费用4.53亿元已经超过2025年全年3.36亿元。你拿Q3单季OCF约+17.06亿元说“方向性拐点”，我同意方向是正的，但<strong>全年要回到30亿元以上，Q4单季得做到25亿元左右，这是待验证的假设，不是已发生的事实</strong>。合同负债从49.71亿到73.21亿、+47.3%，确实是预收款和订单信号，但合同负债是未来交付义务，预收越多，后续存货、应收和交付资本占用也可能越大；它不能证明利润已经变成现金。你说“空头不能只拿累计数否定Q3拐点”，那我也提醒你：<strong>多头不能只拿Q3单季拐点否定前三季度13.7%的现金转化率</strong>。</p>
+<p>技术面你说“下跌末段尝试筑底”，但背离只提高反弹概率，不确认反转。600487.SS 当前43.52元，10EMA 46.99、50SMA 59.10、200SMA 60.03，价格低于10EMA 7.39%、低于50SMA 26.36%、低于200SMA 27.51%，均线完全空头排列；10月29日刚出现50/200死叉，这是趋势级别确认，不是噪音。10EMA的压制已经被验证过一次：10月23日收52.32元，仅微高于当日10EMA 51.73元，次日就被压回，随后5个交易日跌18.9%。现在价格连40附近的RSI弱势区都没修复，MACD柱从10月28日的-0.0222重新扩张到11月2日的-0.3532，说明10月23日那次反弹已经被证伪。42.26/42.27的“双底”只有连续两天，没有放量长下影或放量反包确认；量能缩到8月高峰的约38%，10月30日破位日成交量1.258亿股还低于10月19/20反弹日的2亿股以上——这是买盘缺失导致的滑落，不是恐慌出清。VWMA 48.44，价格低于量加权成本10.15%，反弹到48-49一带就是解套抛压区。布林带宽31.4%，价格贴下轨，仍在趋势通道里，不是震荡筑底。</p>
+<p>你说我“自己的报告写着不宜在43.5附近追空，却给Sell，矛盾”。不矛盾。<strong>Sell评级不是让你在42.26支撑上方1.26元的地方市价追空，而是不建议新建或持有战略多头。</strong> 对持仓者，44.8-45.21、46.99、48.44-49.39是层层减仓窗口；对空仓者，等反弹到46.5-48.5再考虑空，而不是现在追。你的计划是42-44分批买、止损41.90，第一目标49.39，看起来风险3.7%、上行13.5%，但这是假设42.26不破、不跳空、不滑点。ATR是3.4275元、占价7.88%，10月30日已经出现过44.60到42.35的隔夜跳空；一旦42.26放量失守，下一参考区是38.8-40，实际下行风险远大于你账面上算的3.7%。<strong>逆势抢双底，胜率不占优，R/R也没有你写得那么漂亮。</strong></p>
+<p>定增和筹码我也要泼冷水。66.36亿元定增对应约5%摊薄，审批时点和发行价都不确定；在海外AI资本开支可持续性被质疑、存储涨价压制下游毛利的环境里扩产，执行和产能消化风险会放大。机构持股34.73%不是安全垫，板块β下行时集中持仓反而可能变成拥挤减持；章建平夫妇退出前十大股东，是短线资金兑现的信号，你说接盘的是机构，但没有证据证明接盘成本、锁定期和后续增持意愿。董事长提议回购1-2亿元，仅占市值约0.08%-0.16%，信号意义大于实质托底，而且目前只是“提议”，不是董事会方案和执行。</p>
+<p>最后说AI风险。你说这是β不是α，但600487.SS 的定增明确投向CPO先进封装、AI先进光互联，AI叙事裂缝会直接传导到估值；甲骨文折价融资、Anthropic算力成本占营收58%、KOSPI单日跌3%、三星和海力士跌超4%，这些不是无关噪音，而是风险偏好收缩的实时信号。海缆和能源互联可以提供第二增长极，但它们同样受招标节奏、海外业主和回款周期约束，不能简单当成AI的对冲。</p>
+<p>Bull，你看到的是“跌了很多之后，利润、订单、合同负债、机构筹码和回购同时给出反向信号”。我看到的是：<strong>利润是真的，但现金没到；订单信号是真的，但交付和垫资压力也是真的；技术背离是真的，但趋势反转没确认；回购信号是真的，但托底力度很小。</strong> 在这些“真的”里面，没有一项支持现在就建立战略多头。我的立场很清楚：<strong>600487.SS 持仓者利用反弹减仓，空仓者不追；只有收盘站上46.99、MACD柱转正并有效突破49.39且放量，才值得重新讨论右侧做多。</strong> 当前这个位置，风险收益对多头不友好。</p>
+<p><strong>Rating</strong>: Sell</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s2-3">Research Manager</h3>
+<p><strong>Recommendation</strong>: Underweight</p>
+<p><strong>Rationale</strong>: 多空双方都承认同一组事实：600487.SS 的利润表确实在跳升（前三季度营收643.67亿元、+29.72%，归母净利61.63亿元、+152.03%，Q3毛利率24.72%），合同负债+47.3%、研发投入超过2025全年、机构持股34.73%、董事长提议回购，都是真实的正向信号。但空头更致命的一击在于“质量”和“趋势”：前三季度经营现金流仅8.41亿元，对61.63亿元归母净利转化率只有13.7%，自由现金流约-13.5亿元，应收账款+37.6%、存货+29.9%合计吞噬约93.6亿元营运资金；Q3单季OCF约17.06亿元只是季节性拐点，Q4需做到约25亿元才能验证全年质量，这是假设而非事实。技术面上，价格43.52元显著低于10EMA/50SMA/200SMA，50/200死叉刚在10月29日确认，10月23日对10EMA的反弹已被证伪，42.26/42.27的“双底”缺乏放量确认，当前是买盘缺失的下滑而非恐慌出清。多头自己也设了验证阈值，等于承认基本面改善尚未被现金流和持续性确认。综合看，空头的风险收益与趋势论据更强，但利润爆发、订单预收、回购和64.5%的高点回撤又使“现在就全面退出/做空”缺乏足够安全边际，因此定为Underweight而非Sell：减仓、不追多、等右侧验证。</p>
+<p><strong>Strategic Actions</strong>: 对600487.SS采取防御性低配，标准仓位基础上建议净敞口下调至低于基准约25%-50%。已有持仓者：利用反弹分批减仓，44.8-45.2元为第一减仓区，46.99元（10EMA）为第二减仓区，48.4-49.4元（VWMA/布林中轨）为第三减仓区；不要在43.5元附近因“便宜”而补仓。空仓者：暂不新建战略多头，也避免在42.26元支撑上方追空；若42.26元放量失守，下一参考支撑38.8-40元。右侧重新评估条件：收盘站上46.99元、MACD柱转正，并有效放量突破49.39元，才考虑从Underweight向中性/超配修正。基本面验证阈值：Q4单季OCF≥25亿元且Q4毛利率维持22%以上，则上修利润质量判断；若Q4单季OCF&lt;12亿元或毛利率跌破22%，则将评级进一步下调至Sell。</p>
+</section><section id="s3"><h2>III. Trading Team Plan</h2><h3 id="s3-1">Trader</h3>
+<p><strong>Action</strong>: Sell</p>
+<p><strong>Reasoning</strong>: 研究计划定为 Underweight，对应减仓/卖出。600487.SS 收于 43.52，低于 10EMA 46.99（−7.39%）、50SMA 59.10（−26.36%）、200SMA 60.03（−27.51%），且 50/200 死叉已于 10-29 确认；MACD −4.3013、柱值 −0.3532 二次扩张，10-23 对 10EMA 的反弹已被证伪，价格低于 VWMA 48.44 约 10%，筹码浮亏压制反弹。基本面利润跳升（归母净利 61.63 亿元）但经营现金流仅 8.41 亿元、转化率 13.7%、自由现金流约 −13.5 亿元，质量未被验证，利润爆发只提供安全边际、不足以构成趋势反转。RSI 33.97 相对 10-15 的 27.02 出现看涨背离、42.26/42.27 双底且无放量确认，故不追空、不在 43.5 附近补仓，而是利用反弹分批减仓，保留右侧（站上 46.99 + MACD 柱转正 + 突破 49.39）修正评级的余地。</p>
+<p><strong>Entry Price</strong>: 44.8</p>
+<p><strong>Stop Loss</strong>: 47.3</p>
+<p><strong>Position Sizing</strong>: 净敞口由基准下调 25%–50%（分批：44.80–45.21 首减 1/3，46.99 附近再减 1/3，48.44–49.39 减余量）；单笔风险按 ATR 3.4275（7.88%/日）计，止损距离约 2.5 元 ≈ 0.7 ATR，1% 账户风险下单笔规模约为常规的一半以下</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+</section><section id="s4"><h2>IV. Risk Management Team Decision</h2><h3 id="s4-1">Aggressive Analyst</h3>
+<p>Aggressive Analyst: 先把话撂这儿：这场辩论的核心分歧，不是&quot;卖不卖&quot;，而是&quot;你愿不愿意为一个已经被证伪的叙事继续承担下行贝塔&quot;。保守派和中性派大概率会端着&quot;业绩爆发、机构重仓、回购护盘&quot;这套说辞劝你熬着，或者至少&quot;等确认了再动&quot;。我站在激进风险这一侧，恰恰要说：在这个位置、这张图上，最激进、最高回报期望的动作，不是死扛，也不是骑墙——而是像交易员计划里写的那样，果断、分批、有纪律地把 600487.SS 的敞口砍下来。别把&quot;谨慎&quot;错当成&quot;安全&quot;，在下跌趋势里最贵的成本就是时间与机会成本。</p>
+<p>先怼基本面多头逻辑，这是保守派最爱抱的大腿。前三季归母净利 61.63 亿、同比 +152%，听着震撼，但请把三张表一起看：经营现金流只有 8.41 亿,转化率 13.7%，自由现金流约 -13.5 亿,要靠 18.88 亿筹资净流入来填窟窿。应收账款较年初 +37.6% 到 239.13 亿、存货 +29.9% 到 122.54 亿,两项吞掉约 93.6 亿营运资金,而利润才 61.63 亿。这说明什么?说明这轮&quot;利润爆发&quot;目前更像账面兑现,而不是现金兑现。保守派会拿 Q3 单季 OCF 转正约 17 亿来反驳,我承认这是方向上的拐点,但一家真正进入健康上行周期的公司,不需要你等 Q4 再来证明利润是不是真的——不确定性本身就是估值的杀手。激进的风险承担者从来不赌&quot;下一个季度会不会验证&quot;,而是赌&quot;赔率是否站在我这边&quot;。现在这张表告诉你：利润的确定性还没有现金流背书,而市场最讨厌的就是&quot;看起来很好但说不清&quot;。</p>
+<p>更要命的一点，中性派和保守派几乎一定会忽略：好业绩早就被定价了,而且是被&quot;证伪式定价&quot;。10 月 19 日业绩预告出来当天,600487.SS 直接涨停到 50.25 元、市值破 1200 亿,盘中还炸板回封——这说明筹码在利好当天就已经剧烈换手。结果呢?从 50.25 一路跌到今天 43.52,较那个&quot;利好高点&quot;回撤约 13.4%。在基本面最炸裂的消息落地之后,股价不涨反跌,这是市场用真金白银投出的最凶的一张反对票:边际买盘已经耗尽。你还要拿&quot;业绩好&quot;当持有的理由,等于把一个已经被市场否定的论据再念一遍。激进派的读法是——当利好出尽而价格走弱,这才是最干净、最高胜率的减仓信号。</p>
+<p>再说&quot;等右侧确认&quot;。中性派最典型的话术是&quot;等站上 10EMA 46.99、MACD 柱转正、突破 49.39 再说&quot;。听起来很稳,但算笔账:从现在 43.52 等到 46.99,你要白白让出 7.4% 的下行保护垫;而一旦 42.26/42.27 这道双底防线被放量击穿,按 ATR 3.43 测距直接指向 38.8–40.0,那是从现价再往下 8%–11% 的空间。等确认的代价,是拿&quot;确定的 7%–11% 潜在亏损&quot;去换&quot;不确定的反弹入场权&quot;——这在赔率上完全不成立。真正激进且聪明的做法,是交易员计划的逻辑:不在 43.5 这个贴着支撑的位置追空,而是把 44.80–45.21、46.99、48.44–49.39 当成三级减仓带,反弹一波卖一波,用市场的超卖修复替自己抬轿子出货。这不是被动挨打,这是主动利用 RSI 看涨背离(27.02→31.40)和 42.26/42.27 双底制造出来的每一次反抽,把筹码在更好的价位甩给还在做&quot;困境反转&quot;梦的人。中性派把背离当&quot;别卖&quot;的理由,交易员把它当&quot;更好的卖点&quot;——这才是激进派该有的用法。</p>
+<p>趋势面我不敢含糊,因为这是 600487.SS 现在最硬的事实。收盘 43.52 低于 10EMA 46.99 达 7.39%、低于 50SMA 59.10 达 26.36%、低于 200SMA 60.03 达 27.51%,四条均线完全空头倒序,一条都没被收复。50/200 死叉在 10 月 29 日刚刚确认——这是本轮下跌以来首次的中长期趋势级信号,不是噪音。MACD 在零轴下方,柱值 10-29 到 11-02 从 -0.1704 到 -0.3591 再到 -0.3532 二次扩张,等于把 10 月 23 日那次 +0.0358 的假多头尝试彻底钉死在耻辱柱上。价格低于 VWMA 48.44 约 10.15%,意味着近 20 日平均持仓成本远高于现价,48–49 一带全是解套抛压。结构上更清楚:高点 122.70→73.00 下移,低点 45.60→42.26 下移,标准下降趋势,每次反弹的幅度和持续时间都在衰减。面对这样一张图,保守派说&quot;长期均线还没拐头、有均值回归张力&quot;——我承认 200SMA 还在小幅上行,但那是过去式;价格已经用 -64.5% 的深度回撤告诉你,均值回归的方向现在是向下找平衡,不是向上。把&quot;长期均线没拐&quot;当成不卖的理由,就是把后视镜当挡风玻璃。</p>
+<p>情绪与贝塔这块,中性派最容易犯&quot;只看公司不看环境&quot;的错。海外 AI 基建的融资可持续性正在被质疑:甲骨文据称以 11% 折价卖近 100 亿美元股票,Anthropic 单季算力成本占营收 58%,韩国 KOSPI 单日跌 3%、三星和 SK 海力士跌超 4%。600487.SS 现在是&quot;需求确定、估值被情绪支配&quot;的品种,β 风险大于 α 风险。更关键的是,它已经从高点跌了 64.5%,在这种深度回撤的标的上,一旦板块 β 再收缩,它的下行弹性会被放大,而不是被&quot;机构持股 34.73%&quot;保护住。恰恰相反——34.73% 的机构持仓是把双刃剑,一旦叙事破裂,拥挤的配置盘就是最集中的抛压来源。而牛散章建平夫妇在三季报里退出前十大股东,是聪明钱先撤的领先信号。你还在数机构家数找安全感,人家已经在减仓了。</p>
+<p>至于&quot;董事长提议回购 1–2 亿&quot;这张牌,请算清楚:1–2 亿只占约 1240 亿市值的 0.08%–0.16%。这是信号,不是地板。把仓位安全寄托在一个连市值 0.2% 都不到的回购提议上,不是谨慎,是自我安慰。66.36 亿定增的约 5% 摊薄、审批时点不确定,更是悬在估值头上的另一只靴子。</p>
+<p>最后讲清楚激进派的风险哲学:激进不等于莽撞。交易员的方案里,ATR 3.4275(日波动 7.88%)、止损设在 47.30(约 10EMA 之上、约 0.7 ATR)、净敞口下调 25%–50%、单笔规模压到常规一半以下——这套组合拳的本质是&quot;用确定的、可控的、被 ATR 量化过的风险,去换取避开 8%–11% 潜在深跌的主动权,并释放资金去配置更高胜率的机会&quot;。如果反弹真的站上 46.99、MACD 柱转正、突破 49.39,交易员明确保留了右侧修正评级、重新评估的余地——这说明卖出不是情绪,是纪律,而且是可以被证伪、可以反手的纪律。真正的激进,是在趋势与现金流的证据都指向同一方向时,敢于先市场一步行动,而不是在 42.26 破位、跌到 38.8 之后,再和一群人说&quot;早知道就减了&quot;。</p>
+<p>所以我的结论很明确:保守派的&quot;业绩护体、长期持有&quot;错在把已经被证伪的利好当护城河,忽视了利润尚未被现金流验证、且利好后股价不涨反跌这两个致命事实;中性派的&quot;等右侧确认&quot;错在把时间成本和 7%–11% 的让利,当成免费的保险。对 600487.SS,最理性的高赔率动作就是交易员的原案——利用反弹分批减仓,第一档 44.80–45.21,第二档 46.99,余量 48.44–49.39,止损 47.30 之上反手重估,敞口压缩 25%–50%,单笔风险按 ATR 折算到常规一半以下。</p>
+<p><strong>Rating</strong>: Sell</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s4-2">Conservative Analyst</h3>
+<p>Conservative Analyst: 我先回应 Aggressive，因为他的结论虽然和交易员一样是“卖”，但他的论证方式反而暴露了执行层面的风险。你把保守派说成会拿“业绩爆发、机构重仓、回购护盘”劝人死扛，这个稻草人我不接。我的立场很清楚：600487.SS 当前应该降低敞口，但降低敞口的理由不是去博一个“高赔率下跌”，而是保护资产、压低波动、避免组合在高不确定性里暴露过大。你把减仓包装成“最激进、最高回报期望的动作”，这其实把风险控制偷换成了收益最大化；对保守派来说，首要是别被迫在坏价格交易，而不是去赚最后那 8%–11% 的下跌。</p>
+<p>你说的基本面问题我大体同意，但结论要更谨慎。61.63 亿元归母净利只对应 8.41 亿元经营现金流，转化率 13.7%，自由现金流约 -13.5 亿元，应收账款较年初增加 37.6% 到 239.13 亿元，存货增加 29.9% 到 122.54 亿元，两项吞掉约 93.6 亿元营运资金。这些不是“利润爆发”可以自动抵消的。Q3 单季经营现金流转正约 17 亿元是正向拐点，但一个季度不足以证明全年利润质量；合同负债增长 47.3% 是订单信号，但也意味着未来交付义务。对保守派来说，在 Q4 经营现金流没有达到至少 25 亿元、全年转化率没有回到可接受水平之前，不能把“业绩好”当成安全垫。回购 1–2 亿元只占市值约 0.08%–0.16%，是信号不是地板；66.36 亿元定增还有约 5% 摊薄和审批时点不确定性；机构持股 34.73% 既可能降低波动，也可能是拥挤交易，不能当护城河。</p>
+<p>但 Aggressive，你的执行方案有一个内在矛盾：你判断 42.26 一旦放量跌破，按 ATR 3.43 测距会指向 38.8–40.0，也就是现价再下 8%–11%；可你的首减档却放在 44.80–45.21，比现价 43.52 高 2.9%–3.9%。如果反弹不来，你保留的敞口就完整承受你所说的下行风险。你不能一边说破位风险很大，一边又把减仓建立在“市场先给我一个反弹”的假设上。10 月 30 日已经出现过 44.60 跳到 42.35 的隔夜缺口，11 月 3 日又是休市日，下一交易日存在跳空风险；在这种情况下，把全部减仓挂在现价上方，不是保守，也不是激进，是依赖市场配合。正确的保守做法是：现价附近先减一部分，剩余仓位再用 44.80–45.21、46.99、48.44–49.39 这些反弹带分批处理；如果 42.26 放量跌破，不等反弹，剩余仓位直接退出或降到可承受水平。</p>
+<p>你说中性派“等右侧确认”有成本，这话对，但你的答案也不完整。等站上 46.99、MACD 柱转正、突破 49.39 再动，确实要放弃 7.4% 的反弹空间；但保守派的答案不是“全仓等确认”，也不是“全仓赌下跌”，而是分层降低不确定性：现在先减，反弹再减，破位清剩余。中性派目前还没有发言，我不替它编立场；但常见的“等确认再说”确实不够保守，因为持有完整敞口穿越 7.88% 的日 ATR 本身就是风险。可是同样，激进派主张“利用 RSI 背离和双底制造的反抽出货”也有问题：背离只提高反弹概率，不保证反弹；双底 42.26/42.27 也只是两日低点，不是放量确认的底部。把减仓完全寄托在反弹上，是把执行风险当成机会。</p>
+<p>趋势面我没有异议：收盘 43.52 低于 10EMA 46.99、50SMA 59.10、200SMA 60.03，均线完全空头排列，50/200 死叉在 10 月 29 日确认，MACD 在零轴下方且柱值二次扩张，价格低于 VWMA 48.44 约 10.15%，48–49 一带是解套抛压区。结构上高点 122.70→73.00、低点 45.60→42.26 都在下移。这些证据支持降低敞口。但保守派不会因此去裸空。ATR 3.4275、日波动 7.88%，止损 47.30 距 44.80 只有约 2.5 元、约 0.7 ATR，对空头来说太紧，正常波动就可能被扫；对减仓多头来说，这个“止损”概念又不适用。所以我要把交易员方案里的一个高风险元素点出来：不要把“减仓”和“做空”混在一起。若只是降低现有敞口，不需要 47.30 的止损；若要新开空单，那是另一类风险，保守派不建议裸空，最多用极小规模、定义风险的工具对冲，单笔风险不超过账户 0.5%，且必须按 ATR 放宽止损、同步压缩仓位。</p>
+<p>我的低风险调整方案是：第一，方向维持减持/低配，但先执行一部分，不把首减全部挂在 44.80–45.21。以 43.52 附近先减至少三分之一，或者把仓位降到“若跌到 38.8，账户风险仍不超过 1%”的水平；如果当前仓位在 38.8 情景下已经超过 1% 风险，减仓比例应高于 50%。第二，剩余仓位分档：44.80–45.21 再减三分之一，46.99 附近再减，48.44–49.39 清余量；若 42.26 放量跌破，剩余仓位不等反弹直接退出。第三，不新增方向性空头，不把回购、机构持仓、单季现金流拐点当安全垫；Q4 经营现金流达到 25 亿元以上之前，利润质量只算待验证。第四，右侧复核可以保留，但必须是规则：连续三日收盘站上 46.99、MACD 柱转正、突破 49.39 且量能确认，才重新评估；届时也不追高，只考虑小仓位重建。第五，按 ATR 做压力测试：现价到 42.26 约 2.9%，到 38.8 约 10.8%，在 7.88% 日波动下这不是遥远情景；单笔风险按常规的一半以下，组合层面优先降低波动，而不是追求反弹卖点。</p>
+<p>所以，Aggressive，你的“卖”我接受，但你的“高赔率、等反弹出货”我不接受。保守派的卖不是为了赢市场，而是为了不让组合在趋势、现金流和隔夜缺口三重不确定性里继续裸奔。中性派若主张等确认，也要明白确认不是免费保险；但比等确认更危险的是，明明判断下行风险很大，却把减仓挂在现价上方等市场发慈悲。对 600487.SS，最稳妥的路径是：现在先降敞口，反弹继续降，破位清剩余，不做裸空，不用基本面利好当护城河。</p>
+<p><strong>Rating</strong>: Sell</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s4-3">Neutral Analyst</h3>
+<p>Neutral Analyst: 我作为中性风险分析师，先把结论说清楚：我认同对 600487.SS 降低敞口的方向，但不认同把这件事包装成“高赔率做空”，也不认同把所有减仓动作都押在反弹上。真正可持续的做法，是在趋势仍空、现金流未验证的前提下，用风险预算而不是情绪来决定减多少、在哪里减、什么条件下重新评估。</p>
+<p>先挑战激进派。你说保守派会拿“业绩爆发、机构重仓、回购护盘”劝人死扛，这个稻草人立不住，因为保守派这次也主张卖。你的核心问题在執行层面：你一边判断 42.26 一旦放量跌破，按 ATR 3.4275 测距会指向 38.8–40.0，也就是现价再下 8%–11%；另一边却把首减档放在 44.80–45.21，比 43.52 高 2.9%–3.9%。如果反弹不来，你保留的敞口就完整承受你自己描述的下行风险。10 月 30 日已经出现过 44.60 跳到 42.35 的隔夜缺口，11 月 3 日又是休市日，下一交易日跳空风险真实存在。把减仓建立在“市场先给我一个反抽”的假设上，不是纪律，是依赖市场配合。你还把 RSI 从 27.02 到 31.40 的背离、42.26/42.27 双底当成更好的卖点，但背离只提高反弹概率，不保证反弹；双底也只是两日低点，不是放量确认的底部。更重要的是，你说“利好出尽而价格走弱就是证伪”，这太二元了。10 月 19 日涨停到 50.25 后的回落，里面还有 66.36 亿元定增约 5% 摊薄、审批不确定、牛散退出、海外 AI β 收缩这些因素，不能全部归因于“业绩叙事被市场否定”。Q3 单季经营现金流约 17.06 亿元转正、合同负债 73.21 亿元同比增长 47.3%、Q3 毛利率 24.72%，这些至少说明利润质量需要 Q4 验证，而不是一句“等 Q4 就是赌”就能抹掉。还有，47.30 的止损距 44.80 只有约 2.5 元、约 0.7 个 ATR，对空头来说太紧，7.88% 的日波动下正常噪音就可能被扫；对减仓多头来说，这个止损概念根本不适用。减仓不是做空，不能用潜在下跌收益来美化风险控制。</p>
+<p>再挑战保守派。你纠正“首减不能全挂现价上方”是对的，现价附近先减一部分，确实能解决隔夜缺口和反弹不来的执行风险。但你也有过度谨慎的地方。你把 Q4 经营现金流至少 25 亿元、全年转化率回到可接受水平当成硬门槛，方向没错，但不能忽略 Q3 单季 OCF 已转正约 17.06 亿元、合同负债创高到 73.21 亿元、Q3 毛利率跳升到 24.72%、研发费用 25.03 亿元继续加码这些领先信号。项目制、海缆和数据中心配套业务的收入确认天然有季度错配，机械等到 Q4 才允许保留任何核心仓位，可能把仓位砍在 42.26/42.27 双底和布林下轨 41.64 附近的最差位置。你说“现价先减至少三分之一”，作为风险过重账户的规则可以，但不能一刀切，因为题目没有给持仓成本和仓位占比。如果投资者只是小仓位、低成本，机械减三分之一可能过度交易；如果是高杠杆或单一标的占比过高，那减得还应更多。机构持股 34.73% 你只强调拥挤风险，但它也可能是配置盘和流动性来源；回购 1–2 亿元你只强调占比小，但它是管理层信号，不能当护城河，也不该完全无视。你否定裸空我同意，但若真要用对冲，0.7 个 ATR 的止损同样偏紧，应该按 1.0–1.5 个 ATR 并同步压缩规模，而不是用减仓逻辑去掩盖做空风险。</p>
+<p>所以我的中性方案是把两边的合理部分拼起来，而不是骑墙。第一，方向维持低配/减持，但不追空、不做裸空。600487.SS 收盘 43.52 低于 10EMA 46.99、50SMA 59.10、200SMA 60.03，50/200 死叉在 10 月 29 日确认，MACD 柱从 -0.1704 到 -0.3591 再到 -0.3532 二次扩张，价格低于 VWMA 48.44 约 10.15%，这些确实支持降低敞口；但价格已较 6 月高点 122.70 回撤约 64.5%，RSI 和 MACD 柱又出现正向背离，ATR 从 4.58 收敛到 3.4275，42.26/42.27 连续两日低点也在提示下行动能边际衰减。这里适合减仓，不适合在支撑上方加码看空。</p>
+<p>第二，执行上要用风险预算决定首减，而不是固定比例。先算一个压力情景：从 43.52 跌到 42.26 约 2.9%，跌到 38.8 约 10.8%。如果当前仓位在这个情景下会让账户总损失超过 1%，那就应该在 43.52 附近先减到不超过这个风险预算；如果本来就低于 1%，可以保留一部分核心仓位，不必机械砍三分之一。首减之后，剩余仓位再分档处理：44.80–45.21 减一部分，46.99 附近再减，48.44–49.39 清余量。若 42.26 被放量跌破，成交量放大到 2 亿股以上或明显超过 10 月均量 1.34 亿股的约 150%，剩余仓位不等反弹，直接退出或降到最低可承受水平。这样既解决激进派“全等反弹”的执行风险，也避免保守派“一刀切砍在低位”的过度谨慎。</p>
+<p>第三，47.30 不应被当成减仓多头的止损，它只在新增空头或对冲框架里有意义；而若不做空，就明确不设这个空头止损。右侧复核可以保留，但必须是规则：连续三个交易日收盘站上 46.99、MACD 柱转正、突破 49.39 且量能确认，才考虑小仓位重建，第一目标 52.32，第二目标 59–60 的死叉与解套抛压区，届时也不追高。基本面验证同样要量化：Q4 单季经营现金流达到 25 亿元以上、全年 OCF 达到 33 亿元以上，才谈得上加仓；若 Q4 单季低于 12 亿元、全年低于 20 亿元，则利润质量警示，应进一步降低敞口；Q4 毛利率维持 22% 以上才算结构升级成立，若跌破 18%，就把 Q3 的 24.72% 视为项目集中确认；应收账款占总资产若升破 32%，要警惕减值和周转恶化；合同负债维持 70 亿元以上，才继续支持订单可见度。</p>
+<p>说到底，600487.SS 现在不是“业绩好所以死扛”和“趋势空所以清仓”的二选一。激进派正确的地方是趋势和现金流质量尚未给出反转确认，错误在于把减仓押在反弹上并把风险控制说成高赔率；保守派正确的地方是隔夜缺口和破位风险必须用现价部分减仓来对冲，错误在于把 Q4 验证阈值变成机械清仓令，并忽略单季现金流拐点和订单预收的领先意义。我的平衡策略是：现在按风险预算先降一部分，反弹继续降，破位清剩余，不做裸空，不用基本面利好当护城河，但保留小核心和右侧复核的资格。这样既能避开 38.8–40.0 的尾部风险，又不会在 42.26 双底附近把仓位一次性交出去。</p>
+<p><strong>Rating</strong>: Sell
+FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+</section><section id="s5"><h2>V. Portfolio Manager Decision</h2><h3 id="s5-1">Portfolio Manager</h3>
+<p><strong>Rating</strong>: Underweight</p>
+<p><strong>Executive Summary</strong>: 对600487.SS维持防御性低配：方向是减仓而非全面清仓，也不做裸空。净敞口从基准下调25%–50%，现价43.52附近先减至少三分之一，以对冲10/30的44.60→42.35隔夜缺口与反弹不来的执行风险；剩余仓位在44.80–45.21、46.99、48.44–49.39分档减持，若42.26放量跌破则剩余仓位不等反弹直接退出。保留右侧复核资格：连续三日收盘站上46.99、MACD柱转正并放量突破49.39，才考虑小仓位重建。时间窗口3–6个月，核心验证在Q4单季经营现金流与毛利率。</p>
+<p><strong>Investment Thesis</strong>: 空头在趋势与利润质量上赢得决定性：600487.SS前三季归母净利61.63亿元（+152.03%）仅对应经营现金流8.41亿元，转化率13.7%，自由现金流约-13.5亿元；应收账款+37.6%至239.13亿元、存货+29.9%至122.54亿元，合计吞噬约93.6亿元营运资金，利润爆发尚未被现金兑现。利好出尽被市场证伪——10/19业绩预告后冲至50.25元，现价43.52元反而更低；50/200死叉10/29确认，MACD柱二次扩张，价格低于10EMA 46.99、50SMA 59.10、200SMA 60.03及VWMA 48.44约10%，均线空头排列，下降结构未变，因此必须低配而非持有完整敞口。但不足以定为Sell：营收643.67亿元（+29.72%）、Q3毛利率24.72%、合同负债73.21亿元（+47.3%）、Q3单季OCF转正约17.06亿元、研发25.03亿元、董事长提议回购1–2亿元，叠加已从高点回撤约64.5%、RSI正向背离与42.26/42.27双底，全面退出或裸空在支撑上方缺乏安全边际。三位分析师虽都标Sell，但实质方案均为'下调25%–50%+分档减仓+不追空+保留右侧'，与Underweight一致；我采纳保守与中性派的修正——首减必须在现价附近执行一部分，而非全部挂在44.80–45.21，以应对10/30缺口和11/3休市后的跳空风险，47.30止损只适用于新增空头/对冲框架，不作为减仓多头的止损。改变评级的条件：上行——连续三日收盘站上46.99、MACD柱转正、放量突破49.39，则上修至中性/超配；Q4单季OCF≥25亿元、全年OCF≥33亿元且Q4毛利率≥22%，则上修利润质量判断。下行——42.26放量跌破（量能约2亿股或达10月均量1.34亿股的约150%）看38.8–40；Q4单季OCF&lt;12亿元、全年&lt;20亿元、毛利率&lt;18%或应收账款占总资产升破32%，则进一步下调至Sell。</p>
+<p><strong>Price Target</strong>: 40.0</p>
+<p><strong>Time Horizon</strong>: 3-6 months</p>
+</section>
+</main>
+<footer class="credit"><a href="https://github.com/TauricResearch/TradingAgents" rel="noopener">TradingAgents</a> powered by <a class="brand" href="https://github.com/TauricResearch" rel="noopener">Tauric Research</a></footer>
+</div>
+<a class="to-top" href="#top">Top</a>
+</body>
+</html>

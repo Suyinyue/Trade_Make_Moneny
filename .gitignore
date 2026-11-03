@@ -1,0 +1,28 @@
+# Virtual environments
+venv/
+venv-ta/
+.venv/
+
+# Python caches / build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Secrets
+.env
+.env.*
+!.env.example
+!.env.enterprise.example
+
+# Logs
+logs/
+*.log
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

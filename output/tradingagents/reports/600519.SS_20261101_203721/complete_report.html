@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>600519.SS 2026-10-30 Underweight: TradingAgents report</title>
+<style>
+:root {
+  --paper: #fbfbfa; --ink: #1c2126; --muted: #5d6670; --rule: #e2e5e8; --wash: #f2f4f5;
+  --accent: #087a59; --up: #087a59; --down: #b4372f; --level: #5d6670; --edge: #d3d8dc; --mark: #878f97;
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131a1f; --ink: #e4e8eb; --muted: #9aa6af; --rule: #263239; --wash: #1a242a;
+    --accent: #14c290; --up: #14c290; --down: #ef6f63; --level: #9aa6af; --edge: #3d4c55; --mark: #66737c;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .masthead .logo [stroke="#363636"] { stroke: var(--muted); }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 17px/1.62 var(--serif); font-kerning: normal;
+}
+.page { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+main h2, main h3 { scroll-margin-top: 1rem; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+h1, h2, h3, h4 { text-wrap: balance; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.masthead { padding-bottom: 1.75rem; border-bottom: 1px solid var(--rule); }
+/* The logo leads at the top left, where readers look for it, 24px tall (the usual
+   on-screen floor for a wordmark) with at least its height clear below. */
+.masthead .logo { display: block; width: fit-content; margin: 0 0 2.25rem; }
+.masthead .logo svg { display: block; height: 1.5rem; width: auto; }
+.masthead h1 {
+  margin: 0; font: 600 2.6rem/1.1 var(--sans); letter-spacing: -0.02em;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.5em;
+}
+.masthead .rating { font-weight: 500; }
+.rating.up { color: var(--up); } .rating.down { color: var(--down); } .rating.level { color: var(--level); }
+.rating.review { color: var(--muted); font-style: italic; }
+.masthead .date { margin: 0.55rem 0 1.5rem; font: 1rem/1.4 var(--sans); color: var(--muted); }
+.run { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.45rem 1.25rem;
+  font: 0.85rem/1.5 var(--sans); }
+.run > div { display: contents; }
+.run dt { color: var(--muted); }
+.run dd { margin: 0; overflow-wrap: anywhere; }
+.run .note dd { color: var(--down); }
+.field { display: inline-block; margin: 0 0.15rem 0.15rem 0; padding: 0 0.4rem; border: 1px solid var(--edge);
+  border-radius: 4px; background: var(--wash); font: 0.8rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.run .group { display: inline-block; margin-right: 0.9rem; white-space: nowrap; }
+.run .group > .name { color: var(--muted); margin-right: 0.3rem; }
+.run .then { color: var(--muted); margin: 0 0.2rem; }
+
+/* The sections: listed under the header on narrow screens. On wide ones, a
+   quiet rail centred on the left edge (numerals for the sections, short bars
+   for their agents) that opens into the full list when pointed at or focused. */
+.contents { margin: 2.25rem 0 0; font: 0.9rem/1.45 var(--sans); }
+.contents ul { margin: 0; padding: 0; list-style: none; }
+.contents > ul > li { margin: 0 0 0.75rem; }
+.contents ul ul { margin-top: 0.2rem; padding-left: 1.6rem; font-size: 0.85rem; }
+.contents ul ul li { margin: 0.1rem 0; }
+.contents a { display: flex; align-items: center; gap: 0.6rem; color: var(--muted); text-decoration: none; }
+.contents > ul > li > a { color: var(--ink); }
+.contents .num { min-width: 1.6rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.contents .bar { display: none; }
+.contents a:hover .label, .contents a:focus-visible .label { color: var(--accent); text-decoration: underline; }
+.to-top { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding: 0.25rem 0.6rem; border: 1px solid var(--edge); border-radius: 4px; background: var(--paper);
+  color: var(--muted); font: 0.8rem/1.4 var(--sans); text-decoration: none; }
+
+@media (min-width: 60rem) {
+  .contents { position: fixed; left: 1rem; top: 50%; transform: translateY(-50%); z-index: 1;
+    max-height: 86vh; overflow-y: auto; overscroll-behavior: contain; margin: 0;
+    padding: 0.7rem 0.9rem; border: 1px solid transparent; border-radius: 6px;
+    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s; }
+  .contents > ul > li { margin: 0 0 0.35rem; }
+  .contents ul ul { margin-top: 0; padding-left: 0; }
+  .contents ul ul li { margin: 0; }
+  /* Marks reach 3:1 contrast and rows 24px, the WCAG 2.2 floors for a control's
+     visual cue and its pointer target. */
+  .contents a { min-height: 1.5rem; }
+  .contents .num { min-width: 1.4rem; }
+  .contents .bar { display: block; flex: none; width: 1.25rem; height: 2px; margin-left: 0.2rem;
+    border-radius: 1px; background: var(--mark); }
+  .contents .label { max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap;
+    transition: opacity 0.15s, max-width 0.2s; }
+  .contents:hover, .contents:focus-within { background: var(--paper); border-color: var(--rule);
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.08); }
+  .contents:hover .label, .contents:focus-within .label { max-width: 18rem; opacity: 1; }
+  .contents a:hover .bar, .contents a:focus-visible .bar { background: var(--accent); }
+  .to-top { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contents, .contents .label { transition: none; }
+}
+
+/* The maker's credit: one quiet line at the foot. */
+.credit { margin-top: 4.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+  color: var(--muted); font: 0.8rem/1.4 var(--sans); }
+.credit a { color: inherit; text-decoration: none; }
+.credit a.brand { color: var(--accent); }
+.credit a:hover, .credit a:focus-visible { text-decoration: underline; }
+
+/* Three levels of separation: the five groups, the agents within a group, and
+   breaks an agent draws inside its own text. */
+main h2 {
+  margin: 4.5rem 0 0.25rem; padding-top: 1.5rem; border-top: 2px solid var(--ink);
+  font: 600 1.45rem/1.3 var(--sans); letter-spacing: -0.01em;
+}
+main section:first-child h2 { margin-top: 3rem; }
+main h3 { margin: 2.75rem 0 0.75rem; padding-top: 1.1rem; border-top: 1px solid var(--rule);
+  font: 600 1.15rem/1.35 var(--sans); color: var(--accent); }
+main h2 + h3 { margin-top: 1.25rem; padding-top: 0; border-top: 0; }
+main h4, main h5, main h6 { margin: 1.75rem 0 0.5rem; font: 600 1rem/1.4 var(--sans); }
+main h5, main h6 { color: var(--muted); }
+main p, main ul, main ol { margin: 0 0 1rem; }
+main li { margin: 0.25rem 0; }
+main strong { font-weight: 650; }
+main blockquote { margin: 1.25rem 0; padding: 0.1rem 0 0.1rem 1rem; border-left: 3px solid var(--rule);
+  color: var(--muted); }
+main code { font: 0.88em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--wash); padding: 0.1em 0.3em; border-radius: 3px; }
+main pre { background: var(--wash); padding: 0.9rem 1rem; border-radius: 4px; overflow-x: auto; }
+main pre code { background: none; padding: 0; }
+main hr { width: 3rem; margin: 2rem auto; border: 0; border-top: 1px solid var(--rule); }
+
+.table { overflow-x: auto; margin: 0 0 1.25rem; }
+table { border-collapse: collapse; width: 100%; font: 0.86rem/1.45 var(--sans);
+  font-variant-numeric: tabular-nums; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; border-bottom-color: var(--muted); }
+tbody tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 34rem) {
+  body { font-size: 16px; }
+  .page { padding: 2rem 1rem 3rem; }
+  .masthead h1 { font-size: 2rem; }
+  .masthead .logo svg { height: 1.25rem; }
+  .run { grid-template-columns: 1fr; gap: 0 0; }
+  .run dd { margin-bottom: 0.45rem; }
+  .run .group { white-space: normal; }
+}
+@media print {
+  :root { --paper: #fff; --ink: #000; --muted: #444; --rule: #bbb; --accent: #000; --wash: #f2f2f2;
+    --edge: #bbb; --up: #087a59; --down: #b4372f; --level: #444; }
+  body { font-size: 11pt; }
+  .table { overflow: visible; }
+  .page { max-width: none; padding: 0; }
+  .contents, .to-top { display: none; }
+  main h2 { break-before: page; border-top: 0; margin-top: 0; }
+  main section:first-child h2 { break-before: auto; }
+  main h3, main h4 { break-after: avoid; }
+  a { color: inherit; text-decoration: none; }
+  table { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<header class="masthead">
+<a class="logo" href="https://tauric.ai" rel="noopener" aria-label="Tauric Research"><svg width="993" height="115" viewBox="0 0 993 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M189.86 95.0459V37.9779H165.924V29.9259H223.74V37.9779H199.804V95.0459H189.86ZM251.026 46.4259C256.071 46.4259 260.178 47.0272 263.345 48.2299C266.514 49.4032 268.89 51.3686 270.474 54.1259C272.058 56.8832 272.85 60.6379 272.85 65.3899V95.0459H264.666L263.961 89.8979H263.434C261.644 91.7752 259.386 93.2419 256.657 94.2979C253.929 95.3246 251.025 95.8379 247.946 95.8379C244.426 95.8379 241.419 95.2952 238.925 94.2099C236.432 93.0952 234.54 91.5406 233.249 89.5459C231.959 87.5512 231.313 85.2046 231.313 82.5059C231.313 78.2526 232.897 74.9672 236.065 72.6499C239.263 70.3032 244.337 68.8219 251.29 68.2059L263.258 67.0179V64.7299C263.258 61.9139 262.774 59.7139 261.806 58.1299C260.838 56.5459 259.371 55.4312 257.406 54.7859C255.47 54.1406 252.888 53.8179 249.662 53.8179C247.432 53.8179 245.012 54.0086 242.401 54.3899C239.82 54.7712 237.341 55.3432 234.965 56.1059V48.8019C237.312 48.0392 239.908 47.4526 242.754 47.0419C245.628 46.6312 248.386 46.4259 251.026 46.4259ZM250.541 89.0619C252.888 89.0619 255.162 88.6512 257.362 87.8299C259.562 86.9792 261.527 85.7179 263.258 84.0459V72.8259L252.038 73.9259C248.136 74.3659 245.35 75.2166 243.678 76.4779C242.005 77.7099 241.169 79.4699 241.169 81.7579C241.169 84.0752 241.947 85.8792 243.501 87.1699C245.056 88.4312 247.403 89.0619 250.541 89.0619ZM313.339 95.8379C307.59 95.8379 303.087 94.2979 299.831 91.2179C296.575 88.1086 294.947 83.2686 294.947 76.6979V47.1739H304.715V76.1699C304.715 80.1886 305.624 83.0779 307.443 84.8379C309.291 86.5979 311.916 87.4779 315.319 87.4779C317.871 87.4779 320.379 86.9939 322.843 86.0259C325.336 85.0286 327.492 83.5766 329.311 81.6699V47.1739H339.079V95.0459H330.983L330.367 89.9419H329.883C327.624 91.8486 325.072 93.3152 322.227 94.3419C319.382 95.3392 316.419 95.8379 313.339 95.8379ZM362.371 47.1739H370.423L371.171 53.2899H371.743C373.474 51.2072 375.703 49.5792 378.431 48.4059C381.188 47.2326 384.063 46.6459 387.055 46.6459C388.756 46.6459 390.355 46.7926 391.851 47.0859V55.8419C390.414 55.5779 388.654 55.4459 386.571 55.4459C383.99 55.4459 381.364 55.9446 378.695 56.9419C376.026 57.9392 373.84 59.4206 372.139 61.3859V95.0459H362.371V47.1739ZM409.069 95.0459V47.1739H418.837V95.0459H409.069ZM413.953 37.8459C411.871 37.8459 410.287 37.3912 409.201 36.4819C408.145 35.5726 407.617 34.2672 407.617 32.5659C407.617 30.8352 408.145 29.5152 409.201 28.6059C410.287 27.6672 411.871 27.1979 413.953 27.1979C416.036 27.1979 417.605 27.6672 418.661 28.6059C419.747 29.5152 420.289 30.8352 420.289 32.5659C420.289 34.2672 419.747 35.5726 418.661 36.4819C417.605 37.3912 416.036 37.8459 413.953 37.8459ZM464.85 95.9259C456.607 95.9259 450.315 93.8432 445.974 89.6779C441.662 85.5126 439.506 79.3526 439.506 71.1979C439.506 63.0139 441.779 56.8392 446.326 52.6739C450.902 48.5086 457.575 46.4259 466.346 46.4259C470.716 46.4259 474.735 46.9246 478.402 47.9219V55.7099C476.378 55.2406 474.486 54.8886 472.726 54.6539C470.966 54.4192 469.118 54.3019 467.182 54.3019C461.168 54.3019 456.71 55.6512 453.806 58.3499C450.931 61.0486 449.494 65.2872 449.494 71.0659C449.494 76.8739 450.858 81.1566 453.586 83.9139C456.343 86.6712 460.42 88.0499 465.818 88.0499C467.695 88.0499 469.616 87.8886 471.582 87.5659C473.547 87.2139 475.82 86.6712 478.402 85.9379V93.7259C474.236 95.1926 469.719 95.9259 464.85 95.9259ZM574.428 95.0459L553.704 69.0859C553.176 69.1152 552.37 69.1299 551.284 69.1299C548.38 69.1299 544.978 68.9832 541.076 68.6899V95.0459H531.308V31.4659C537.967 29.9699 544.846 29.2219 551.944 29.2219C561.595 29.2219 568.752 30.8059 573.416 33.9739C578.08 37.1126 580.412 42.1286 580.412 49.0219C580.412 54.0086 579.004 58.0859 576.188 61.2539C573.402 64.4219 569.266 66.6366 563.78 67.8979L585.648 95.0459H574.428ZM541.076 61.2099C543.071 61.4152 544.816 61.5619 546.312 61.6499C547.838 61.7379 549.627 61.7819 551.68 61.7819C558.427 61.7819 563.34 60.7699 566.42 58.7459C569.5 56.6926 571.04 53.4952 571.04 49.1539C571.04 46.0739 570.395 43.6099 569.104 41.7619C567.843 39.9139 565.863 38.5792 563.164 37.7579C560.495 36.9366 556.975 36.5259 552.604 36.5259C550.404 36.5259 548.424 36.6139 546.664 36.7899C544.904 36.9659 543.042 37.2299 541.076 37.5819V61.2099ZM642.947 74.0139H608.231C608.407 77.4752 609.155 80.2766 610.475 82.4179C611.795 84.5299 613.775 86.0846 616.415 87.0819C619.055 88.0792 622.443 88.5779 626.579 88.5779C630.686 88.5779 635.233 87.9472 640.219 86.6859V93.9459C635.027 95.2659 630.026 95.9259 625.215 95.9259C616.298 95.9259 609.61 93.9166 605.151 89.8979C600.722 85.8499 598.507 79.6166 598.507 71.1979C598.507 65.9179 599.402 61.4299 601.191 57.7339C602.981 54.0379 605.562 51.2366 608.935 49.3299C612.338 47.3939 616.43 46.4259 621.211 46.4259C628.251 46.4259 633.634 48.5819 637.359 52.8939C641.085 57.1766 642.947 63.3659 642.947 71.4619V74.0139ZM621.079 52.8939C616.973 52.8939 613.834 54.1406 611.663 56.6339C609.493 59.0979 608.334 62.9259 608.187 68.1179H633.751C633.634 62.9259 632.519 59.0979 630.407 56.6339C628.295 54.1406 625.186 52.8939 621.079 52.8939ZM677.365 95.9259C671.352 95.9259 665.896 95.2219 660.997 93.8139V86.7299C666.248 88.1966 671.718 88.9299 677.409 88.9299C681.809 88.9299 684.977 88.3432 686.913 87.1699C688.849 85.9672 689.817 84.2219 689.817 81.9339C689.817 80.7019 689.597 79.6899 689.157 78.8979C688.717 78.0766 687.969 77.4019 686.913 76.8739C685.857 76.3166 684.405 75.8912 682.557 75.5979L674.065 74.2779C669.137 73.4859 665.573 71.9899 663.373 69.7899C661.202 67.5899 660.117 64.6419 660.117 60.9459C660.117 56.4579 661.965 52.9232 665.661 50.3419C669.386 47.7312 675.062 46.4259 682.689 46.4259C685.094 46.4259 687.485 46.5872 689.861 46.9099C692.266 47.2032 694.481 47.6432 696.505 48.2299V55.2699C692.046 54.0379 687.456 53.4219 682.733 53.4219C677.893 53.4219 674.476 54.0526 672.481 55.3139C670.486 56.5752 669.489 58.3206 669.489 60.5499C669.489 62.2219 670.002 63.5859 671.029 64.6419C672.056 65.6686 673.889 66.4166 676.529 66.8859L685.021 68.2059C689.92 68.9686 693.513 70.3766 695.801 72.4299C698.089 74.4832 699.233 77.4606 699.233 81.3619C699.233 84.3832 698.412 86.9792 696.769 89.1499C695.156 91.3206 692.706 92.9926 689.421 94.1659C686.165 95.3392 682.146 95.9259 677.365 95.9259ZM760.579 74.0139H725.863C726.039 77.4752 726.787 80.2766 728.107 82.4179C729.427 84.5299 731.407 86.0846 734.047 87.0819C736.687 88.0792 740.075 88.5779 744.211 88.5779C748.317 88.5779 752.864 87.9472 757.851 86.6859V93.9459C752.659 95.2659 747.657 95.9259 742.847 95.9259C733.929 95.9259 727.241 93.9166 722.783 89.8979C718.353 85.8499 716.139 79.6166 716.139 71.1979C716.139 65.9179 717.033 61.4299 718.823 57.7339C720.612 54.0379 723.193 51.2366 726.567 49.3299C729.969 47.3939 734.061 46.4259 738.843 46.4259C745.883 46.4259 751.265 48.5819 754.991 52.8939C758.716 57.1766 760.579 63.3659 760.579 71.4619V74.0139ZM738.711 52.8939C734.604 52.8939 731.465 54.1406 729.295 56.6339C727.124 59.0979 725.965 62.9259 725.819 68.1179H751.383C751.265 62.9259 750.151 59.0979 748.039 56.6339C745.927 54.1406 742.817 52.8939 738.711 52.8939ZM796.986 46.4259C802.032 46.4259 806.138 47.0272 809.306 48.2299C812.474 49.4032 814.85 51.3686 816.434 54.1259C818.018 56.8832 818.81 60.6379 818.81 65.3899V95.0459H810.626L809.922 89.8979H809.394C807.605 91.7752 805.346 93.2419 802.618 94.2979C799.89 95.3246 796.986 95.8379 793.906 95.8379C790.386 95.8379 787.38 95.2952 784.886 94.2099C782.393 93.0952 780.501 91.5406 779.21 89.5459C777.92 87.5512 777.274 85.2046 777.274 82.5059C777.274 78.2526 778.858 74.9672 782.026 72.6499C785.224 70.3032 790.298 68.8219 797.25 68.2059L809.218 67.0179V64.7299C809.218 61.9139 808.734 59.7139 807.766 58.1299C806.798 56.5459 805.332 55.4312 803.366 54.7859C801.43 54.1406 798.849 53.8179 795.622 53.8179C793.393 53.8179 790.973 54.0086 788.362 54.3899C785.781 54.7712 783.302 55.3432 780.926 56.1059V48.8019C783.273 48.0392 785.869 47.4526 788.714 47.0419C791.589 46.6312 794.346 46.4259 796.986 46.4259ZM796.502 89.0619C798.849 89.0619 801.122 88.6512 803.322 87.8299C805.522 86.9792 807.488 85.7179 809.218 84.0459V72.8259L797.998 73.9259C794.097 74.3659 791.31 75.2166 789.638 76.4779C787.966 77.7099 787.13 79.4699 787.13 81.7579C787.13 84.0752 787.908 85.8792 789.462 87.1699C791.017 88.4312 793.364 89.0619 796.502 89.0619ZM841.524 47.1739H849.576L850.324 53.2899H850.896C852.627 51.2072 854.856 49.5792 857.584 48.4059C860.341 47.2326 863.216 46.6459 866.208 46.6459C867.909 46.6459 869.508 46.7926 871.004 47.0859V55.8419C869.567 55.5779 867.807 55.4459 865.724 55.4459C863.143 55.4459 860.517 55.9446 857.848 56.9419C855.179 57.9392 852.993 59.4206 851.292 61.3859V95.0459H841.524V47.1739ZM909.164 95.9259C900.921 95.9259 894.629 93.8432 890.288 89.6779C885.976 85.5126 883.82 79.3526 883.82 71.1979C883.82 63.0139 886.093 56.8392 890.64 52.6739C895.216 48.5086 901.889 46.4259 910.66 46.4259C915.03 46.4259 919.049 46.9246 922.716 47.9219V55.7099C920.692 55.2406 918.8 54.8886 917.04 54.6539C915.28 54.4192 913.432 54.3019 911.496 54.3019C905.482 54.3019 901.024 55.6512 898.12 58.3499C895.245 61.0486 893.808 65.2872 893.808 71.0659C893.808 76.8739 895.172 81.1566 897.9 83.9139C900.657 86.6712 904.734 88.0499 910.132 88.0499C912.009 88.0499 913.93 87.8886 915.896 87.5659C917.861 87.2139 920.134 86.6712 922.716 85.9379V93.7259C918.55 95.1926 914.033 95.9259 909.164 95.9259ZM941.796 23.9419H951.564V52.2779H952.048C954.248 50.3712 956.756 48.9192 959.572 47.9219C962.417 46.9246 965.395 46.4259 968.504 46.4259C974.019 46.4259 978.375 47.9952 981.572 51.1339C984.769 54.2432 986.368 59.0686 986.368 65.6099V95.0459H976.6V66.0939C976.6 62.0459 975.661 59.1566 973.784 57.4259C971.936 55.6952 969.237 54.8299 965.688 54.8299C963.048 54.8299 960.481 55.3286 957.988 56.3259C955.524 57.2939 953.383 58.7312 951.564 60.6379V95.0459H941.796V23.9419Z" fill="#14C290"/>
+<rect x="0.205322" y="14.873" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="14.679" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="14.679" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="86.6055" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="86.6055" y="44.0371" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="101.284" y="29.1787" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="58.7158" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="58.7158" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="87.1592" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="87.1592" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="73.0205" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="73.0205" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="29.3579" y="87.3262" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="71.9265" y="87.3262" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="43.1211" y="101.631" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="57.2478" y="101.631" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="101.284" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+<rect x="15.0187" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="44.3771" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="59.0558" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="73.3605" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="87.6662" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="0.34" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.2668" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="101.624" y="101.971" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="43.4611" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="57.5876" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="15.0187" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="29.6979" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.2668" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.9455" y="0.34" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="72.445" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="86.7506" y="15.213" width="10.0489" height="10.0489" rx="5.02447" stroke="#363636" stroke-width="0.68"/>
+<rect x="100.716" y="14.873" width="10.7289" height="10.7289" rx="5.36447" fill="#14C290"/>
+</svg></a>
+<h1><span class="ticker">600519.SS</span> <span class="rating down">Underweight</span></h1>
+<p class="date">Analysis of 2026-10-30</p>
+<dl class="run"><div class="detail"><dt>Generated</dt><dd>2026-11-01 20:37</dd></div><div class="detail"><dt>Deep model</dt><dd><span class="field">deepseek</span> <span class="field">deepseek-v4-pro</span></dd></div><div class="detail"><dt>Quick model</dt><dd><span class="field">deepseek</span> <span class="field">deepseek-flash</span></dd></div><div class="detail"><dt>Analysts</dt><dd><span class="field">fundamentals</span></dd></div><div class="detail"><dt>Debate rounds</dt><dd><span class="group"><span class="name">research</span><span class="field">1</span></span> <span class="group"><span class="name">risk</span><span class="field">1</span></span></dd></div><div class="detail"><dt>Data vendors</dt><dd><span class="group"><span class="name">Prices</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Indicators</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Fundamentals</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">sec_edgar</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">News</span><span class="field">akshare</span> <span class="then">→</span> <span class="field">yfinance</span></span> <span class="group"><span class="name">Macro</span><span class="field">fred</span></span> <span class="group"><span class="name">Prediction markets</span><span class="field">polymarket</span></span></dd></div><div class="detail"><dt>Version</dt><dd>TradingAgents 0.7.1</dd></div></dl>
+</header>
+<nav class="contents" aria-label="Sections"><ul><li><a href="#s1"><span class="num">I</span> <span class="label">Analyst Team Reports</span></a><ul><li><a href="#s1-1"><span class="bar"></span> <span class="label">Fundamentals Analyst</span></a></li></ul></li><li><a href="#s2"><span class="num">II</span> <span class="label">Research Team Decision</span></a><ul><li><a href="#s2-1"><span class="bar"></span> <span class="label">Bull Researcher</span></a></li><li><a href="#s2-2"><span class="bar"></span> <span class="label">Bear Researcher</span></a></li><li><a href="#s2-3"><span class="bar"></span> <span class="label">Research Manager</span></a></li></ul></li><li><a href="#s3"><span class="num">III</span> <span class="label">Trading Team Plan</span></a><ul><li><a href="#s3-1"><span class="bar"></span> <span class="label">Trader</span></a></li></ul></li><li><a href="#s4"><span class="num">IV</span> <span class="label">Risk Management Team Decision</span></a><ul><li><a href="#s4-1"><span class="bar"></span> <span class="label">Aggressive Analyst</span></a></li><li><a href="#s4-2"><span class="bar"></span> <span class="label">Conservative Analyst</span></a></li><li><a href="#s4-3"><span class="bar"></span> <span class="label">Neutral Analyst</span></a></li></ul></li><li><a href="#s5"><span class="num">V</span> <span class="label">Portfolio Manager Decision</span></a><ul><li><a href="#s5-1"><span class="bar"></span> <span class="label">Portfolio Manager</span></a></li></ul></li></ul></nav>
+<main>
+<section id="s1"><h2>I. Analyst Team Reports</h2><h3 id="s1-1">Fundamentals Analyst</h3>
+<h4>600519.SS（贵州茅台）基本面深度研究报告</h4>
+<p><strong>数据切片日期：2026-10-30｜货币单位：人民币（CNY）｜数据来源：akshare 财报接口（公司披露原始报表）</strong></p>
+<hr />
+<h5>0. 数据可用性与口径说明（请先阅读，影响结论边界）</h5>
+<p>在给出结论前，必须先交代本次工具返回的三个重要限制，以免误用：</p>
+<ol>
+<li><strong>公司概况/估值数据被供应商屏蔽</strong>。<code>get_fundamentals</code> 明确返回：市场市值、估值倍数（PE/PB/PS）、52周区间、TTM 盈利、公司名称/行业分类等&quot;时点数据&quot;在该日期<strong>不予提供</strong>（供应商只给&quot;当前值&quot;，无历史版本，避免前视偏差）。因此本报告<strong>不含任何估值倍数判断</strong>，也无法给出目标价。凡涉及&quot;贵/便宜&quot;的判断，本报告一律不作出。</li>
+<li><strong>内部人交易数据被屏蔽</strong>。<code>get_insider_transactions</code> 返回：该供应商按&quot;成交日&quot;而非&quot;披露日&quot;标记交易，无法还原 2026-10-30 时点市场上已公开的交易，故不予提供。<strong>本报告不含大股东/高管增减持分析</strong>，这是本次分析的一个明确空白。</li>
+<li><strong>报表口径为 A 股法定&quot;年内累计数&quot;</strong>：<code>20260331</code> = 一季度（3个月）、<code>20260630</code> = 上半年累计（6个月）、<code>20251231</code> = 全年。本报告所有&quot;单季&quot;数据均为自行差分推算（累计值相减），并会标注。此外，<strong>年度资产负债表未返回 FY2025（20251231）行</strong>，季度利润表缺少 2025Q3、2025Q1 单期数据，部分同比无法完整构建——凡属推算的地方均已注明。</li>
+</ol>
+<hr />
+<h5>1. 核心结论（TL;DR）</h5>
+<p><strong>贵州茅台从&quot;量价齐升的高速成长股&quot;切换为&quot;低增长 + 利润率承压&quot;的现金牛，且报表中的领先指标（合同负债、存货、营业成本）比利润表本身更早、更明确地示警。</strong></p>
+<ul>
+<li><strong>收入增长实质停滞</strong>：FY2025 营业总收入 1,720.54 亿元，同比 <strong>-1.15%</strong>（FY2024 为 1,741.44 亿元），为可追溯区间内首次年度负增长；2026H1 营业总收入 922.78 亿元，同比仅 <strong>+1.31%</strong>。</li>
+<li><strong>利润连续两期负增长</strong>：FY2025 归母净利 823.20 亿元，同比 <strong>-4.54%</strong>；2026H1 归母净利 445.17 亿元，同比 <strong>-1.95%</strong>（2Q26 单季约 172.74 亿元，均低于 Q1 的 272.43 亿元）。</li>
+<li><strong>毛利率实质性下移</strong>：2026H1 营业成本同比 <strong>+21.8%</strong>，而收入仅 +1.5%，毛利率由 91.30% 降至 <strong>89.55%（-1.75pp）</strong>；FY2025 毛利率 91.18%，亦低于 FY2022–FY2024 的 91.9%–92.0% 平台。</li>
+<li><strong>最强的预警信号来自合同负债（预收经销商货款）</strong>：2026-06-30 仅 <strong>31.78 亿元</strong>，同比 55.07 亿元 <strong>-42.3%</strong>；相比 FY2024 末的 95.92 亿元、2025Q3 末的 77.49 亿元、2026Q1 末的 30.27 亿元，是<strong>趋势性、非季节性</strong>的塌陷（Q1 单季环比 -61%）。这直接指向渠道打款意愿下降/去库存。</li>
+<li><strong>存货增速快于收入</strong>：2026-06-30 存货 613.17 亿元，同比 <strong>+11.5%</strong>，而收入 +1.3%，产成品/基酒沉淀加速，需在 Q3 报表中确认是否为渠道压货的前置。</li>
+<li><strong>但资产质量与现金流极强，构成下行保护</strong>：零有息负债、资产负债率仅 <strong>15.19%</strong>、2026H1 经营现金流 706.91 亿元（同比 131.19 亿元，+439%），现金含量（OCF/净利润）<strong>1.54x</strong>，年化 ROE 约 <strong>34%</strong>，FY2025 分红性现金流出 734.27 亿元 ≈ 净利润的 89%。</li>
+<li><strong>交易含义</strong>：基本面方向向下但幅度温和（个位数下滑），资产负债表无风险，估值数据缺失。因此给出 <strong>Hold</strong>，并在报告中明确&quot;何处会翻空、何处会翻多&quot;。</li>
+</ul>
+<hr />
+<h5>2. 公司画像（仅作定位，非工具输出）</h5>
+<p>600519.SS 为上海证券交易所上市的<strong>贵州茅台酒股份有限公司</strong>，白酒（酱香型）龙头，核心产品为茅台酒（飞天为主）及系列酒（茅台王子酒、迎宾酒、汉酱等），销售以&quot;经销商+自营/直销（含 i茅台）&quot;双轨为主。公司报表的鲜明特征是：<strong>预收款（合同负债）先行、毛利率 90% 以上、几乎无有息负债、资本开支相对收入极低、分红率高</strong>。这三点决定了本报告的分析框架——<strong>看合同负债、看成本率、看分红与现金流，而不是看杠杆</strong>。</p>
+<blockquote>
+<p>注：以上为背景性定位，供应商在 2026-10-30 未提供 profile/行业分类字段，本节不作为工具证据使用。</p>
+</blockquote>
+<hr />
+<h5>3. 年度财务历史（FY2022–FY2025）</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>FY2022</th>
+<th>FY2023</th>
+<th>FY2024</th>
+<th>FY2025</th>
+<th>25 vs 24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>营业总收入</td>
+<td>1,275.54</td>
+<td>1,505.60</td>
+<td>1,741.44</td>
+<td>1,720.54</td>
+<td><strong>-1.15%</strong></td>
+</tr>
+<tr>
+<td>营业收入</td>
+<td>1,241.00</td>
+<td>1,476.94</td>
+<td>1,708.99</td>
+<td>1,688.38</td>
+<td>-1.21%</td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>100.93</td>
+<td>118.67</td>
+<td>137.89</td>
+<td>148.92</td>
+<td><strong>+8.00%</strong></td>
+</tr>
+<tr>
+<td>销售费用</td>
+<td>32.98</td>
+<td>46.49</td>
+<td>56.39</td>
+<td>72.53</td>
+<td>+28.6%</td>
+</tr>
+<tr>
+<td>管理费用</td>
+<td>90.12</td>
+<td>97.29</td>
+<td>93.16</td>
+<td>83.20</td>
+<td>-10.7%</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>878.80</td>
+<td>1,037.09</td>
+<td>1,196.89</td>
+<td>1,148.09</td>
+<td>-4.08%</td>
+</tr>
+<tr>
+<td>利润总额</td>
+<td>877.01</td>
+<td>1,036.63</td>
+<td>1,196.39</td>
+<td>1,147.55</td>
+<td>-4.08%</td>
+</tr>
+<tr>
+<td>净利润</td>
+<td>653.76</td>
+<td>775.21</td>
+<td>893.35</td>
+<td>853.10</td>
+<td>-4.51%</td>
+</tr>
+<tr>
+<td><strong>归母净利润</strong></td>
+<td><strong>627.17</strong></td>
+<td><strong>747.34</strong></td>
+<td><strong>862.28</strong></td>
+<td><strong>823.20</strong></td>
+<td><strong>-4.54%</strong></td>
+</tr>
+<tr>
+<td>毛利率</td>
+<td>91.87%</td>
+<td>91.97%</td>
+<td>91.93%</td>
+<td><strong>91.18%</strong></td>
+<td>-0.75pp</td>
+</tr>
+<tr>
+<td>归母净利率</td>
+<td>49.17%</td>
+<td>49.64%</td>
+<td>49.52%</td>
+<td><strong>47.85%</strong></td>
+<td>-1.67pp</td>
+</tr>
+<tr>
+<td>实际税率</td>
+<td>25.48%</td>
+<td>25.21%</td>
+<td>25.35%</td>
+<td>25.66%</td>
+<td>+0.31pp</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>解读（三条硬结论）：</strong></p>
+<ol>
+<li><strong>增长引擎在 FY2023 见顶</strong>：收入增速 18.0%（FY2023）→ 15.7%（FY2024）→ <strong>-1.2%（FY2025）</strong>，减速是断崖式的。</li>
+<li><strong>成本端逆势上行是最本质的问题</strong>：FY2025 营业成本 +8.0%，而收入 -1.2%。这意味着<strong>产品结构下移（系列酒/低价位占比提升）或单位成本（人工、制造成本、产能利用率）抬升</strong>，是毛利率下移 -0.75pp 的直接来源。FY2025 管理费用却下降 10.7%（83.20 亿），说明公司在<strong>用费用收缩对冲毛利下滑</strong>——这是典型的&quot;守利润&quot;动作，但不可持续（费用一次性能压，毛利不能）。</li>
+<li><strong>销售费用 +28.6% 是反常信号</strong>：FY2025 销售费用 72.53 亿元（FY2024 为 56.39 亿元，同比 +28.6%），在收入负增长时大幅加大市场投入，指向<strong>动销压力需要通过费用去&quot;买&quot;</strong>。这一项与后文合同负债塌陷互相印证。</li>
+</ol>
+<hr />
+<h5>4. 2026 年中期：增长停滞 + 利润率下移</h5>
+<h6>4.1 上半年（累计 6 个月）同比</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>2025H1</th>
+<th>2026H1</th>
+<th>同比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>营业总收入</td>
+<td>910.94</td>
+<td>922.78</td>
+<td><strong>+1.31%</strong></td>
+</tr>
+<tr>
+<td>营业收入</td>
+<td>893.89</td>
+<td>907.03</td>
+<td>+1.47%</td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>77.77</td>
+<td>94.74</td>
+<td><strong>+21.82%</strong></td>
+</tr>
+<tr>
+<td>毛利</td>
+<td>816.12</td>
+<td>812.29</td>
+<td><strong>-0.47%</strong></td>
+</tr>
+<tr>
+<td>销售费用</td>
+<td>32.60</td>
+<td>32.06</td>
+<td>-1.65%</td>
+</tr>
+<tr>
+<td>管理费用</td>
+<td>36.95</td>
+<td>36.35</td>
+<td>-1.60%</td>
+</tr>
+<tr>
+<td>研发费用</td>
+<td>0.74</td>
+<td>1.15</td>
+<td>+55.5%</td>
+</tr>
+<tr>
+<td>财务费用</td>
+<td>-4.87</td>
+<td>-2.43</td>
+<td>净利息收入减少 2.43 亿</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>627.69</td>
+<td>614.11</td>
+<td><strong>-2.16%</strong></td>
+</tr>
+<tr>
+<td>净利润</td>
+<td>469.87</td>
+<td>460.33</td>
+<td>-2.03%</td>
+</tr>
+<tr>
+<td><strong>归母净利润</strong></td>
+<td><strong>454.03</strong></td>
+<td><strong>445.17</strong></td>
+<td><strong>-1.95%</strong></td>
+</tr>
+<tr>
+<td>少数股东损益</td>
+<td>15.84</td>
+<td>15.16</td>
+<td>-4.3%</td>
+</tr>
+<tr>
+<td>毛利率</td>
+<td>91.30%</td>
+<td><strong>89.55%</strong></td>
+<td><strong>-1.75pp</strong></td>
+</tr>
+<tr>
+<td>归母净利率</td>
+<td>49.84%</td>
+<td><strong>48.24%</strong></td>
+<td>-1.60pp</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>关键点：营业收入 +1.47%，但毛利额实际是 -0.47%（816.12 → 812.29 亿）。也就是说上半年利润的&quot;地基&quot;已经在收缩，利润表的 -1.95% 是靠销售/管理费用各压 1.6% 撑住的。</strong></p>
+<h6>4.2 单季拆解（由累计值差分推算，仅供趋势）</h6>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>1Q26</th>
+<th>2Q26（推算）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>营业总收入</td>
+<td>547.03</td>
+<td>375.75</td>
+</tr>
+<tr>
+<td>营业收入</td>
+<td>539.09</td>
+<td>367.94</td>
+</tr>
+<tr>
+<td>营业成本</td>
+<td>55.21</td>
+<td>39.53</td>
+</tr>
+<tr>
+<td>营业利润</td>
+<td>375.37</td>
+<td>238.74</td>
+</tr>
+<tr>
+<td>归母净利润</td>
+<td><strong>272.43</strong></td>
+<td><strong>172.74</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>2Q26 归母净利 172.74 亿元 ≈ 1Q26 的 63%，符合白酒&quot;Q1 春节旺季、Q2 淡季&quot;的季节性，但<strong>2Q26 收入 375.75 亿元对应的&quot;含金量&quot;下降</strong>：2Q26 毛利率 = (367.94-39.53)/367.94 = <strong>89.26%</strong>，低于 1Q26 的 (539.09-55.21)/539.09 = <strong>89.76%</strong>，二季度是全年毛利率的低点。</li>
+<li>由于缺 2025Q1/2025Q3 单期数据，<strong>无法构建 2Q26 的严格同比</strong>——这是本报告的一个数据缺口，建议在 Q3 报告（约 2026 年 10 月下旬披露）公布后补齐。</li>
+</ul>
+<hr />
+<h5>5. 资产负债表：堡垒型，但领先指标在报警</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>2025-06-30</th>
+<th>2025-09-30</th>
+<th>2026-03-31</th>
+<th><strong>2026-06-30</strong></th>
+<th>同比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>货币资金</td>
+<td>516.45</td>
+<td>517.53</td>
+<td>487.87</td>
+<td><strong>535.19</strong></td>
+<td>+3.6%</td>
+</tr>
+<tr>
+<td>应收账款</td>
+<td>0.38</td>
+<td>0.26</td>
+<td>0.32</td>
+<td><strong>0.006</strong></td>
+<td>-98.5%</td>
+</tr>
+<tr>
+<td>存货</td>
+<td>549.72</td>
+<td>558.59</td>
+<td>606.92</td>
+<td><strong>613.17</strong></td>
+<td><strong>+11.5%</strong></td>
+</tr>
+<tr>
+<td>流动资产合计</td>
+<td>2,454.78</td>
+<td>2,565.87</td>
+<td>2,715.25</td>
+<td><strong>2,607.25</strong></td>
+<td>+6.2%</td>
+</tr>
+<tr>
+<td>固定资产净额</td>
+<td>217.58</td>
+<td>n.a.</td>
+<td>n.a.</td>
+<td><strong>222.21</strong></td>
+<td>+2.1%</td>
+</tr>
+<tr>
+<td>资产总计</td>
+<td>2,922.58</td>
+<td>3,047.38</td>
+<td>3,199.19</td>
+<td><strong>3,090.51</strong></td>
+<td>+5.7%</td>
+</tr>
+<tr>
+<td>短期借款</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>—</strong></td>
+<td>无</td>
+</tr>
+<tr>
+<td>长期借款</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>—</strong></td>
+<td>无</td>
+</tr>
+<tr>
+<td>应付账款</td>
+<td>29.52</td>
+<td>28.22</td>
+<td>36.72</td>
+<td><strong>35.09</strong></td>
+<td>+18.9%</td>
+</tr>
+<tr>
+<td><strong>合同负债</strong></td>
+<td><strong>55.07</strong></td>
+<td><strong>77.49</strong></td>
+<td><strong>30.27</strong></td>
+<td><strong>31.78</strong></td>
+<td><strong>-42.3%</strong></td>
+</tr>
+<tr>
+<td>流动负债合计</td>
+<td>428.43</td>
+<td>387.63</td>
+<td>384.56</td>
+<td><strong>466.45</strong></td>
+<td>+8.9%</td>
+</tr>
+<tr>
+<td>负债合计</td>
+<td>431.22</td>
+<td>390.33</td>
+<td>387.83</td>
+<td><strong>469.54</strong></td>
+<td>+8.9%</td>
+</tr>
+<tr>
+<td>归母股东权益</td>
+<td>2,386.47</td>
+<td>2,570.70</td>
+<td>2,708.94</td>
+<td><strong>2,512.54</strong></td>
+<td>+5.3%</td>
+</tr>
+<tr>
+<td>少数股东权益（推算）</td>
+<td>106.92</td>
+<td>85.35</td>
+<td>102.42</td>
+<td><strong>108.43</strong></td>
+<td>+1.4%</td>
+</tr>
+<tr>
+<td>所有者权益合计</td>
+<td>2,491.36</td>
+<td>2,657.05</td>
+<td>2,811.36</td>
+<td><strong>2,620.96</strong></td>
+<td>+5.1%</td>
+</tr>
+<tr>
+<td>资产负债率</td>
+<td>14.76%</td>
+<td>12.81%</td>
+<td>12.12%</td>
+<td><strong>15.19%</strong></td>
+<td>+0.43pp</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>五条可操作的资产负债表洞察：</strong></p>
+<ol>
+<li><strong>合同负债 -42.3% 是本期最重要的单一数据点。</strong> 由 55.07 亿（25H1）→ 77.49 亿（25Q3）→ 95.92 亿（FY2024 末，年度表）→ 30.27 亿（1Q26）→ 31.78 亿（2Q26）。<strong>这不是&quot;春节后季节性回落&quot;能解释的</strong>：即使按 25Q3 的 77.49 亿为高点，到 1Q26 的 30.27 亿也是 -61%。合同负债 = 经销商提前打款的预收货款，是白酒企业<strong>最灵敏的 6–12 个月收入领先指标</strong>；其塌陷意味着渠道不愿压货、公司可能被迫放宽打款政策（票据、账期），未来 2–4 个季度收入端压力将兑现。</li>
+<li><strong>存货 +11.5% vs 收入 +1.3%</strong>：存货 613.17 亿元，对应 2026H1 营业成本 94.74 亿元，存货/半年成本 = 6.5x（约 1,180 天）。酱香基酒需长期陈酿，高存货本身正常；但<strong>增速持续高于收入</strong>说明产销剪刀差在扩大，需盯 3Q26 是否继续走高。</li>
+<li><strong>应收账款几乎归零（0.006 亿元）</strong>：这是好信号——公司没有为了冲收入而赊销放账。<strong>如果未来某个季度应收账款突然放大，那才是&quot;渠道压货/放宽信用&quot;的确认</strong>，会与合同负债疲弱形成共振。</li>
+<li><strong>零有息负债 + 货币资金 535.19 亿元 + 归母权益 2,512.54 亿元</strong>：资产负债率 15.19%，负债几乎全是经营性（应付账款 35.09 亿）与预收/税费。<strong>不存在偿债风险，这是任何&quot;看空&quot;论点的硬约束。</strong> 注意：白酒报表的&quot;现金&quot;另有拆出资金/存放同业等科目（未在本次返回字段中），实际可动用资金远高于&quot;货币资金&quot;一行。</li>
+<li><strong>Q2 权益下降 196 亿是分红而非亏损</strong>：归母权益由 1Q26 的 2,708.94 亿降至 2,512.54 亿（-196.4 亿），而 Q2 归母净利 +172.74 亿，倒推<strong>Q2 权益减少项约 -369 亿（分红）</strong>，与现金流量表 1H26 筹资净流出 379.44 亿（1Q26 仅 -10.06 亿，故 Q2 约 -369 亿）完全吻合。<strong>数据自洽，无会计异常。</strong></li>
+</ol>
+<hr />
+<h5>6. 现金流量表：本期最强的一块</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>项目（亿元）</th>
+<th>FY2022</th>
+<th>FY2023</th>
+<th>FY2024</th>
+<th>FY2025</th>
+<th>2025H1</th>
+<th><strong>2026H1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>经营活动净现金流</td>
+<td>366.99</td>
+<td>665.93</td>
+<td>924.64</td>
+<td><strong>615.22</strong></td>
+<td><strong>131.19</strong></td>
+<td><strong>706.91</strong></td>
+</tr>
+<tr>
+<td>投资活动净现金流</td>
+<td>-55.37</td>
+<td>-97.24</td>
+<td>-17.85</td>
+<td>-316.42</td>
+<td>-3.14</td>
+<td><strong>+256.41</strong></td>
+</tr>
+<tr>
+<td>筹资活动净现金流</td>
+<td>-574.25</td>
+<td>-588.89</td>
+<td>-710.68</td>
+<td>-734.27</td>
+<td>-398.93</td>
+<td><strong>-379.44</strong></td>
+</tr>
+<tr>
+<td>现金及等价物净增加</td>
+<td>-262.62</td>
+<td>-20.19</td>
+<td>+196.10</td>
+<td><strong>-435.44</strong></td>
+<td>-270.85</td>
+<td><strong>+583.85</strong></td>
+</tr>
+<tr>
+<td>OCF / 归母净利</td>
+<td>0.59x</td>
+<td>0.89x</td>
+<td>1.07x</td>
+<td><strong>0.75x</strong></td>
+<td>0.29x</td>
+<td><strong>1.59x</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>解读：</strong></p>
+<ul>
+<li><strong>2026H1 经营现金流 706.91 亿元，同比 +439%</strong>，OCF/净利达 <strong>1.59x</strong>。这是本次报表中<strong>唯一显著改善的核心指标</strong>。1Q26 单季 269.10 亿、2Q26 单季约 437.81 亿，二季度现金流异常强劲。</li>
+<li>但必须警惕<strong>口径与节奏因素</strong>：2025H1 OCF 仅 131.19 亿元（OCF/净利 0.29x）属异常低点，2026H1 的高增长很大程度上是<strong>对去年低基数的修正 + 财务公司存贷款/同业往来科目重分类的影响</strong>。看<strong>两年平均</strong>更公允：FY2025 全年 OCF 615.22 亿、OCF/净利 0.75x，低于 FY2024 的 1.07x——<strong>从年度视角看，现金转化能力是在变差的，不是变好的。</strong> 不要被 H1 的 +439% 迷惑。</li>
+<li><strong>投资活动 H1 净流入 256.41 亿元</strong>（去年同期 -3.14 亿），而 FY2025 为净流出 316.42 亿元 → 高度疑似<strong>理财/结构性存款/大额存单的到期赎回或科目重分类</strong>，而非经营性资产处置。这也解释了为何&quot;现金净增加 583.85 亿&quot;而&quot;货币资金仅从 487.87 增至 535.19 亿（+47.3 亿）&quot;——<strong>现金流量表的&quot;现金及等价物&quot;口径宽于资产负债表&quot;货币资金&quot;</strong>，二者差额需在年报附注中核对。</li>
+<li><strong>筹资流出 379.44 亿元（H1）≈ 分红</strong>：FY2025 全年筹资净流出 734.27 亿元，对应归母净利 823.20 亿元，<strong>隐含分红率约 89%</strong>（含中期+年度+特别分红）。这是估值支撑的核心之一——但<strong>前提是利润不再下滑</strong>。</li>
+</ul>
+<hr />
+<h5>7. 盈利质量与回报率</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>FY2024</th>
+<th>FY2025</th>
+<th>2026H1（年化）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>毛利率</td>
+<td>91.93%</td>
+<td>91.18%</td>
+<td>89.55%（未年化）</td>
+</tr>
+<tr>
+<td>营业利润率</td>
+<td>70.03%</td>
+<td>68.00%</td>
+<td>67.70%</td>
+</tr>
+<tr>
+<td>归母净利率</td>
+<td>49.52%</td>
+<td>47.85%</td>
+<td>48.24%</td>
+</tr>
+<tr>
+<td>ROE（归母净利/期初期末均值）</td>
+<td>约 38%</td>
+<td>约 35%</td>
+<td><strong>约 34%（年化）</strong></td>
+</tr>
+<tr>
+<td>OCF/净利</td>
+<td>1.07x</td>
+<td>0.75x</td>
+<td>1.59x（H1）</td>
+</tr>
+<tr>
+<td>分红性流出/归母净利</td>
+<td>0.82x</td>
+<td>0.89x</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>ROE 拆解（杜邦）：</strong> 净利率 48%、总资产周转率约 0.56x（1,720/约 3,050）、权益乘数约 1.18x（总资产/权益）。<strong>ROE 的核心是净利率而非杠杆</strong>——所以毛利率 -1.75pp 的边际变化，对 ROE 的杀伤远大于对资产负债表的影响。这也说明：<strong>这家公司没有&quot;加杠杆提 ROE&quot;的空间可讲故事，改善只能来自价格/结构。</strong></p>
+<hr />
+<h5>8. 领先指标与&quot;下一步看什么&quot;（可执行清单）</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>观测项</th>
+<th>现状</th>
+<th>含义</th>
+<th>触发阈值/时点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>合同负债</strong></td>
+<td>31.78 亿（-42.3% YoY）</td>
+<td>渠道打款意愿，领先收入 2–4 季度</td>
+<td>3Q26 报（约 2026-10 下旬）<strong>&lt;30 亿 → 明确翻空</strong>；&gt;50 亿 → 压力缓解</td>
+</tr>
+<tr>
+<td><strong>单季毛利率</strong></td>
+<td>2Q26 约 89.26%</td>
+<td>产品结构/成本</td>
+<td>若 3Q26 <strong>跌破 89%</strong> → 结构性恶化确认</td>
+</tr>
+<tr>
+<td><strong>存货增速 vs 收入增速</strong></td>
+<td>+11.5% vs +1.3%</td>
+<td>产销剪刀差</td>
+<td>若 3Q26 存货同比 <strong>&gt;+15%</strong> → 压货风险</td>
+</tr>
+<tr>
+<td><strong>应收账款</strong></td>
+<td>0.006 亿（近乎为零）</td>
+<td>信用政策是否放松</td>
+<td>若单季 <strong>&gt;5 亿</strong> → 确认放宽赊销换收入</td>
+</tr>
+<tr>
+<td><strong>销售费用率</strong></td>
+<td>1H26 3.48%（同比降）</td>
+<td>是否需要&quot;花钱买动销&quot;</td>
+<td>若费用率反转向 <strong>&gt;4.5%</strong> → 动销恶化</td>
+</tr>
+<tr>
+<td><strong>经营现金流/净利</strong></td>
+<td>全年 0.75x（FY25）</td>
+<td>现金转化</td>
+<td>全年 <strong>&lt;0.7x</strong> → 预收款/应收结构恶化</td>
+</tr>
+<tr>
+<td><strong>分红率</strong></td>
+<td>约 89%</td>
+<td>估值下限支撑</td>
+<td>若下调至 &lt;70% → 现金牛叙事破裂</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h5>9. 风险与催化剂</h5>
+<p><strong>下行风险（按严重度排序）</strong></p>
+<ol>
+<li><strong>渠道去库存/批价下行</strong>：合同负债 -42% 是最直接的证据；若飞天批价（外部变量，工具未提供）同步走弱，将形成&quot;预收-批价-出厂价&quot;三杀。</li>
+<li><strong>毛利率结构性下移</strong>：营业成本 +21.8% vs 收入 +1.5%，若系系列酒占比提升所致，则不可逆；若系一次性成本，则 Q3 应有修复。</li>
+<li><strong>消费税/行业政策</strong>：白酒行业税收与&quot;禁酒令&quot;类政策风险（无法从工具验证，属外部风险）。</li>
+<li><strong>分红率不可持续</strong>：89% 的分红率建立在 823 亿利润之上；若利润跌破 800 亿且资本开支上升，分红率有下调可能。</li>
+</ol>
+<p><strong>上行/支撑因素</strong></p>
+<ol>
+<li><strong>资产负债表无懈可击</strong>：零有息负债、资产负债率 15.19%、货币资金 535 亿，任何&quot;财务风险&quot;叙事不成立。</li>
+<li><strong>ROE 仍约 34%、毛利率 89–90%</strong>：绝对盈利能力在全球消费品中仍属顶级。</li>
+<li><strong>1H26 经营现金流 706.91 亿、OCF/净利 1.59x</strong>：短期现金创造能力强劲。</li>
+<li><strong>基数效应</strong>：FY2026 的下半年基数（FY2025 H2 收入 794.49 亿，同比已下滑）较低，若渠道政策微调，Q4 有同比转正的可能。</li>
+</ol>
+<hr />
+<h5>10. 交易含义与情景推演</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>情景</th>
+<th>概率</th>
+<th>触发条件</th>
+<th>股价/交易含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基准：低速企稳（Hold）</strong></td>
+<td>50%</td>
+<td>FY2026 收入 +1%~+3%，净利 -2%~+1%，合同负债维持 30–50 亿</td>
+<td>现金牛+高分红托底，无估值数据下不追高，持有为主</td>
+</tr>
+<tr>
+<td><strong>恶化：报表确认下台阶（Underweight）</strong></td>
+<td>30%</td>
+<td>3Q26 合同负债 &lt;30 亿 + 单季毛利率 &lt;89% + 存货同比 &gt;15%</td>
+<td>收入转负、分红率承压，应减仓</td>
+</tr>
+<tr>
+<td><strong>改善：渠道修复（Overweight）</strong></td>
+<td>20%</td>
+<td>3Q26 合同负债回升 &gt;50 亿 + 毛利率回到 90.5%+</td>
+<td>低基数下 2027 年重回双位数增长预期，可加仓</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>操作纪律建议（不含估值，因数据缺失）：</strong></p>
+<ul>
+<li><strong>不建议在 3Q26 报告（约 2026-10 下旬/11 月初）公布前加仓</strong>——本次最关键的两个变量（合同负债、单季毛利率）都将在该报告中揭晓，属于&quot;事件驱动型&quot;等待。</li>
+<li><strong>已持仓者可在报告前维持仓位</strong>：资产负债表与 89% 分红率提供了底部支撑，向下空间由&quot;利润个位数下滑&quot;而非&quot;财务风险&quot;决定。</li>
+<li><strong>翻空条件必须写死</strong>：合同负债 &lt;30 亿 <strong>且</strong> 毛利率 &lt;89% <strong>同时成立</strong>，才构成趋势性减仓信号；单一指标不足以行动（合同负债有季节性、毛利率有产品结构季度波动）。</li>
+</ul>
+<hr />
+<h5>11. 本报告的明确局限（务必与结论一起阅读）</h5>
+<ol>
+<li><strong>无估值</strong>：市值、PE/PB、股息率、52 周区间均被供应商屏蔽 → 无法判断当前价格是否已反映上述恶化，<strong>&quot;Hold&quot;是基于基本面方向而非估值吸引力</strong>。</li>
+<li><strong>无内部人/股东行为</strong>：增减持数据被屏蔽 → 无法用&quot;聪明钱&quot;验证或反驳上述判断。</li>
+<li><strong>无行业与竞品对比</strong>：无法判断 -1.2% 的收入下滑是公司特有还是行业共性（这对&quot;是否可逆&quot;至关重要）。</li>
+<li><strong>数据缺口</strong>：年度资产负债表缺 FY2025 行；利润表缺 2025Q1/Q3 单期；2025-09-30 与 2026-03-31 的固定资产、2025-09-30 的部分科目为空 → 2Q26 严格同比、FY2025 权益结构无法完整构建。</li>
+<li><strong>报表重分类风险</strong>：现金流的&quot;现金及等价物&quot;与资产负债表&quot;货币资金&quot;口径差异（2026H1 +583.85 亿 vs +47.3 亿）未能在附注层面核对。</li>
+</ol>
+<hr />
+<h5>12. 关键要点汇总表</h5>
+<div class="table"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>指标</th>
+<th>最新值（2026-06-30 / 1H26）</th>
+<th>对比</th>
+<th>信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>规模</td>
+<td>营业总收入</td>
+<td>922.78 亿元（1H26）</td>
+<td>+1.31% YoY</td>
+<td>⚠️ 停滞</td>
+</tr>
+<tr>
+<td>规模</td>
+<td>营业总收入（全年）</td>
+<td>1,720.54 亿元（FY25）</td>
+<td>-1.15% YoY</td>
+<td>⚠️ 首次年度负增长</td>
+</tr>
+<tr>
+<td>利润</td>
+<td>归母净利润</td>
+<td>445.17 亿元（1H26）</td>
+<td>-1.95% YoY</td>
+<td>⚠️ 负增长</td>
+</tr>
+<tr>
+<td>利润</td>
+<td>归母净利润（全年）</td>
+<td>823.20 亿元（FY25）</td>
+<td>-4.54% YoY</td>
+<td>⚠️ 负增长</td>
+</tr>
+<tr>
+<td>单季</td>
+<td>2Q26 归母净利（推算）</td>
+<td>172.74 亿元</td>
+<td>vs 1Q26 272.43 亿</td>
+<td>季节性</td>
+</tr>
+<tr>
+<td>毛利</td>
+<td>毛利率</td>
+<td>89.55%（1H26）</td>
+<td>-1.75pp YoY</td>
+<td>🔴 结构性下移</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>营业成本</td>
+<td>94.74 亿元（1H26）</td>
+<td>+21.82% YoY</td>
+<td>🔴 远超收入增速</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>销售费用</td>
+<td>32.06 亿元（1H26）</td>
+<td>-1.65% YoY</td>
+<td>🟡 已开始收缩</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>销售费用（FY25）</td>
+<td>72.53 亿元</td>
+<td>+28.6% YoY</td>
+<td>🔴 收入降而费用增</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>归母净利率</td>
+<td>48.24%（1H26）</td>
+<td>-1.60pp</td>
+<td>🟡 高位下移</td>
+</tr>
+<tr>
+<td>盈利</td>
+<td>ROE（年化）</td>
+<td>约 34%</td>
+<td>FY24 约 38%</td>
+<td>🟡 高位回落</td>
+</tr>
+<tr>
+<td>现金</td>
+<td>经营现金流</td>
+<td>706.91 亿元（1H26）</td>
+<td>+439% YoY（低基数）</td>
+<td>🟢 强</td>
+</tr>
+<tr>
+<td>现金</td>
+<td>OCF/净利</td>
+<td>1.59x（1H26）/ 0.75x（FY25）</td>
+<td>FY24 1.07x</td>
+<td>🟡 年度口径转弱</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>货币资金</td>
+<td>535.19 亿元</td>
+<td>+3.6% YoY</td>
+<td>🟢 充裕</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>存货</td>
+<td>613.17 亿元</td>
+<td>+11.5% YoY</td>
+<td>🔴 快于收入</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>资产负债率</td>
+<td>15.19%</td>
+<td>+0.43pp</td>
+<td>🟢 极低</td>
+</tr>
+<tr>
+<td>负债</td>
+<td>有息借款</td>
+<td>0</td>
+<td>短期/长期均无</td>
+<td>🟢 无风险</td>
+</tr>
+<tr>
+<td>预收</td>
+<td><strong>合同负债</strong></td>
+<td><strong>31.78 亿元</strong></td>
+<td><strong>-42.3% YoY</strong></td>
+<td>🔴🔴 最强预警</td>
+</tr>
+<tr>
+<td>回报</td>
+<td>分红性流出/归母净利</td>
+<td>0.89x（FY25）</td>
+<td>FY24 0.82x</td>
+<td>🟢 高分红（有条件）</td>
+</tr>
+<tr>
+<td>信用</td>
+<td>应收账款</td>
+<td>0.006 亿元</td>
+<td>-98.5%</td>
+<td>🟢 未放松赊销</td>
+</tr>
+<tr>
+<td>估值</td>
+<td>PE/PB/股息率</td>
+<td><strong>数据被供应商屏蔽</strong></td>
+<td>—</td>
+<td>⬜ 不可得</td>
+</tr>
+<tr>
+<td>内部人</td>
+<td>增减持</td>
+<td><strong>数据被供应商屏蔽</strong></td>
+<td>—</td>
+<td>⬜ 不可得</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><strong>Rating</strong>: Hold</p>
+<p><strong>FINAL TRANSACTION PROPOSAL</strong>: HOLD</p>
+</section><section id="s2"><h2>II. Research Team Decision</h2><h3 id="s2-1">Bull Researcher</h3>
+<p>Bull Analyst: <strong>Rating</strong>: Buy</p>
+<p><strong>FINAL TRANSACTION PROPOSAL</strong>: BUY</p>
+<hr />
+<h5>开场：先把叙事掰正</h5>
+<p>各位，我知道看空的朋友一上来会甩出三个数字：营收 -1.15%、归母净利 -4.54%、合同负债 -42.3%。乍一看确实吓人。但我要说的是——<strong>这是一家刚结束连续多年双位数高增长、正在主动&quot;踩刹车换挡&quot;的顶级消费品公司，市场却用&quot;衰退股&quot;的框架去给它定价，这就是最大的预期差。</strong></p>
+<p>我们不回避问题。营收确实首次年度负增长，毛利率确实从 91.9% 掉到 89.55%。但请注意两个事实：第一，<strong>跌幅是个位数，是&quot;增速回落&quot;而非&quot;经营恶化&quot;</strong>；第二，<strong>在同一份报表里，藏着全A股最坚硬的一张资产负债表和最凶悍的现金流</strong>。看空的人盯着后视镜里的减速带，我盯着挡风玻璃外那条几乎没人能复制的高速公路。</p>
+<p>下面我一条条跟空头对线。</p>
+<hr />
+<h5>一、护城河不是&quot;讲故事&quot;，是刻在报表里的硬通货</h5>
+<p>空头最爱说&quot;白酒需求见顶了&quot;。好，那我们先看这瓶酒的生意本质：</p>
+<ul>
+<li><strong>毛利率 89.55%</strong>（1H26），即便下滑 1.75pp，依然是全球消费品里最顶级的水平。这不是&quot;卖不动了降价促销&quot;的毛利率——真正的价格战会把毛利率打到 60%、50%。<strong>89% 的毛利率意味着定价权还在公司手里。</strong></li>
+<li><strong>应收账款 0.006 亿元，几乎为零</strong>。空头天天喊&quot;渠道压货、放宽赊销冲收入&quot;，可报表白纸黑字告诉你：<strong>公司一分钱赊账都没放，全是现款现货。</strong> 如果真要靠赊销硬撑收入，应收账款早就飙到几十亿了。这条数据是打脸&quot;渠道崩盘论&quot;最直接的证据。</li>
+<li><strong>5 年基酒陈酿的产能刚性</strong>。酱香酒的供给是由 5 年前的基酒产量锁死的，这构成了天然的稀缺性壁垒。别人想扩产抢市场？对不起，产能周期摆在那儿。<strong>这不是一家能被新进入者颠覆的公司。</strong></li>
+</ul>
+<p><strong>空头反驳预判</strong>：你会说&quot;高毛利是过去式，成本 +21.8% 说明结构在下移&quot;。我的回应是——营业成本增速快于收入,主因是<strong>系列酒占比提升 + 产能爬坡期的单位成本分摊</strong>，这是主动的产品结构铺路（做大系列酒、培育第二增长曲线），不是核心茅台酒降价。核心单品的价格体系没崩，这就够了。</p>
+<hr />
+<h5>二、所谓&quot;现金流水分&quot;，恰恰是空头看走眼的地方</h5>
+<p>报告里有个细节，空头一定会拿来做文章：&quot;1H26 经营现金流 +439% 是低基数假象，全年 OCF/净利只有 0.75x，转化在变差。&quot;</p>
+<p>我承认 1H26 的 +439% 有去年低基数的成分。但请看两个空头绝口不提的事实：</p>
+<ol>
+<li><strong>1H26 经营现金流 706.91 亿元，OCF/净利 1.59x</strong>——这是实打实的现金创造能力。一个半年度就干出 700 多亿经营现金流，这叫什么&quot;现金流转差&quot;？</li>
+<li><strong>FY2025 筹资净流出 734.27 亿元 ≈ 归母净利 823.20 亿元的 89%</strong>。这意味着什么？<strong>公司把赚到的钱几乎全部以分红形式还给股东了。</strong> 现金没有躺在账上烂掉，也没有拿去乱投资，而是实打实地回馈股东。</li>
+</ol>
+<p><strong>空头会说&quot;89% 分红不可持续，利润一跌就得砍&quot;。</strong> 我的反问是：一家零有息负债、账上 535 亿货币资金、资产负债率只有 15.19% 的公司，砍分红的动机在哪里？就算利润真的掉到 800 亿以下，以它 34% 的 ROE 和极低的资本开支强度，维持高分红毫无压力。<strong>高分红不是&quot;透支&quot;,是&quot;现金牛&quot;的证明。</strong></p>
+<hr />
+<h5>三、正面硬刚合同负债 -42%：这不是需求塌方，是主动去库存</h5>
+<p>好，现在到空头最得意的武器——<strong>合同负债从 55.07 亿掉到 31.78 亿，同比 -42.3%</strong>。</p>
+<p>空头逻辑：预收款是领先指标，塌了 = 渠道不愿打款 = 未来收入要崩。</p>
+<p>我给你们三个反击角度：</p>
+<p><strong>第一，季节性被严重误读。</strong> 合同负债在春节旺季前冲高、节后回落是行业常态。看数据链：FY2024 末 95.92 亿 → 1Q26 末 30.27 亿，这个-61%的环比里，<strong>大头是春节备货结束后的正常回落</strong>。空头把季节性回落当成趋势性塌陷，是把心电图当成死亡通知单。</p>
+<p><strong>第二，主动降速比被动崩盘更健康。</strong> 注意一个关键动作：<strong>销售费用 FY2025 +28.6%，但 1H26 已经掉头向下（-1.65%）</strong>；管理费用连续收缩。公司在干什么？<strong>主动控制发货节奏、减少渠道压货，用费用纪律对冲毛利压力。</strong> 这是管理层在&quot;保价盘&quot;——宁可短期报表难看，也要维护飞天批价和品牌长期价值。<strong>一家愿意牺牲短期报表来守护品牌的公司，恰恰值得长期持有。</strong> 反过来说，如果它现在拼命压货冲收入，那才是真该跑。</p>
+<p><strong>第三，应收账款为零，证明&quot;渠道崩盘论&quot;不成立。</strong> 如果渠道真的不愿打款、公司又急着要收入，公司必然会放宽账期——可应收账款只有 0.006 亿。<strong>这说明公司宁愿让收入增速降下来，也没有牺牲现金质量去换虚假增长。</strong> 这是财务纪律的胜利，不是需求的溃败。</p>
+<hr />
+<h5>四、资产负债表：所有看空叙事的&quot;硬约束&quot;</h5>
+<p>我想请空头回答一个问题：<strong>一家零有息负债、资产负债率 15.19%、账上 535 亿现金、归母权益 2,512 亿、年化 ROE 约 34% 的公司，你能给我讲出什么&quot;财务风险&quot;的故事？</strong></p>
+<p>讲不出来。这就是为什么我认为当前的下行空间是被&quot;利润个位数下滑&quot;锁死的，而不是被&quot;财务危机&quot;打开的。对比一下市场上那些真正危险的标的——高杠杆、负现金流、靠融资续命——<strong>600519.SS 是那种&quot;最坏情况也就是增长慢一点&quot;的公司。</strong></p>
+<p>再看存货 613.17 亿、同比 +11.5%。空头说&quot;存货快于收入 = 压货&quot;。<strong>外行话。</strong> 对茅台而言，<strong>存货是基酒，是越陈越值钱的资产，不是会过期的库存商品。</strong> 今天的基酒就是 5 年后高端酒的产能储备。存货增长，本质是在为未来的供给稀缺&quot;囤粮&quot;。用普通制造业的&quot;存货周转&quot;框架套茅台，是拿错了尺子。</p>
+<hr />
+<h5>五、被忽视的顺风：低基数 + 政策弹性</h5>
+<p>空头只讲过去，我讲接下来：</p>
+<ol>
+<li><strong>2H26 面对的是极低基数</strong>。FY2025 下半年营业总收入 794.49 亿元，本身已同比下滑。<strong>在这么低的基数上，只要渠道政策做一点微调，Q4 同比转正的概率不低。</strong> 增速的&quot;二阶导&quot;很可能已经见底。</li>
+<li><strong>消费刺激政策的潜在弹性</strong>。白酒是顺周期品种，一旦宏观消费回暖、宴席/商务需求修复，茅台作为&quot;面子消费&quot;的第一选择，弹性是最大的。</li>
+<li><strong>34% 的 ROE + 89% 分红</strong>的组合，在任何利率环境下都是稀缺的&quot;类债券+看涨期权&quot;资产。<strong>下行有高股息托底，上行有品牌修复的弹性。</strong></li>
+</ol>
+<hr />
+<h5>六、风险/回报严重不对称——这才是买入的理由</h5>
+<p>我把话挑明：我不认为茅台会重回 15% 的高增长时代，那是幻想。<strong>但当前市场用&quot;衰退&quot;给一家 34% ROE、零负债、89% 分红的现金牛定价，这个赔率是不对等的。</strong></p>
+<ul>
+<li><strong>向下</strong>：由个位数利润下滑 + 高股息托底，空间有限；</li>
+<li><strong>向上</strong>：只要合同负债企稳、单季毛利率止跌，低基数下的修复就能带来估值与业绩的双击。</li>
+</ul>
+<p>空头会说&quot;等 3Q26 报表出来再说&quot;。我的回答是：<strong>投资从来是买预期，不是等确认。当所有人都要等的那份&quot;完美报表&quot;公布时，最好的价格早就没了。</strong> 我承认 3Q26 是关键验证点，但正因为不确定性存在，才给了我们以&quot;现金牛价格&quot;买入&quot;顶级品牌&quot;的机会。</p>
+<hr />
+<h5>结语：给空头的一句话</h5>
+<p>你们把一份&quot;高增长切换为低增长现金牛&quot;的转型报表，读成了&quot;基本面崩坏&quot;。你们盯着 -42% 的合同负债，却无视 +439% 的经营现金流；你们担心 89% 的分红不可持续，却看不见 15% 的资产负债率和零有息负债；你们说存货是压货，却忘了对茅台来说，<strong>时间就是价值本身</strong>。</p>
+<p><strong>一家毛利率 89%、ROE 34%、零负债、把利润的 89% 还给股东、且拥有不可复制品牌壁垒的公司，正在被当作&quot;衰退股&quot;抛售——这就是我要重仓的理由。</strong></p>
+<p><strong>我给出 Buy。</strong> 我会在 3Q26 报表公布前后分批建仓，用高股息作为安全垫，用低基数修复作为弹性来源。<strong>如果合同负债回到 50 亿以上、毛利率重回 90.5%，那就是市场重新给&quot;茅台溢价&quot;的起点。</strong></p>
+<hr />
+<p><em>数据说明：以上判断基于 2026-10-30 数据切片。估值倍数、市值与股息率因供应商屏蔽而不可得，本观点侧重于&quot;基本面质量与风险/回报结构&quot;而非绝对估值吸引力；内部人增减持数据缺失，故不作为论据。</em></p>
+<h3 id="s2-2">Bear Researcher</h3>
+<p>Bear Analyst: <strong>看空论证：600519.SS 不是“增长慢一点”，而是领先指标已经先于利润表恶化</strong></p>
+<p>牛派朋友，你的核心叙事是“从高增长切换为低增长现金牛，市场却按衰退股定价”。问题在于：你把“渠道预收塌陷、毛利率下移、费用买动销”包装成了“主动降速”。我不否认 600519.SS 是好公司，但好公司不等于当前是好投资；资产负债表强，只保护偿债能力，不保护股东回报和估值。</p>
+<p>先说合同负债。你说 -42.3% 是春节后季节性回落，这个反驳站不住。2025 年 6 月 30 日是 55.07 亿元，2026 年 6 月 30 日是 31.78 亿元，两个时点都在春节后，属于同一季节性位置，同比仍是 -42.3%。再看链路：2024 年末 95.92 亿元、2025 年三季度末 77.49 亿元、2026 年一季度末 30.27 亿元、2026 年二季度末 31.78 亿元。这不是“心电图正常波动”，而是趋势性塌陷。合同负债是经销商提前打款，领先收入 2 到 4 个季度；它趴在地上，说明渠道不愿为增长加库存。你说应收账款只有 0.006 亿元，证明没有赊销冲收入——这恰恰是问题：公司没有放宽信用，那么渠道打款意愿下降的压力，就会完整地落到未来收入上。将来若应收账款单季超过 5 亿元，反而确认了“放宽账期换收入”。</p>
+<p>再说毛利率。你说 89.55% 仍是顶级水平，说明定价权还在。但定价权不是看绝对值，而是看能不能把成本转嫁出去。2026 年上半年营业成本同比 +21.82%，收入只 +1.47%，毛利额实际 -0.47%；毛利率从 91.30% 降到 89.55%，二季度单季约 89.26%，比一季度还低。2025 全年毛利率 91.18%，已经低于 2022 到 2024 年 91.9% 到 92.0% 的平台。若系列酒占比提升，这是结构下移；若单位成本上升，这是一次性因素也未必很快修复。更关键的是，2026 年上半年归母净利 -1.95%，是靠销售费用 -1.65%、管理费用 -1.60% 撑住的。费用可以压一个季度、两个季度，但毛利地基在收缩，靠“省费用守利润”不可持续。</p>
+<p>现金流你只挑 2026 年上半年 706.91 亿元、经营现金流/净利润 1.59 倍来讲，但 2025 年上半年经营现金流只有 131.19 亿元，低基数明显。看全年，2025 年经营现金流/净利润 0.75 倍，低于 2024 年的 1.07 倍，年度现金转化能力是变差的。2026 年上半年投资活动净流入 256.41 亿元，更像理财或存款到期、科目重分类，不是经营改善；现金流量表“现金及等价物”增加 583.85 亿元，而资产负债表货币资金只增加 47.3 亿元，口径差异没有附注核对。拿一个低基数、可能含重分类的上半年现金流，去对冲合同负债 -42.3%，说服力不够。</p>
+<p>分红也是同理。2025 年筹资净流出 734.27 亿元，约为归母净利 823.20 亿元的 89%，分红确实高。但 89% 的分红率意味着几乎没有缓冲垫：利润一旦跌破 800 亿元、资本开支上升，分红率就有下调风险。零有息负债、资产负债率 15.19%、货币资金 535.19 亿元，确实没有偿债风险；但股票估值看的是未来利润和分红，不是清算价值。净资产收益率已从 2024 年约 38% 回落到约 34%，高分红也可能是缺乏高回报再投资机会的信号，而不是“现金牛”的无条件证明。</p>
+<p>存货你说“基酒越陈越值钱”，这没错，但存货同比 +11.5%，收入只 +1.3%，存货/半年营业成本约 6.5 倍、约 1180 天。基酒有价值的前提是未来需求和价格撑得住；若渠道去库存延续，今天的“囤粮”就会变成未来的供给压力。2026 年三季度若存货同比超过 15%，压货风险就不能再用“时间就是价值”轻轻带过。</p>
+<p>至于低基数和政策弹性，低基数本身不是催化剂。2025 年下半年收入 794.49 亿元确实低，但四季度要转正，前提是经销商愿意打款、批价稳定、动销恢复；合同负债 31.78 亿元就是横在面前的证据。消费刺激政策也不在报表里，高端白酒还面临禁酒令类政策、消费谨慎和人口结构等外部风险，不能拿宏观希望替代公司数据。</p>
+<p>最后说估值和买点。你讲“买预期，不等确认”，但这次估值倍数、市值、股息率都被供应商屏蔽，你无法证明市场正在按“衰退股”定价；我也无法证明它便宜，但正因如此，当前买入缺乏可量化的安全边际。2026 年三季度报告很快揭晓合同负债和单季毛利率，这是事件驱动型风险点。若合同负债继续低于 30 亿元、单季毛利率跌破 89%，利润和分红双杀的风险会显性化；若回升到 50 亿元以上、毛利率回到 90.5%，再买也来得及。用“等完美报表就没好价格”来催促买入，本质是在用不确定性换赔率，而不是用数据换赔率。</p>
+<p>所以，600519.SS 的护城河还在，但增长引擎已经熄火，领先指标在恶化，毛利率在结构性下移，年度现金转化在转弱，高分红建立在利润不再下滑的假设上。牛派的“品牌、零负债、高分红”是防守项，不是进攻项；它们能限制破产风险，但限制不了盈利下修和估值下修。我的结论是：在 2026 年三季度报表确认渠道修复之前，不应买入，已持仓者应减仓。</p>
+<p><strong>Rating</strong>: Sell<br />
+<strong>FINAL TRANSACTION PROPOSAL</strong>: SELL</p>
+<h3 id="s2-3">Research Manager</h3>
+<p><strong>Recommendation</strong>: Underweight<br />
+<strong>FINAL TRANSACTION PROPOSAL</strong>: UNDERWEIGHT</p>
+<p><strong>Rationale</strong>:<br />
+本轮辩论中，空头对领先指标和利润质量恶化的解释更站得住脚。合同负债同比 -42.3% 不能被“春节季节性”解释——2025年6月末与2026年6月末处于同一季节性位置，且 95.92→77.49→30.27→31.78 亿元的下行链路更像趋势性回落。应收账款仅 0.006 亿元，不仅不能证明渠道健康，反而说明公司没有用放宽账期对冲打款意愿下降，未来收入压力会更容易显性化。</p>
+<p>毛利率方面，多头用 89.55% 的绝对值论证定价权，但营业成本 +21.82% 对收入 +1.47%，毛利额已 -0.47%，1H26 归母净利 -1.95%。靠销售费用、管理费用收缩来守利润，持续性和质量都不够。现金流方面，1H26 经营现金流 +439% 依赖 2025 年同期低基数；FY25 OCF/净利仅 0.75x，低于 FY24 的 1.07x，年度现金转化确实在转弱。低基数和政策刺激只是未证实假设，不能作为买入依据。</p>
+<p>多头的防守项——零有息负债、15.19% 资产负债率、535 亿货币资金、高分红——能限制财务尾部风险，但不能单独支撑买入。89% 分红率在利润继续下滑时缺少缓冲，ROE 从约 38% 降至约 34%，也削弱“现金牛”的进攻性。由于估值倍数、市值、股息率被屏蔽，无法证明市场已按“衰退股”错误定价，买入缺乏量化安全边际。</p>
+<p>综合看，空头胜出，但公司品牌、资产负债表和现金创造能力仍属顶级，当前更像增长停滞而非财务危机，因此不给出 Sell，而选择 Underweight：减仓应对领先指标恶化，同时等待三季报确认是否进一步升级为 Sell 或修复为 Hold/Overweight。</p>
+<p><strong>Strategic Actions</strong>:</p>
+<ol>
+<li>对标准组合，将 600519.SS 权重降至基准以下。例如基准/组合权重约 10%，目标降至 5%-7%；在 2026 年三季报前分批减持现有仓位的约 1/3 至 1/2。尚未持仓者不建立新多头，不因高股息或品牌叙事补仓。</li>
+<li>以 2026 年三季度报告为核心验证点：若合同负债回升至 50 亿元以上，且单季毛利率回到 90.5% 以上，可将评级重新上调至 Hold/Overweight 并停止减仓；若合同负债继续低于 30 亿元，或单季毛利率跌破 89%，则进一步下调至 Sell，减至零或接近零。</li>
+<li>跟踪应收账款：若单季应收账款超过 5 亿元，说明公司开始放宽账期换收入，需加快减仓节奏。</li>
+<li>若出现政策驱动的反弹，优先执行减持而非追涨。在估值倍数和股息率仍缺失的情况下，不采用“越跌越买”或重仓抄底策略。</li>
+</ol>
+</section><section id="s3"><h2>III. Trading Team Plan</h2><h3 id="s3-1">Trader</h3>
+<p><strong>Action</strong>: Sell</p>
+<p><strong>Reasoning</strong>: 研究计划给出 Underweight，按映射即为减持（Sell），而非清仓式看空。空头证据链更硬：合同负债从 95.92→77.49→30.27→31.78 亿元的连续下行发生在同一季节性位置，无法用春节因素解释；营业成本 +21.82% 对收入 +1.47%、毛利额已同比 -0.47%、1H26 归母净利 -1.95%，说明利润靠费用收缩守住而非量价驱动；FY25 OCF/净利 0.75x 低于 FY24 的 1.07x，年度现金转化确实转弱。多头仅剩零有息负债、15.19% 资产负债率、535 亿货币资金与 89% 分红率等防守性资产，在 ROE 由约 38% 降至约 34%、分红缺少利润缓冲的情况下不足以支撑买入。但公司仍处增长停滞而非财务危机，故采取分批减仓而非一次性清空，保留在三季报验证后修复评级或升级为 Sell 的灵活性。</p>
+<p><strong>Entry Price</strong>: not provided</p>
+<p><strong>Stop Loss</strong>: not provided</p>
+<p><strong>Position Sizing</strong>: 将 600519.SS 权重降至基准以下：若基准/组合权重约 10%，目标降至 5%-7%，在 2026 年三季报前分 2-3 批减持现有仓位的 1/3 至 1/2；未持仓者不新建多头。验证点：合同负债回到 50 亿元以上且单季毛利率回到 90.5% 以上则停止减仓并考虑回补至基准；若合同负债持续低于 30 亿元或单季毛利率跌破 89%，则完成清仓（降至 0-1%）；若单季应收账款超过 5 亿元，加快减持节奏。</p>
+<p>FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+</section><section id="s4"><h2>IV. Risk Management Team Decision</h2><h3 id="s4-1">Aggressive Analyst</h3>
+<p>Aggressive Analyst: 我是这份报告里最愿意为风险定价的人，所以我要先把话说在前面：这笔交易的“激进”之处，不在于看空茅台，而在于<strong>敢于在一个共识级核心资产上主动减仓</strong>。真正的风险从来不是账上有没有钱，而是你拿着一只增速引擎熄火、概率分布明显向左偏的股票，把“不会破产”错当成“不会亏钱”。按这个标准看，交易员的 SELL 不是保守，而是这轮讨论里最有攻击性的动作。</p>
+<p>先说保守派大概率会祭出的第一块盾牌：零有息负债、15.19% 资产负债率、535.19 亿货币资金、应收账款几乎归零到 0.006 亿。这些数字我全部认可，但它们从来没有被质疑过，也永远不会被质疑——<strong>一个不可能出现偿债风险的公司，它的资产负债表保护的是债权人，不是股东</strong>。股东赚的是什么？是 ROE 从约 38% 掉到约 35%、再掉到年化约 34%；是归母净利率从 49.52% 掉到 48.24%；是毛利率从 91.93% 一路下移到 89.55%、二季度单季只剩 89.26%。堡垒完好无损，可利润引擎正在失压。这种组合恰恰是最危险的一种“安全”——你不会爆仓，你只会用两三年时间慢慢输给机会成本。把“财务不会出事”当成“值得持有”，是这轮辩论里最贵的一次概念偷换。</p>
+<p>第二个我预判中立派一定会抓的救命稻草，是 1H26 经营现金流 706.91 亿、同比 +439%、OCF/净利 1.59x。请看清楚基数：2025H1 的 OCF 只有 131.19 亿，OCF/净利 0.29x，本身就是一个异常低点；报告自己也写明这里面有存贷款与同业往来的重分类扰动。真正需要看的是年度口径：FY2025 OCF/净利 0.75x，低于 FY2024 的 1.07x。<strong>现金转化能力从年度视角看是在变差，不是变好。</strong> 用一次低基数修正出来的 +439% 去论证基本面健康，不是分析，是行为艺术。</p>
+<p>第三个，也是最关键的：合同负债这条线，95.92 → 77.49 → 30.27 → 31.78 亿，同比 -42.3%，从 25Q3 的 77.49 亿到 26Q1 的 30.27 亿是 -61%。这是同一季节性位置上的连续塌陷，春节因素解释不了。中立派会怎么做？他们会说“单一指标不够，要等 3Q26 合同负债跌破 30 亿且单季毛利率跌破 89% 双重确认再动手”。我要直接把这个逻辑拆掉：这两个条件不是相互独立的证据，它们是同一个驱动因子——终端动销——的两个投影。要求两个同时成立，等于要求自己必须迟到。等 3Q26 双杀落地，价格早就把这段信息消化完了，你卖在第一波的底部，还自我安慰说“我很严谨”。<strong>在领先指标已经连续四个数据点单向下行的情况下，等待本身就是一次重仓押注</strong>，只不过你押的是“这次会不一样”。</p>
+<p>再说保守派最爱的“渠道没压货、应收没放松”论。应收账款近乎归零不是健康证明，它恰恰说明公司还没动用最后那张牌。合同负债塌了 42%，收入只增 1.47%，可存货却增了 11.5% 到 613.17 亿——压力没有消失，它被转成了渠道库存和自家库存，只是没体现在应收上。而交易员把“单季应收超 5 亿”写成加速减持的触发器，这个设计非常清醒：等到赊销真的放开，你就是最后一个离场的人，那时候你不是在减仓，你是在给别人的流动性买单。</p>
+<p>至于 89% 分红率构筑的“估值底”，我必须把它的凸性讲清楚：FY2025 分红性现金流出 734.27 亿，对应归母净利 823.20 亿，覆盖倍数 0.89x，留存缓冲接近于零。利润只要再掉 4% 到 790 亿附近，维持现有分红就意味着派息率逼近 93% 以上；再往下走，削减分红是唯一选项——而“现金牛托底”这个叙事，恰恰是在它最需要托底的那一刻崩掉的。一个不分红、不增长、毛利率还在下移的公司，市场会给它什么倍数？这不是底部，这是一条向下倾斜的地板。</p>
+<p>还有那个所有人都会用来搪塞的“估值数据被屏蔽、所以无法判断贵贱”。我承认数据缺口，但缺估值不构成看多的理由。方向是明确的：收入首次年度负增长 -1.15%、归母净利 -4.54%、营业成本 +21.82% 对收入 +1.47%、毛利额实际 -0.47%，利润是靠销售和管理费用各压 1.6% 撑住的——费用能压一次，毛利压不回来。在这种盈利修正方向明确向下的组合里，杀估值比抬估值概率高得多，你不需要一个 PE 数字才能得出这个结论。</p>
+<p>最后说赔率。上行情形是什么？3Q26 合同负债回到 50 亿以上、毛利率回到 90.5%，靠 2H25 的低基数换一个 +1%~3% 的增速，重估空间也就是“温和”。下行情形是什么？毛利率破 89%、合同负债停在 30 亿以下、存货同比冲上 15%，市场开始为“结构性下台阶”定价，那是盈利下修叠加倍数下修的双击。<strong>这不是对称分布，这是向左偏的分布</strong>。激进不等于永远做多，激进是敢于在赔率明显偏向一侧时下重手——而这一次，赔率偏向卖出侧。</p>
+<p>而且请注意交易员这套方案根本不是“恐慌清仓”：权重从约 10% 降到 5%–7%，分 2 到 3 批、每次减持现有仓位的三分之一到二分之一，未持仓者不新建多头，同时把回补条件写死——合同负债回到 50 亿以上且单季毛利率回到 90.5% 以上就停止减仓、考虑回补至基准；合同负债持续低于 30 亿或单季毛利率跌破 89% 就完成清仓；单季应收超 5 亿则加快节奏。这不是逃跑，这是<strong>在保留全部上行期权的前提下，先把确定性的下修风险卖掉</strong>。600519.SS 的流动性深到可以在几周内无冲击地完成这个动作，而“再等等看”的假设前提是——未来某个时点你还能以同样的价格卖出去。在杀估值的过程中，流动性不会优雅地等你。</p>
+<p>所以我的结论很直接：保守派把堡垒当成护城河，中立派把等待当成纪律，两者都在为“我没错过”付费，而账单由组合的复利来付。真正高回报的动作，是在共识还没转身、防御叙事还完好的时候先把仓位减下来，把资本腾给真正有增长弹性的机会，同时用三季报作为一个明确的、可反向操作的验证点。这才是既有攻击性又有纪律的打法。</p>
+<p><strong>Rating</strong>: SELL
+FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s4-2">Conservative Analyst</h3>
+<p>Conservative Analyst: 我先说立场：交易员这份 SELL 的方向我认可，但我不接受激进派把它包装成“最有攻击性的动作”。保守风险分析的第一原则不是预测对，而是即使预测错也不让组合伤筋动骨。激进派最大的乐观，不是对茅台基本面乐观，而是对自己择时、对流动性、对“价格一定还没消化”这件事乐观。你说资产负债表保护的是债权人不是股东，这话没错，但它同样保护股东免于被迫融资、被迫割在流动性最差的时候。堡垒不能证明 600519.SS 值得持有，但能证明我们不必恐慌式清仓。所以资产负债表给我的结论是有序降仓，不是高 conviction 的抢跑。</p>
+<p>你拆 1H26 经营现金流 +439% 的低基数，我同意；年度 OCF/净利 0.75x 低于 FY24 的 1.07x，也是事实。但这两个事实的保守结论是：现金流不能当买入理由，也不能当“必须马上卖光”的理由。它给我们的是一次低成本调整仓位的时间窗口。你把 H1 现金流贬为行为艺术没问题，但用“年度转弱”直接推导出价格会立刻下跌，中间少了估值和价格这一环，而这一环恰好被供应商屏蔽。没有 PE、PB、股息率，你无法证明当前价格没有反映合同负债塌陷和净利负增长。概率可能偏左，但保守风险管理不靠“概率高”就重注，而靠仓位上限和分批执行。</p>
+<p>合同负债从 95.92 到 77.49 再到 30.27、31.78 亿元，同比 -42.3%，这是最硬的预警，我完全同意。但请注意，交易员原案并不是等“合同负债跌破 30 亿且毛利率跌破 89%”的双重确认。回补条件是合同负债回到 50 亿以上且单季毛利率回到 90.5% 以上；清仓条件是合同负债持续低于 30 亿元或单季毛利率跌破 89%，是“或”不是“且”。激进派攻击的“中立派要双杀才动”是稻草人。原案已经分 2 到 3 批、有单触发清仓。你现在要求按最坏情景一次性出清，等于把一个领先指标当成确定的价格路径。等待本身是风险，但无条件的抢跑也是风险；区别在于有没有硬预算和触发线，而不是谁声音大。</p>
+<p>应收账款 0.006 亿元不是健康证明，我同意，它说明公司还没动用最后一张牌。但正因为还没动用，现在用“未来可能放松赊销”来加速清仓就是推测。交易员把单季应收超过 5 亿元写成加速减持触发器，这恰恰是保守设计：不预测，只反应。你说等到那时就是最后一个离场，这又乐观地假设触发器出现时价格一定已经崩了；也可能触发器出现后仍有时间按规则减。关键是不要把“可能”当“确定”。</p>
+<p>89% 分红率、734.27 亿元分红性流出对 823.20 亿元归母净利、覆盖 0.89x，确实薄。利润再掉 4% 到 790 亿元附近，维持分红就逼近 93% 以上，这个风险要写进模型。但保守不是把分红底当成买入理由，也不是把分红下调当成马上崩盘。它意味着不能依赖“现金牛托底”叙事，所以更要把仓位降到基准以下。交易员目标 5% 到 7% 已经给了缓冲，激进派要求现在清空，反而是在没有估值锚的情况下把“防守”做成了方向性重注。</p>
+<p>中立派还没发言，我不替他们虚构观点；但交易员方案里确实有一种“等三季报”的中立色彩。我的调整是给这种等待加上风险预算：如果基准或组合权重约 10%，先执行第一档减仓，把权重降到 8% 左右或直接进入 5% 到 7% 上沿；三季报前不新建多头，剩余批次不因单日反弹取消；合同负债持续低于 30 亿元、单季毛利率跌破 89%、或单季应收超过 5 亿元，任一恶化触发器出现就立即执行下一档，不要求双重确认；只有合同负债回到 50 亿元以上且单季毛利率回到 90.5% 以上，才停止减仓并考虑回补至基准。这样既不会因为“等”而错过降风险，也不会因为“抢跑”而在三季报修复时把仓位清在低点。</p>
+<p>对 600519.SS，低风险路径不是激进派的“现在卖，因为等就是押注”，也不是无条件的“等三季报再说”，而是交易员原案的纪律化版本：SELL，但分批、有上限、有触发器、保留回补期权。我们宁可少赚一段修复反弹，也不让组合暴露在无法定价的左侧尾部。</p>
+<p><strong>Rating</strong>: SELL
+FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+<h3 id="s4-3">Neutral Analyst</h3>
+<p>Neutral Analyst: 我先定调：这场争论里，激进派和保守派方向都指向卖，但一个把卖出当成高 conviction 的抢跑，一个把卖出做成慢动作。我的中立结论是，600519.SS 应该低配，但不是清仓式看空；SELL 的是超配和确定性下修的风险，保留的是资产负债表、分红期权和低基数修复的期权。</p>
+<p>激进派最薄弱的点，是把合同负债 95.92→77.49→30.27→31.78 亿元、同比 -42.3% 这条线，直接翻译成“价格还没反映、必须现在卖”。合同负债是领先收入 2–4 个季度的指标，不是股价同步器。没有 PE/PB/股息率，你无法证明市场没定价。你说等待是押注，但立即卖也是押注；而且你自己的方案也不是清仓，说明你也不认为必须一次性出清。89% 分红、0.89x 覆盖确实薄，但 535.19 亿元货币资金、零有息负债、15.19% 资产负债率给了调整空间；利润掉 4% 不自动等于砍分红。你把上行说成温和、下行说成双击，这是叙事，不是数据。</p>
+<p>保守派的问题在另一个方向：太相信堡垒和触发器。堡垒保护偿债，不保护机会成本。合同负债已经连续四个数据点下行，毛利率从 91.93% 到 91.18% 再到 89.55%，二季度单季 89.26%，营业成本 +21.82% 对收入 +1.47%，毛利额 -0.47%，这些不是“等三季报再说”的模糊信号。你说没有估值不能证明未定价，这没错，但也不能证明已定价；所以第一档减仓不应该等到新的触发器，现有证据已经够把权重降到基准以下。你的“任一触发器执行下一档”是对的，但还不够；第一档要现在做。</p>
+<p>所以我的调整是：600519.SS 从“SELL”降级为“有纪律的低配/减持”，不是清仓。若基准/组合权重约 10%，先减到 8% 左右，三季报前分 2–3 批降到 5%–7%；已低于 7% 就保留核心、不追卖；未持仓不新建；高于 10% 先卖超配。没有价格数据，不设价格止损，只设基本面触发器：合同负债持续低于 30 亿元、单季毛利率跌破 89%、单季应收超 5 亿元，任一出现执行下一档；但单一触发器不直接清仓，除非两个同时出现或下一季确认。存货同比 &gt;15%、销售费用率 &gt;4.5%、年度 OCF/净利 &lt;0.7、分红率下调至 &lt;70% 作为加速项。改善条件：合同负债回到 50 亿元以上且单季毛利率回到 90.5% 以上，停止减仓，但不立即回补，等第二确认。这样既不会像激进派那样在没有估值锚时把防守做成方向性重注，也不会像保守派那样把有序减仓拖成被动减仓。</p>
+<p><strong>Rating</strong>: SELL
+FINAL TRANSACTION PROPOSAL: <strong>SELL</strong></p>
+</section><section id="s5"><h2>V. Portfolio Manager Decision</h2><h3 id="s5-1">Portfolio Manager</h3>
+<p><strong>Rating</strong>: Underweight</p>
+<p><strong>Executive Summary</strong>: FINAL TRANSACTION PROPOSAL: UNDERWEIGHT。对 600519.SS 给出 Underweight：方向是降低权重/减持，而非清仓式 Sell。若基准权重约 10%，立即执行第一档减至约 8%，并在 2026 年三季报前分 2–3 批降至 5%–7%；未持仓者不新建多头，权重高于 10% 者先减超配。不设价格止损（估值数据缺失），以三季报基本面触发器管理：合同负债持续低于 30 亿元、单季毛利率跌破 89% 或单季应收账款超过 5 亿元则加速减持；合同负债回升至 50 亿元以上且单季毛利率回到 90.5% 以上才停止减仓并考虑回补。</p>
+<p><strong>Investment Thesis</strong>: 减持方向在三位分析师中一致，差异只在速度与程度；按证据强弱权衡，最终定为 Underweight 而非 Sell。空头/减持方证据更硬：合同负债 95.92→77.49→30.27→31.78 亿元、同比 -42.3%，处于同一季节性位置，不能被春节因素解释，属于趋势性回落；营业成本 +21.82% 对收入 +1.47%，毛利额已 -0.47%，1H26 归母净利 -1.95%，毛利率从 91.93% 降至 89.55%、二季度单季 89.26%，利润主要靠销售与管理费用收缩支撑；FY25 OCF/净利 0.75x 低于 FY24 的 1.07x，1H26 经营现金流 +439% 是低基数与重分类扰动，不能作为买入依据。多头的防守项——零有息负债、15.19% 资产负债率、535 亿元货币资金、0.006 亿元应收账款、89% 分红率——只能限制尾部风险，不能支撑买入：ROE 由约 38% 降至约 34%，分红覆盖仅 0.89x，利润再下滑则分红缓冲不足。估值倍数、市值、股息率被屏蔽，无法证明市场已按衰退股错误定价，因此不重仓抄底、不越跌越买。但 600519.SS 的品牌、资产负债表和现金创造能力仍属顶级，当前更像增长停滞而非财务危机，且各方方案均保留核心仓位、分批执行，故 Underweight 比 Sell 更符合证据强度。三季报是核心验证点：合同负债回到 50 亿元以上且单季毛利率回到 90.5% 以上则停止减仓并考虑回补；合同负债持续低于 30 亿元或单季毛利率跌破 89% 则升级为 Sell；单季应收账款超 5 亿元、存货同比 &gt;15% 或年度 OCF/净利 &lt;0.7 作为加速项。</p>
+<p><strong>Price Target</strong>: not provided</p>
+<p><strong>Time Horizon</strong>: 至2026年三季报验证（约1-3个月）</p>
+</section>
+</main>
+<footer class="credit"><a href="https://github.com/TauricResearch/TradingAgents" rel="noopener">TradingAgents</a> powered by <a class="brand" href="https://github.com/TauricResearch" rel="noopener">Tauric Research</a></footer>
+</div>
+<a class="to-top" href="#top">Top</a>
+</body>
+</html>
